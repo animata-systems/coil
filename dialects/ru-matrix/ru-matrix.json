@@ -1,0 +1,60 @@
+{
+  "name": "ru-matrix",
+  "label": "Красная таблетка",
+  "operators": {
+    "Op.Actors": "ЭКИПАЖ",
+    "Op.Tools": "АРСЕНАЛ",
+    "Op.Define": "ЗАГРУЗИ",
+    "Op.Set": "ПЕРЕПИШИ",
+    "Op.Receive": "ПРИМИ",
+    "Op.Think": "ПРОЗРЕЙ",
+    "Op.Execute": "ВЗЛОМАЙ",
+    "Op.Send": "ПЕРЕДАЙ",
+    "Op.Wait": "ЗАМРИ",
+    "Op.Exit": "ОТКЛЮЧИСЬ",
+    "Op.If": "А ВДРУГ",
+    "Op.Repeat": "ЦИКЛ",
+    "Op.Each": "КЛОНИРУЙ",
+    "Op.Gather": "КЛЮЧНИК",
+    "Op.Signal": "ГЛИТЧ"
+  },
+  "terminators": {
+    "Kw.End": "ПРОСНИСЬ"
+  },
+  "modifiers": {
+    "Mod.Via": "КОНСТРУКТ",
+    "Mod.As": "ЗНАЯ",
+    "Mod.Using": "ВООРУЖИВШИСЬ",
+    "Mod.Goal": "БЕЛЫЙ КРОЛИК",
+    "Mod.Input": "ЗАДАНИЕ",
+    "Mod.Context": "ДЕЖАВЮ",
+    "Mod.Result": "ПРОРОЧЕСТВО",
+    "Mod.To": "НА ЛИНИЮ",
+    "Mod.For": "ВЫЗОВИ",
+    "Mod.ReplyTo": "НА ЧЕЙ ВЫЗОВ",
+    "Mod.Await": "ВЕРЬ",
+    "Mod.Timeout": "ИЛИ АГЕНТЫ",
+    "Mod.On": "ПОКА НЕ СБУДЕТСЯ",
+    "Mod.Mode": "ПУТЬ",
+    "Mod.Until": "ПОКА НЕ",
+    "Mod.Limit": "НЕ БОЛЕЕ",
+    "Mod.From": "ИЗ"
+  },
+  "policies": {
+    "Pol.None": "БЕЗ ОЖИДАНИЯ",
+    "Pol.Any": "ЛЮБОЕ ЗНАМЕНИЕ",
+    "Pol.All": "КАЖДОЕ"
+  },
+  "resultTypes": {
+    "Typ.Text": "КОД",
+    "Typ.Number": "ЦИФРА",
+    "Typ.Flag": "КРАСНАЯ/СИНЯЯ",
+    "Typ.Choice": "ТАБЛЕТКА",
+    "Typ.List": "ПОТОК"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "с",
+    "Dur.Minutes": "м",
+    "Dur.Hours": "ч"
+  }
+}
