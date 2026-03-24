@@ -24,19 +24,19 @@ The standard English dialect is the primary entry point for non-Russian-speaking
 
 ## Core Operators
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `УЧАСТНИКИ` | `ACTORS` | Declare participants by name. "Actors" — the cast of the protocol. |
-| `ИНСТРУМЕНТЫ` | `TOOLS` | Declare available tools. Direct and unambiguous. |
-| `ОПРЕДЕЛИ` | `DEFINE` | Create a new named value. Mirrors the mathematical sense: define a term. |
-| `УСТАНОВИ` | `SET` | Modify an existing value. The standard verb for assignment in every language. |
-| `ПОЛУЧИ` | `RECEIVE` | Blocking bind from environment. Not `GET` — the protocol *waits* to receive, it doesn't actively fetch. |
-| `ДУМАЙ` | `THINK` | Launch an LLM cognitive step. The model is given a problem and thinks through it. |
-| `ВЫПОЛНИ` | `EXECUTE` | Run a tool. Covers both one-shot calls and interactive sessions. |
-| `НАПИШИ` | `SEND` | Send a message to a channel. Not `WRITE` — the operator delivers a message, not produces text. |
-| `ЖДИ` | `WAIT` | Synchronization point. Block until promises resolve. |
-| `ВЫХОД` | `EXIT` | Terminate the protocol. One line, no arguments. |
-| `КОНЕЦ` | `END` | Close a block. Every block operator opens with a keyword and closes with `END`. |
+| `Op.Actors` | `ACTORS` | Declare participants by name. "Actors" — the cast of the protocol. |
+| `Op.Tools` | `TOOLS` | Declare available tools. Direct and unambiguous. |
+| `Op.Define` | `DEFINE` | Create a new named value. Mirrors the mathematical sense: define a term. |
+| `Op.Set` | `SET` | Modify an existing value. The standard verb for assignment in every language. |
+| `Op.Receive` | `RECEIVE` | Blocking bind from environment. Not `GET` — the protocol *waits* to receive, it doesn't actively fetch. |
+| `Op.Think` | `THINK` | Launch an LLM cognitive step. The model is given a problem and thinks through it. |
+| `Op.Execute` | `EXECUTE` | Run a tool. Covers both one-shot calls and interactive sessions. |
+| `Op.Send` | `SEND` | Send a message to a channel. Not `WRITE` — the operator delivers a message, not produces text. |
+| `Op.Wait` | `WAIT` | Synchronization point. Block until promises resolve. |
+| `Op.Exit` | `EXIT` | Terminate the protocol. One line, no arguments. |
+| `Kw.End` | `END` | Close a block. Every block operator opens with a keyword and closes with `END`. |
 
 ---
 
@@ -44,78 +44,78 @@ The standard English dialect is the primary entry point for non-Russian-speaking
 
 ### Rigging (THINK)
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ЧЕРЕЗ` | `VIA` | Which LLM model to use. `VIA $fast_model` — route the task via this model. |
-| `КАК` | `AS` | Solver qualification (skills). `AS $analyst` — think as this expert. References only. |
-| `ИСПОЛЬЗУЯ` | `USING` | Available tools for LLM. `USING !search, !calc` — the model may call these. |
+| `Mod.Via` | `VIA` | Which LLM model to use. `VIA $fast_model` — route the task via this model. |
+| `Mod.As` | `AS` | Solver qualification (skills). `AS $analyst` — think as this expert. References only. |
+| `Mod.Using` | `USING` | Available tools for LLM. `USING !search, !calc` — the model may call these. |
 
 ### Formulation (THINK)
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ЦЕЛЬ` | `GOAL` | Purpose of the cognitive task. What we want to achieve. |
-| `ВХОД` | `INPUT` | Problem statement. The conditions of the task. |
-| `КОНТЕКСТ` | `CONTEXT` | Additional data, background, constraints. |
-| `РЕЗУЛЬТАТ` | `RESULT` | Structured output specification. What the LLM must determine. |
+| `Mod.Goal` | `GOAL` | Purpose of the cognitive task. What we want to achieve. |
+| `Mod.Input` | `INPUT` | Problem statement. The conditions of the task. |
+| `Mod.Context` | `CONTEXT` | Additional data, background, constraints. |
+| `Mod.Result` | `RESULT` | Structured output specification. What the LLM must determine. |
 
 ### Addressing (SEND)
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `КУДА` | `TO` | Channel address. `TO #support` — deliver to this channel. |
-| `КОМУ` | `FOR` | Recipient. `FOR @expert` — this message is for this participant. |
-| `ОТВЕТ НА` | `REPLY TO` | Reply reference. Which message this responds to. |
-| `ЖДАТЬ` | `AWAIT` | Reply wait policy. `AWAIT ANY` — wait for at least one reply. |
-| `НЕ БОЛЕЕ` | `TIMEOUT` | Timeout. `TIMEOUT 10m` — give up after 10 minutes. |
+| `Mod.To` | `TO` | Channel address. `TO #support` — deliver to this channel. |
+| `Mod.For` | `FOR` | Recipient. `FOR @expert` — this message is for this participant. |
+| `Mod.ReplyTo` | `REPLY TO` | Reply reference. Which message this responds to. |
+| `Mod.Await` | `AWAIT` | Reply wait policy. `AWAIT ANY` — wait for at least one reply. |
+| `Mod.Timeout` | `TIMEOUT` | Timeout. `TIMEOUT 10m` — give up after 10 minutes. |
 
 ### Synchronization (WAIT)
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `НА` | `ON` | Awaited promises. `ON ?plan, ?data` — these are the promises we wait for. |
-| `РЕЖИМ` | `MODE` | Wait mode. How many promises must resolve. |
-| `ВСЕ` | `ALL` | Wait for all listed promises. |
-| `ЛЮБОЙ` | `ANY` | Wait for any one of the listed promises. |
-| `НЕ БОЛЕЕ` | `TIMEOUT` | Timeout. Same keyword as in SEND — consistent. |
+| `Mod.On` | `ON` | Awaited promises. `ON ?plan, ?data` — these are the promises we wait for. |
+| `Mod.Mode` | `MODE` | Wait mode. How many promises must resolve. |
+| `Pol.All` | `ALL` | Wait for all listed promises. |
+| `Pol.Any` | `ANY` | Wait for any one of the listed promises. |
+| `Mod.Timeout` | `TIMEOUT` | Timeout. Same keyword as in SEND — consistent. |
 
 ### Tool call (EXECUTE)
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ИСПОЛЬЗУЯ` | `USING` | Which tool to invoke. `USING !search` — mandatory, exactly one. |
+| `Mod.Using` | `USING` | Which tool to invoke. `USING !search` — mandatory, exactly one. |
 
 ---
 
 ## Extended Operators
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ЕСЛИ` | `IF` | Conditional branching. Deterministic, no LLM involved. |
-| `ПОВТОРЯЙ` | `REPEAT` | Loop with mandatory upper bound. `REPEAT 5` or `REPEAT UNTIL $done NO MORE THAN 5`. |
-| `КАЖДЫЙ` | `EACH` | Iterate over list elements. `EACH $task FROM $plan.files`. Deterministic iteration — no LLM for control flow. |
-| `СОБЕРИ` | `GATHER` | Aggregate results into a single value. |
-| `СИГНАЛ` | `SIGNAL` | Send data into an existing stream. |
+| `Op.If` | `IF` | Conditional branching. Deterministic, no LLM involved. |
+| `Op.Repeat` | `REPEAT` | Loop with mandatory upper bound. `REPEAT 5` or `REPEAT UNTIL $done NO MORE THAN 5`. |
+| `Op.Each` | `EACH` | Iterate over list elements. `EACH $task FROM $plan.files`. Deterministic iteration — no LLM for control flow. |
+| `Op.Gather` | `GATHER` | Aggregate results into a single value. |
+| `Op.Signal` | `SIGNAL` | Send data into an existing stream. |
 
 ### Extended Modifiers
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ДО` | `UNTIL` | Loop exit condition. `REPEAT UNTIL $ready NO MORE THAN 5`. |
-| `НЕ БОЛЕЕ` | `NO MORE THAN` | Iteration cap (in REPEAT). Required — loops without a cap are invalid. |
-| `ИЗ` | `FROM` | List source for iteration. `EACH $item FROM $list`. |
+| `Mod.Until` | `UNTIL` | Loop exit condition. `REPEAT UNTIL $ready NO MORE THAN 5`. |
+| `Mod.Limit` | `NO MORE THAN` | Iteration cap (in REPEAT). Required — loops without a cap are invalid. |
+| `Mod.From` | `FROM` | List source for iteration. `EACH $item FROM $list`. |
 
 ---
 
 ## RESULT Types
 
-| COIL (RU) | EN | Semantics |
+| ID | EN | Semantics |
 |---|---|---|
-| `ТЕКСТ` | `TEXT` | String value. |
-| `ЧИСЛО` | `NUMBER` | Numeric value. |
-| `ФЛАГ` | `FLAG` | Boolean value. |
-| `ВЫБОР(...)` | `CHOICE(...)` | Enum — one of the listed values. |
-| `СПИСОК` | `LIST` | Array of structured items. |
+| `Typ.Text` | `TEXT` | String value. |
+| `Typ.Number` | `NUMBER` | Numeric value. |
+| `Typ.Flag` | `FLAG` | Boolean value. |
+| `Typ.Choice` | `CHOICE(...)` | Enum — one of the listed values. |
+| `Typ.List` | `LIST` | Array of structured items. |
 
 ---
 
