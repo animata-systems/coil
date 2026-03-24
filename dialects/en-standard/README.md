@@ -77,6 +77,7 @@ The standard English dialect is the primary entry point for non-Russian-speaking
 | `Mod.Mode` | `MODE` | Wait mode. How many promises must resolve. |
 | `Pol.All` | `ALL` | Wait for all listed promises. |
 | `Pol.Any` | `ANY` | Wait for any one of the listed promises. |
+| `Pol.None` | `NONE` | Do not wait for a reply. Fire and forget. |
 | `Mod.Timeout` | `TIMEOUT` | Timeout. Same keyword as in SEND — consistent. |
 
 ### Tool call (EXECUTE)

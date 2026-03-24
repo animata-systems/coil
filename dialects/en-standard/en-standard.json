@@ -1,0 +1,60 @@
+{
+  "name": "en-standard",
+  "label": "Standard English",
+  "operators": {
+    "Op.Actors": "ACTORS",
+    "Op.Tools": "TOOLS",
+    "Op.Define": "DEFINE",
+    "Op.Set": "SET",
+    "Op.Receive": "RECEIVE",
+    "Op.Think": "THINK",
+    "Op.Execute": "EXECUTE",
+    "Op.Send": "SEND",
+    "Op.Wait": "WAIT",
+    "Op.Exit": "EXIT",
+    "Op.If": "IF",
+    "Op.Repeat": "REPEAT",
+    "Op.Each": "EACH",
+    "Op.Gather": "GATHER",
+    "Op.Signal": "SIGNAL"
+  },
+  "terminators": {
+    "Kw.End": "END"
+  },
+  "modifiers": {
+    "Mod.Via": "VIA",
+    "Mod.As": "AS",
+    "Mod.Using": "USING",
+    "Mod.Goal": "GOAL",
+    "Mod.Input": "INPUT",
+    "Mod.Context": "CONTEXT",
+    "Mod.Result": "RESULT",
+    "Mod.To": "TO",
+    "Mod.For": "FOR",
+    "Mod.ReplyTo": "REPLY TO",
+    "Mod.Await": "AWAIT",
+    "Mod.Timeout": "TIMEOUT",
+    "Mod.On": "ON",
+    "Mod.Mode": "MODE",
+    "Mod.Until": "UNTIL",
+    "Mod.Limit": "NO MORE THAN",
+    "Mod.From": "FROM"
+  },
+  "policies": {
+    "Pol.None": "NONE",
+    "Pol.Any": "ANY",
+    "Pol.All": "ALL"
+  },
+  "resultTypes": {
+    "Typ.Text": "TEXT",
+    "Typ.Number": "NUMBER",
+    "Typ.Flag": "FLAG",
+    "Typ.Choice": "CHOICE",
+    "Typ.List": "LIST"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "m",
+    "Dur.Hours": "h"
+  }
+}
