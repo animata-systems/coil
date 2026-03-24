@@ -1,0 +1,6 @@
+{
+  "name": "coil",
+  "version": "0.2.0",
+  "private": false,
+  "description": "COIL language specification, dialect tables, tests"
+}
