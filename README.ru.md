@@ -172,4 +172,4 @@ make clean  # очистить собранные файлы
 
 ---
 
-Animata Systems, March 2026
+Animata Systems, 2026
