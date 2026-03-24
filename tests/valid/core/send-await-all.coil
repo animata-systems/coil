@@ -1,0 +1,20 @@
+' @test valid
+' @covers SEND, AWAIT ALL, FOR
+' @description SEND with AWAIT ALL — wait for all recipients to reply
+
+ACTORS reviewer_a, reviewer_b
+
+SEND review_request
+  FOR @reviewer_a, @reviewer_b
+  AWAIT ALL
+  TIMEOUT 30m
+  <<
+  Please review the attached document.
+  >>
+END
+
+WAIT
+  ON ?review_request
+END
+
+EXIT

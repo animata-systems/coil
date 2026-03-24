@@ -1,0 +1,20 @@
+' @test valid
+' @covers SEND, AWAIT, FOR, WAIT
+' @description SEND with AWAIT ANY — wait for at least one reply
+
+ACTORS expert
+
+SEND question
+  FOR @expert
+  AWAIT ANY
+  TIMEOUT 10m
+  <<
+  What is the root cause of the outage?
+  >>
+END
+
+WAIT
+  ON ?question
+END
+
+EXIT

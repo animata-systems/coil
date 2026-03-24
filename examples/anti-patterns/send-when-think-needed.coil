@@ -1,0 +1,41 @@
+' @anti-pattern
+' @instead Use THINK when the current agent should reason; SEND when another participant must respond
+' @description Using SEND AWAIT to get an answer the agent can produce itself
+
+' SEND AWAIT asks another participant and waits for their reply.
+' If the current agent can figure it out on its own — use THINK.
+' THINK gives structured output control; SEND depends on the
+' other participant's response format.
+
+ACTORS analyst
+
+SEND question
+  FOR @analyst
+  AWAIT ANY
+  TIMEOUT 10m
+  <<
+  Classify this customer request into one of:
+  bug, feature, or question.
+
+  Request: $message
+  >>
+END
+
+WAIT
+  ON ?question
+END
+
+' Correct approach — the agent classifies on its own:
+'
+' THINK classification
+'   GOAL <<
+'   Classify the customer request.
+'   >>
+'   INPUT <<
+'   $message
+'   >>
+'   RESULT
+'   * type: CHOICE(bug, feature, question) - request type
+' END
+
+EXIT

@@ -1,0 +1,43 @@
+' @test valid
+' @covers THINK, VIA, AS, USING, GOAL, INPUT, CONTEXT, RESULT
+' @description THINK with all rigging and formulation modifiers
+
+ACTORS analyst
+TOOLS search
+
+DEFINE model
+"gpt-4"
+END
+
+DEFINE analyst_skill
+<<
+You are a senior data analyst.
+>>
+END
+
+THINK plan
+  VIA $model
+  AS $analyst_skill
+  USING !search
+  GOAL <<
+  Identify artifacts that need changes.
+  >>
+  INPUT <<
+  User request: $query
+  >>
+  CONTEXT <<
+  Previous history: $history
+  >>
+  RESULT
+  * summary: TEXT - brief overview
+  * artifacts: LIST - artifacts requiring changes
+    * path: TEXT - artifact path
+    * action: CHOICE(create, modify, delete) - change type
+    * reason: TEXT - why the change is needed
+END
+
+WAIT
+  ON ?plan
+END
+
+EXIT

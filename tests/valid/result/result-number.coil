@@ -1,0 +1,17 @@
+' @test valid
+' @covers RESULT, NUMBER
+' @description RESULT with NUMBER field
+
+THINK scoring
+  GOAL <<
+  Rate the quality of the text.
+  >>
+  RESULT
+  * score: NUMBER - quality from 1 to 10
+END
+
+WAIT
+  ON ?scoring
+END
+
+EXIT

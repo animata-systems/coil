@@ -1,0 +1,29 @@
+' @anti-pattern
+' @instead Use IF for deterministic comparisons — no LLM needed
+' @description Using THINK to evaluate a condition that the runtime can check
+
+' Wasting tokens on something the runtime computes instantly.
+' IF evaluates conditions deterministically, without calling LLM.
+
+THINK check
+  GOAL <<
+  Determine whether the score exceeds 80.
+  >>
+  INPUT <<
+  Score: $evaluation.score
+  >>
+  RESULT
+  * exceeds: FLAG - true if score is above 80
+END
+
+WAIT
+  ON ?check
+END
+
+' Correct approach:
+'
+' IF $evaluation.score >= 80
+'   ...
+' END
+
+EXIT

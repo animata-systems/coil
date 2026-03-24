@@ -1,0 +1,12 @@
+' @test invalid
+' @error preparation
+' @covers THINK, RESULT
+' @description RESULT must be the last modifier in THINK
+
+THINK analysis
+  RESULT
+  * summary: TEXT
+  CONTEXT <<
+  Additional data.
+  >>
+END

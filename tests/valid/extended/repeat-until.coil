@@ -1,0 +1,31 @@
+' @test valid
+' @covers REPEAT, UNTIL, NO MORE THAN, SET
+' @description REPEAT with condition and mandatory upper limit
+
+DEFINE done
+0
+END
+
+REPEAT UNTIL $done NO MORE THAN 3
+
+  THINK check
+    GOAL <<
+    Check if the task is complete.
+    >>
+    RESULT
+    * complete: FLAG - is the task done
+  END
+
+  WAIT
+    ON ?check
+  END
+
+  IF $check.complete == 1
+    SET $done
+    1
+    END
+  END
+
+END
+
+EXIT

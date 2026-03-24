@@ -1,0 +1,21 @@
+' @test valid
+' @covers REPEAT
+' @description REPEAT with count only (no UNTIL condition)
+
+REPEAT 2
+
+  THINK attempt
+    GOAL <<
+    Try to solve the problem.
+    >>
+    RESULT
+    * solution: TEXT
+  END
+
+  WAIT
+    ON ?attempt
+  END
+
+END
+
+EXIT

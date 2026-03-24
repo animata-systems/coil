@@ -1,0 +1,34 @@
+' @test valid
+' @covers SIGNAL, THINK, EXECUTE, TOOLS
+' @description SIGNAL sends data into an active stream
+
+TOOLS search
+
+THINK analysis
+  GOAL <<
+  Analyze the topic using all available data.
+  >>
+  RESULT
+  * answer: TEXT
+END
+
+EXECUTE results
+  USING !search
+  - query: $query
+END
+
+WAIT
+  ON ?results
+END
+
+SIGNAL ~analysis
+  <<
+  Additional search results: $results
+  >>
+END
+
+WAIT
+  ON ?analysis
+END
+
+EXIT

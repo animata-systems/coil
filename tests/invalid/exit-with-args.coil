@@ -1,0 +1,6 @@
+' @test invalid
+' @error preparation
+' @covers EXIT
+' @description EXIT does not accept arguments or modifiers
+
+EXIT "done"

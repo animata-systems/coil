@@ -1,0 +1,8 @@
+' @test invalid
+' @error preparation
+' @covers SET
+' @description SET on a name that was never defined
+
+SET $counter
+1
+END

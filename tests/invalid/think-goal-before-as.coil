@@ -1,0 +1,17 @@
+' @test invalid
+' @error preparation
+' @covers THINK modifier-order
+' @description Formulation modifier (GOAL) before rigging modifier (AS)
+
+DEFINE role
+<<
+You are an analyst.
+>>
+END
+
+THINK plan
+  GOAL <<
+  Find the problem.
+  >>
+  AS $role
+END

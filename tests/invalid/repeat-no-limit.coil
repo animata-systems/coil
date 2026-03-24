@@ -1,0 +1,14 @@
+' @test invalid
+' @error preparation
+' @covers REPEAT
+' @description REPEAT without mandatory upper limit
+
+DEFINE done
+0
+END
+
+REPEAT UNTIL $done
+  SET $done
+  1
+  END
+END

@@ -1,0 +1,11 @@
+' @test valid
+' @covers RECEIVE
+' @description RECEIVE blocks until the environment provides a value
+
+RECEIVE contract_id
+<<
+Enter the contract number.
+>>
+END
+
+EXIT

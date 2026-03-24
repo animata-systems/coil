@@ -1,0 +1,10 @@
+' @test valid
+' @covers TOOLS
+' @description TOOLS declaration in block form
+
+TOOLS
+  search
+  calculator
+END
+
+EXIT

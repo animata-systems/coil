@@ -1,0 +1,11 @@
+' @test invalid
+' @error preparation
+' @covers ACTORS, SEND
+' @description Using @name without declaring in ACTORS
+
+SEND
+  FOR @analyst
+  <<
+  Check the data.
+  >>
+END

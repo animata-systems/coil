@@ -1,0 +1,12 @@
+' @test invalid
+' @error preparation
+' @covers DEFINE
+' @description DEFINE with the same name twice is a preparation error
+
+DEFINE counter
+0
+END
+
+DEFINE counter
+1
+END

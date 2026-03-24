@@ -1,0 +1,18 @@
+' @test valid
+' @covers RESULT, CHOICE
+' @description RESULT with CHOICE enum field
+
+THINK triage
+  GOAL <<
+  Determine the severity of the issue.
+  >>
+  RESULT
+  * severity: CHOICE(critical, high, medium, low) - issue severity
+  * category: CHOICE(bug, feature, question) - issue type
+END
+
+WAIT
+  ON ?triage
+END
+
+EXIT

@@ -1,0 +1,17 @@
+' @test valid
+' @covers EXECUTE, USING, TOOLS, WAIT
+' @description One-shot tool execution with arguments
+
+TOOLS load_article
+
+EXECUTE article
+  USING !load_article
+  - url: $url
+  - format: "markdown"
+END
+
+WAIT
+  ON ?article
+END
+
+EXIT

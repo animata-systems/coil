@@ -1,0 +1,26 @@
+' @test valid
+' @covers WAIT, ON, MODE ALL
+' @description WAIT for multiple promises with MODE ALL (default)
+
+THINK part_a
+  GOAL <<
+  Analyze section A.
+  >>
+  RESULT
+  * summary: TEXT
+END
+
+THINK part_b
+  GOAL <<
+  Analyze section B.
+  >>
+  RESULT
+  * summary: TEXT
+END
+
+WAIT
+  ON ?part_a, ?part_b
+  MODE ALL
+END
+
+EXIT

@@ -1,0 +1,21 @@
+' @test valid
+' @covers RESULT, LIST, TEXT, CHOICE
+' @description RESULT with nested LIST containing multiple typed fields
+
+THINK plan
+  GOAL <<
+  Create an implementation plan.
+  >>
+  RESULT
+  * summary: TEXT - plan overview
+  * steps: LIST - implementation steps
+    * description: TEXT - what to do
+    * effort: CHOICE(small, medium, large) - estimated effort
+    * dependencies: TEXT - what this step depends on
+END
+
+WAIT
+  ON ?plan
+END
+
+EXIT

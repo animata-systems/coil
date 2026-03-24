@@ -1,0 +1,37 @@
+' @test valid
+' @covers EACH, FROM, THINK
+' @description EACH iterates over list elements
+
+THINK plan
+  GOAL <<
+  Create a list of tasks.
+  >>
+  RESULT
+  * tasks: LIST - tasks to complete
+    * name: TEXT - task name
+    * priority: CHOICE(high, medium, low)
+END
+
+WAIT
+  ON ?plan
+END
+
+EACH $task FROM $plan.tasks
+  THINK work
+    GOAL <<
+    Complete the task.
+    >>
+    INPUT <<
+    Task: $task.name
+    Priority: $task.priority
+    >>
+    RESULT
+    * output: TEXT - task result
+  END
+
+  WAIT
+    ON ?work
+  END
+END
+
+EXIT

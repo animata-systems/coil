@@ -1,0 +1,17 @@
+' @test valid
+' @covers WAIT, ON, THINK
+' @description WAIT for a single promise
+
+THINK plan
+  GOAL <<
+  Create a plan.
+  >>
+  RESULT
+  * steps: TEXT - plan steps
+END
+
+WAIT
+  ON ?plan
+END
+
+EXIT

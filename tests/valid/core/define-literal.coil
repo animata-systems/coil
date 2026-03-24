@@ -1,0 +1,9 @@
+' @test valid
+' @covers DEFINE
+' @description DEFINE with a literal value
+
+DEFINE max_retries
+3
+END
+
+EXIT

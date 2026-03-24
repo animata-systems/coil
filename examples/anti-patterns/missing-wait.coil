@@ -1,0 +1,30 @@
+' @anti-pattern
+' @instead Always WAIT ON ?name before using $name
+' @description Using a promise result without waiting for it first
+
+' After THINK, the promise ?plan exists but the value $plan
+' is not yet available. The protocol must explicitly synchronize
+' with WAIT before accessing the result.
+
+THINK plan
+  GOAL <<
+  Create a project plan.
+  >>
+  RESULT
+  * steps: TEXT - plan steps
+  * timeline: TEXT - estimated timeline
+END
+
+' BUG: no WAIT here — $plan.steps is not resolved yet
+
+ACTORS user
+
+SEND
+  FOR @user
+  <<
+  Here is your plan: $plan.steps
+  Timeline: $plan.timeline
+  >>
+END
+
+EXIT
