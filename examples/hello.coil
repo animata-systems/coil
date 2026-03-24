@@ -1,0 +1,17 @@
+' Hello World — COIL vertical slice demo (en-standard)
+'
+' Run: npx coil run --dialect ./dialects/en-standard/en-standard.json examples/hello.coil
+
+RECEIVE name
+<<
+What is your name?
+>>
+END
+
+SEND
+<<
+Hello, $name!
+>>
+END
+
+EXIT
