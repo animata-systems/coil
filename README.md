@@ -116,7 +116,7 @@ The runtime operates on the semantics of constructs, not their spelling. Keyword
 КОНЕЦ                                 END
 ```
 
-The canonical form uses Russian keywords. Dialects are alternative keyword sets with identical semantics and execution model — a dialect is the skin, not the skeleton.
+COIL has no default dialect. Dialects are keyword sets with identical semantics and execution model — a dialect is the skin, not the skeleton. The spec examples use Russian keywords, but no dialect is privileged in the implementation.
 
 | Dialect | Directory | Status | Purpose |
 |---|---|---|---|
@@ -130,7 +130,7 @@ Rules:
 - One script — one dialect. Mixing keywords from different dialects in one file is invalid.
 - Sigils (`$`, `?`, `@`, `!`, `#`, `~`) are universal and dialect-independent.
 - Identifiers (variable, participant, tool names) are free-form and not constrained by dialect language.
-- A spec-compliant COIL implementation must support the canonical (Russian) form. Supporting standard English is strongly recommended.
+- A spec-compliant COIL implementation must load dialects from external dialect tables; it is not required to bundle any specific dialect. Standard English and Russian are both part of the official distribution.
 
 ## PDF Documents
 

@@ -333,7 +333,7 @@ EXIT
 `ПОЛУЧИ` is a blocking bind: the protocol pauses until the environment provides a value. `RECEIVE` carries the right connotation — you are waiting to receive something, not actively going out to get it. `GET` implies agency that the protocol does not have at this step.
 
 **Why FOR and not TO for recipient?**
-The channel address already uses `TO`. Using `TO` for both channel and recipient would create ambiguity. `FOR @expert` reads naturally: "this message is for the expert." The distinction between `TO` (destination) and `FOR` (recipient) mirrors the difference between `КУДА` (where) and `КОМУ` (to whom) in the canonical form.
+The channel address already uses `TO`. Using `TO` for both channel and recipient would create ambiguity. `FOR @expert` reads naturally: "this message is for the expert." The distinction between `TO` (destination) and `FOR` (recipient) mirrors the difference between `КУДА` (where) and `КОМУ` (to whom) in the Russian dialect.
 
 **Why TIMEOUT and not NO MORE THAN?**
 In the `SEND` and `WAIT` context, `TIMEOUT 10m` is idiomatic and immediately clear. `NO MORE THAN` is reserved for the `REPEAT` operator where it sets an iteration cap — a different semantic domain.
@@ -343,7 +343,7 @@ In the `SEND` and `WAIT` context, `TIMEOUT 10m` is idiomatic and immediately cle
 ## FAQ
 
 **Q: Is this the "real" COIL?**
-A: COIL's canonical form uses Russian keywords. This is the official English dialect — same semantics, same runtime behavior, different keywords. A COIL implementation that claims spec compliance must support at least the canonical form; supporting standard English is strongly recommended.
+A: COIL has no default dialect. Every dialect — Russian, English, or community-created — maps keyword phrases to the same abstract operators and produces identical runtime behavior. A COIL implementation that claims spec compliance must load dialects from external dialect tables; it is not required to bundle any specific dialect. Standard English and Russian are both part of the official distribution.
 
 **Q: Can I mix languages in one script?**
 A: No. A script is written in exactly one dialect. Sigils (`$`, `?`, `@`, `!`, `#`, `~`) are universal, but keywords must be consistent within a single file.
