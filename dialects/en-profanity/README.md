@@ -10,19 +10,19 @@ This dialect follows the principle of semantic resonance: each keyword isn't jus
 
 ## Core Operators
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `ACTORS` | `FUCKERS` | Declaring participants = introducing the team. "Here are our fuckers." Every PM's inner monologue at standup. |
-| `TOOLS` | `SHIT` | Declaring tools = listing the shit we work with. The universal word for any set of gadgets. |
-| `DEFINE` | `BULLSHIT` | Create a new value = bullshit it into existence. You're literally fabricating a persona from thin air. An act of pure invention. |
-| `SET` | `UNFUCK` | Modify an existing value = unfuck it. Was wrong, now right. The most precise verb in the English language for corrective action. |
-| `GET` | `SNATCH` | Obtain a value from the environment = snatch it. The data won't come willingly. You have to grab it. |
-| `THINK` | `BRAINFUCK` | LLM cognitive work = brainfucking the problem. The model is literally wrestling with a task, burning tokens, struggling toward an answer. |
-| `EXECUTE` | `SMASH` | Run a tool = smash that button. Don't think. Just do. |
-| `WRITE` | `DUMP` | Send a message = dump it into the channel. Like taking a dump — you produce output and move on. |
-| `WAIT` | `EDGE` | Synchronization point = edging. You're right there at the brink of resolution, holding back, waiting for promises to finish. Technically precise. |
-| `EXIT` | `GTFO` | Terminate protocol = get the fuck out. Job's done. Leave. |
-| `END` | `STFU` | Close a block. The block is done talking. Shut the fuck up. |
+| `Op.Actors` | `FUCKERS` | Declaring participants = introducing the team. "Here are our fuckers." Every PM's inner monologue at standup. |
+| `Op.Tools` | `SHIT` | Declaring tools = listing the shit we work with. The universal word for any set of gadgets. |
+| `Op.Define` | `BULLSHIT` | Create a new value = bullshit it into existence. You're literally fabricating a persona from thin air. An act of pure invention. |
+| `Op.Set` | `UNFUCK` | Modify an existing value = unfuck it. Was wrong, now right. The most precise verb in the English language for corrective action. |
+| `Op.Receive` | `SNATCH` | Obtain a value from the environment = snatch it. The data won't come willingly. You have to grab it. |
+| `Op.Think` | `BRAINFUCK` | LLM cognitive work = brainfucking the problem. The model is literally wrestling with a task, burning tokens, struggling toward an answer. |
+| `Op.Execute` | `SMASH` | Run a tool = smash that button. Don't think. Just do. |
+| `Op.Send` | `DUMP` | Send a message = dump it into the channel. Like taking a dump — you produce output and move on. |
+| `Op.Wait` | `EDGE` | Synchronization point = edging. You're right there at the brink of resolution, holding back, waiting for promises to finish. Technically precise. |
+| `Op.Exit` | `GTFO` | Terminate protocol = get the fuck out. Job's done. Leave. |
+| `Kw.End` | `STFU` | Close a block. The block is done talking. Shut the fuck up. |
 
 ---
 
@@ -30,63 +30,72 @@ This dialect follows the principle of semantic resonance: each keyword isn't jus
 
 ### Rigging (BRAINFUCK)
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `VIA` | `RIDING` | Which LLM model to use. "RIDING $gpt4" — riding the model. You're mounting it and going for a ride. |
-| `AS` | `LARPING` | Solver qualification = LARPing as analyst. The LLM is literally pretending to be an expert. The most honest description of prompt engineering. |
-| `USING` | `PACKING` | Available tools = packing heat. "PACKING !search" — armed and ready. |
+| `Mod.Via` | `RIDING` | Which LLM model to use. "RIDING $gpt4" — riding the model. You're mounting it and going for a ride. |
+| `Mod.As` | `LARPING` | Solver qualification = LARPing as analyst. The LLM is literally pretending to be an expert. The most honest description of prompt engineering. |
+| `Mod.Using` | `PACKING` | Available tools = packing heat. "PACKING !search" — armed and ready. |
 
 ### Task formulation (BRAINFUCK)
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `GOAL` | `WTF` | Purpose of the task. "WTF: prepare a sourced report." The eternal first question of any project, finally asked directly. |
-| `INPUT` | `THE DEAL` | Input data = here's the deal. "THE DEAL: research the user query." Cuts right to it. |
-| `CONTEXT` | `OH AND` | Additional context = "oh and also consider this." How every stakeholder adds scope mid-sentence. |
-| `RESULT` | `COUGH UP` | Structured output = what the LLM must cough up. Not optional. The model owes you this. |
+| `Mod.Goal` | `WTF` | Purpose of the task. "WTF: prepare a sourced report." The eternal first question of any project, finally asked directly. |
+| `Mod.Input` | `THE DEAL` | Input data = here's the deal. "THE DEAL: research the user query." Cuts right to it. |
+| `Mod.Context` | `OH AND` | Additional context = "oh and also consider this." How every stakeholder adds scope mid-sentence. |
+| `Mod.Result` | `COUGH UP` | Structured output = what the LLM must cough up. Not optional. The model owes you this. |
 
 ### Addressing (DUMP)
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `WHERE` | `WHERE TF` | Channel address. "WHERE TF #support" — where the fuck does this go. |
-| `TO` | `HEY DIPSHIT` | Recipient. "HEY DIPSHIT @expert" — directed delivery with attitude. |
-| `REPLY TO` | `RE THAT CRAP` | Reply reference. Which crap are we responding to. |
-| `WAIT FOR` | `LOITER` | Reply wait policy. You dumped your message, now you loiter around like a creep waiting for a response. |
-| `NO MORE THAN` | `OR BUST` | Timeout. "10min OR BUST" — either it happens or everything falls apart. The honest version of SLA. |
+| `Mod.To` | `WHERE TF` | Channel address. "WHERE TF #support" — where the fuck does this go. |
+| `Mod.For` | `HEY DIPSHIT` | Recipient. "HEY DIPSHIT @expert" — directed delivery with attitude. |
+| `Mod.ReplyTo` | `RE THAT CRAP` | Reply reference. Which crap are we responding to. |
+| `Mod.Await` | `LOITER` | Reply wait policy. You dumped your message, now you loiter around like a creep waiting for a response. |
+| `Mod.Timeout` | `OR BUST` | Timeout. "10min OR BUST" — either it happens or everything falls apart. The honest version of SLA. |
 
 ### Synchronization (EDGE)
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `ON` | `BLUE BALLS` | Awaited promises = blue balls. You're edging, waiting for promises to resolve, and these are the blue balls you're nursing. Physiologically consistent. |
-| `MODE` | `HOW BAD` | Wait mode = how badly do you need all of them. |
-| `ALL` | `EVERY LAST ONE` | Wait for all promises. No one gets out of this. |
-| `ANY` | `WHATEVER` | Wait for any promise. First one to finish wins. We don't care which. |
+| `Mod.On` | `BLUE BALLS` | Awaited promises = blue balls. You're edging, waiting for promises to resolve, and these are the blue balls you're nursing. Physiologically consistent. |
+| `Mod.Mode` | `HOW BAD` | Wait mode = how badly do you need all of them. |
+| `Pol.All` | `EVERY LAST ONE` | Wait for all promises. No one gets out of this. |
+| `Pol.Any` | `WHATEVER` | Wait for any promise. First one to finish wins. We don't care which. |
 
 ---
 
 ## Extended Operators
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `IF` | `SHIT WHAT IF` | Conditional branching. "SHIT WHAT IF $score > 80" — the moment of sudden realization. |
-| `REPEAT` | `GRIND` | Loop = grind through iterations. "GRIND 5" — like grinding XP. The universal gamer metaphor for repetitive work that you must survive. |
-| `EACH` | `NAIL` | Iterate over a list = nail each one. Go through every item and hit it. "NAIL $task OUTTA $list" — process each fucker in the list. |
-| `GATHER` | `SCRAPE` | Aggregate results = scrape together whatever you've got. |
-| `SIGNAL` | `SHOVE` | Send data to stream = shove data in. The signal enters the stream cooperatively, but firmly. |
+| `Op.If` | `SHIT WHAT IF` | Conditional branching. "SHIT WHAT IF $score > 80" — the moment of sudden realization. |
+| `Op.Repeat` | `GRIND` | Loop = grind through iterations. "GRIND 5" — like grinding XP. The universal gamer metaphor for repetitive work that you must survive. |
+| `Op.Each` | `NAIL` | Iterate over a list = nail each one. Go through every item and hit it. "NAIL $task OUTTA $list" — process each fucker in the list. |
+| `Op.Gather` | `SCRAPE` | Aggregate results = scrape together whatever you've got. |
+| `Op.Signal` | `SHOVE` | Send data to stream = shove data in. The signal enters the stream cooperatively, but firmly. |
+
+### Extended Modifiers
+
+| ID | PROFANITY | Why it works |
+|------|-----------|--------------|
+| `Mod.Until` | `TILL` | Loop exit condition. "GRIND TILL $done" — grind till it's done. Short, brutal, clear. |
+| `Mod.Limit` | `TOPS` | Iteration cap. "GRIND TILL $done 5 TOPS" — five tops, then we're out. The bouncer at the loop's door. |
+| `Mod.From` | `OUTTA` | List source. "NAIL $task OUTTA $list" — pull each one outta the list and nail it. |
+| `Pol.None` | `FUCK IT` | Don't wait for a reply. Fire and forget. "LOITER FUCK IT" — dump and walk away. |
 
 ---
 
 ## COUGH UP types
 
-| COIL | PROFANITY | Why it works |
+| ID | PROFANITY | Why it works |
 |------|-----------|--------------|
-| `TEXT` | `BLAH` | String value. Any text is just blah. |
-| `NUMBER` | `DIGITS` | Numeric value. Give me the digits. |
-| `FLAG` | `BALLS` | Boolean. Got balls or not. True/false. Binary courage. |
-| `CHOICE(...)` | `PICK YOUR POISON(...)` | Enum. "PICK YOUR POISON(bug, feature, question)" — limited options, all bad. |
-| `LIST` | `SHITLOAD` | Array. A shitload of items. |
+| `Typ.Text` | `BLAH` | String value. Any text is just blah. |
+| `Typ.Number` | `DIGITS` | Numeric value. Give me the digits. |
+| `Typ.Flag` | `BALLS` | Boolean. Got balls or not. True/false. Binary courage. |
+| `Typ.Choice` | `PICK YOUR POISON(...)` | Enum. "PICK YOUR POISON(bug, feature, question)" — limited options, all bad. |
+| `Typ.List` | `SHITLOAD` | Array. A shitload of items. |
 
 ---
 
