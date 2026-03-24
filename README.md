@@ -172,4 +172,4 @@ Conformance tests in `tests/` — `.coil` files (en-standard dialect) that defin
 
 ---
 
-Animata Systems, March 2026
+Animata Systems, 2026
