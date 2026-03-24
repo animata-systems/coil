@@ -1,0 +1,70 @@
+' @test valid
+' @covers THINK, IF, DEFINE, SET, AS, CHOICE
+' @description Classification followed by deterministic routing
+
+DEFINE general_role
+<<
+You are a general support agent.
+>>
+END
+
+DEFINE technical_role
+<<
+You are a technical support specialist.
+>>
+END
+
+RECEIVE message
+<<
+Customer request text.
+>>
+END
+
+THINK classification
+  GOAL <<
+  Classify the customer request.
+  >>
+  INPUT <<
+  $message
+  >>
+  RESULT
+  * type: CHOICE(general, technical) - request type
+END
+
+WAIT
+  ON ?classification
+END
+
+DEFINE current_role
+$general_role
+END
+
+IF $classification.type == "technical"
+  SET $current_role
+  $technical_role
+  END
+END
+
+THINK response
+  AS $current_role
+  INPUT <<
+  $message
+  >>
+  RESULT
+  * answer: TEXT - response to customer
+END
+
+WAIT
+  ON ?response
+END
+
+ACTORS user
+
+SEND
+  FOR @user
+  <<
+  $response.answer
+  >>
+END
+
+EXIT

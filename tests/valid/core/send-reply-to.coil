@@ -1,0 +1,16 @@
+' @test valid
+' @covers SEND, TO, FOR, REPLY TO
+' @description SEND as a reply to a specific message
+
+ACTORS client
+
+SEND
+  TO #support/1234
+  FOR @client
+  REPLY TO #support/1230
+  <<
+  Your issue has been resolved.
+  >>
+END
+
+EXIT

@@ -1,0 +1,16 @@
+\usepackage{fancyvrb}
+\usepackage{framed}
+\usepackage{xcolor}
+
+\definecolor{codebg}{HTML}{F4F4F4}
+\definecolor{codeborder}{HTML}{CCCCCC}
+
+% Background for pandoc code blocks (Shaded environment)
+\definecolor{shadecolor}{HTML}{F4F4F4}
+
+% Style the Highlighting environment that pandoc generates
+\renewenvironment{Shaded}{%
+  \begin{snugshade}%
+}{%
+  \end{snugshade}%
+}

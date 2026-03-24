@@ -1,0 +1,93 @@
+' @test valid
+' @covers REPEAT, UNTIL, IF, SET, THINK, WAIT, DEFINE
+' @description Iterative improvement loop with evaluator and optimizer
+
+DEFINE writer_role
+<<
+You are a skilled copywriter.
+>>
+END
+
+DEFINE editor_role
+<<
+You are a strict editor who evaluates text quality.
+>>
+END
+
+THINK first_draft
+  AS $writer_role
+  GOAL <<
+  Write a short marketing text.
+  >>
+  INPUT <<
+  $brief
+  >>
+  RESULT
+  * text: TEXT - marketing copy
+END
+
+WAIT
+  ON ?first_draft
+END
+
+DEFINE current
+$first_draft.text
+END
+
+DEFINE done
+0
+END
+
+REPEAT UNTIL $done NO MORE THAN 3
+
+  THINK evaluation
+    AS $editor_role
+    GOAL <<
+    Evaluate the quality of the text.
+    >>
+    INPUT <<
+    $current
+    >>
+    RESULT
+    * score: NUMBER - quality from 1 to 10
+    * feedback: TEXT - specific issues
+  END
+
+  WAIT
+    ON ?evaluation
+  END
+
+  IF $evaluation.score >= 8
+    SET $done
+    1
+    END
+  END
+
+  IF $done == 0
+    THINK revision
+      AS $writer_role
+      GOAL <<
+      Improve the text based on feedback.
+      >>
+      INPUT <<
+      $current
+      >>
+      CONTEXT <<
+      Feedback: $evaluation.feedback
+      >>
+      RESULT
+      * text: TEXT - improved version
+    END
+
+    WAIT
+      ON ?revision
+    END
+
+    SET $current
+    $revision.text
+    END
+  END
+
+END
+
+EXIT

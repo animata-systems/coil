@@ -1,0 +1,17 @@
+' @test valid
+' @covers ACTORS
+' @description ACTORS declaration in block form
+
+ACTORS
+  analyst
+  client
+END
+
+SEND
+  FOR @analyst
+  <<
+  Hello.
+  >>
+END
+
+EXIT

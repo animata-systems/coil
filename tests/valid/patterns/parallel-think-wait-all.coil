@@ -1,0 +1,59 @@
+' @test valid
+' @covers THINK, WAIT, MODE ALL, DEFINE, AS, CONTEXT
+' @description Two parallel THINK steps, WAIT ALL, then aggregation
+
+DEFINE security_expert
+<<
+You are a code security expert.
+>>
+END
+
+DEFINE perf_expert
+<<
+You are a performance optimization expert.
+>>
+END
+
+THINK security_review
+  AS $security_expert
+  INPUT <<
+  $code
+  >>
+  RESULT
+  * issues: TEXT - security issues found
+  * risk: CHOICE(low, medium, high)
+END
+
+THINK perf_review
+  AS $perf_expert
+  INPUT <<
+  $code
+  >>
+  RESULT
+  * issues: TEXT - performance issues found
+  * impact: CHOICE(low, medium, high)
+END
+
+WAIT
+  ON ?security_review, ?perf_review
+  MODE ALL
+END
+
+THINK summary
+  GOAL <<
+  Combine the two reviews into a single report.
+  >>
+  CONTEXT <<
+  Security: $security_review
+  Performance: $perf_review
+  >>
+  RESULT
+  * report: TEXT - combined report
+  * action_items: TEXT - prioritized actions
+END
+
+WAIT
+  ON ?summary
+END
+
+EXIT

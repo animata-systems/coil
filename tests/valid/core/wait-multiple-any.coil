@@ -1,0 +1,26 @@
+' @test valid
+' @covers WAIT, ON, MODE ANY
+' @description WAIT for any one of multiple promises
+
+THINK fast_path
+  GOAL <<
+  Try the quick approach.
+  >>
+  RESULT
+  * answer: TEXT
+END
+
+THINK slow_path
+  GOAL <<
+  Try the thorough approach.
+  >>
+  RESULT
+  * answer: TEXT
+END
+
+WAIT
+  ON ?fast_path, ?slow_path
+  MODE ANY
+END
+
+EXIT

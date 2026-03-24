@@ -1,0 +1,21 @@
+' @test valid
+' @covers THINK, USING, TOOLS
+' @description THINK with multiple tools available to LLM
+
+TOOLS search, calculator
+
+THINK analysis
+  USING !search, !calculator
+  GOAL <<
+  Research the topic and calculate metrics.
+  >>
+  RESULT
+  * findings: TEXT - research findings
+  * metric: NUMBER - calculated metric
+END
+
+WAIT
+  ON ?analysis
+END
+
+EXIT

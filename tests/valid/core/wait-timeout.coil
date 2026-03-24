@@ -1,0 +1,18 @@
+' @test valid
+' @covers WAIT, TIMEOUT
+' @description WAIT with a timeout
+
+THINK analysis
+  GOAL <<
+  Perform deep analysis.
+  >>
+  RESULT
+  * report: TEXT
+END
+
+WAIT
+  ON ?analysis
+  TIMEOUT 5m
+END
+
+EXIT

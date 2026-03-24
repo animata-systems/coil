@@ -1,0 +1,12 @@
+' @test invalid
+' @error preparation
+' @covers WAIT, ON
+' @description WAIT ON expects promises (?name), not values ($name)
+
+DEFINE data
+"hello"
+END
+
+WAIT
+  ON $data
+END

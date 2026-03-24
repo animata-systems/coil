@@ -1,0 +1,5 @@
+' @test valid
+' @covers EXIT
+' @description EXIT terminates the protocol — no arguments, no END
+
+EXIT

@@ -1,0 +1,17 @@
+' @test valid
+' @covers RESULT, FLAG
+' @description RESULT with FLAG (boolean) field
+
+THINK check
+  GOAL <<
+  Does the text contain personal data?
+  >>
+  RESULT
+  * contains_pii: FLAG - true if personal data found
+END
+
+WAIT
+  ON ?check
+END
+
+EXIT

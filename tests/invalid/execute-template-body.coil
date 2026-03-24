@@ -1,0 +1,13 @@
+' @test invalid
+' @error preparation
+' @covers EXECUTE
+' @description Template body << >> is forbidden in EXECUTE
+
+TOOLS search
+
+EXECUTE results
+  USING !search
+  <<
+  Search for articles about COIL.
+  >>
+END

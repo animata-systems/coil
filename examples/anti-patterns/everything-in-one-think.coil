@@ -1,0 +1,35 @@
+' @anti-pattern
+' @instead Separate classification, routing, and response into distinct steps
+' @description Stuffing the entire workflow into a single THINK prompt
+
+' The whole workflow is hidden inside one prompt.
+' No deterministic control flow, no intermediate validation,
+' no budget control per step. If anything fails — start over.
+
+THINK everything
+  GOAL <<
+  Classify the customer request, pick the right specialist,
+  draft a response, check quality, and if the quality is poor —
+  revise the response. Return only the final answer.
+  >>
+  INPUT <<
+  $message
+  >>
+  RESULT
+  * answer: TEXT - final response
+END
+
+WAIT
+  ON ?everything
+END
+
+ACTORS user
+
+SEND
+  FOR @user
+  <<
+  $everything.answer
+  >>
+END
+
+EXIT

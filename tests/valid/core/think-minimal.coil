@@ -1,0 +1,17 @@
+' @test valid
+' @covers THINK, RESULT, WAIT, EXIT
+' @description Minimal THINK with one RESULT field
+
+THINK verdict
+  GOAL <<
+  Classify the request.
+  >>
+  RESULT
+  * category: CHOICE(bug, feature, question) - request type
+END
+
+WAIT
+  ON ?verdict
+END
+
+EXIT

@@ -1,0 +1,27 @@
+' @anti-pattern
+' @instead Use DEFINE once, then SET to update
+' @description Using DEFINE twice with the same name instead of SET
+
+' DEFINE creates a new name. Using it again with the same name
+' is a preparation error. To change an existing value — use SET.
+
+DEFINE counter
+0
+END
+
+' This is a preparation error:
+DEFINE counter
+1
+END
+
+' Correct approach:
+'
+' DEFINE counter
+' 0
+' END
+'
+' SET $counter
+' 1
+' END
+
+EXIT

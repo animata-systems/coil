@@ -1,0 +1,9 @@
+' @test invalid
+' @error preparation
+' @covers TOOLS, EXECUTE
+' @description Using !name without declaring in TOOLS
+
+EXECUTE results
+  USING !search
+  - query: "test"
+END

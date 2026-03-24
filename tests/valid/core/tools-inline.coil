@@ -1,0 +1,7 @@
+' @test valid
+' @covers TOOLS
+' @description TOOLS declaration in inline form
+
+TOOLS search, calculator
+
+EXIT

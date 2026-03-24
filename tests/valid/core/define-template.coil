@@ -1,0 +1,12 @@
+' @test valid
+' @covers DEFINE
+' @description DEFINE with a template body
+
+DEFINE analyst_role
+<<
+You are a senior analyst.
+You answer concisely and back up claims with data.
+>>
+END
+
+EXIT

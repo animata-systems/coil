@@ -1,0 +1,14 @@
+' @test valid
+' @covers SEND, TO, FOR
+' @description SEND without AWAIT — fire and forget
+
+ACTORS user
+
+SEND
+  FOR @user
+  <<
+  Task completed successfully.
+  >>
+END
+
+EXIT

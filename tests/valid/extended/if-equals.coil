@@ -1,0 +1,31 @@
+' @test valid
+' @covers IF, THINK, DEFINE
+' @description IF with equality check — deterministic branching
+
+THINK verdict
+  GOAL <<
+  Classify the request.
+  >>
+  RESULT
+  * type: CHOICE(general, technical) - request type
+END
+
+WAIT
+  ON ?verdict
+END
+
+DEFINE role
+<<
+General support agent.
+>>
+END
+
+IF $verdict.type == "technical"
+  SET $role
+  <<
+  Technical support specialist.
+  >>
+  END
+END
+
+EXIT

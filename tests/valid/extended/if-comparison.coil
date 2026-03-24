@@ -1,0 +1,27 @@
+' @test valid
+' @covers IF, THINK
+' @description IF with numeric comparison
+
+THINK evaluation
+  GOAL <<
+  Rate the quality.
+  >>
+  RESULT
+  * score: NUMBER - quality score from 1 to 10
+END
+
+WAIT
+  ON ?evaluation
+END
+
+DEFINE done
+0
+END
+
+IF $evaluation.score >= 8
+  SET $done
+  1
+  END
+END
+
+EXIT

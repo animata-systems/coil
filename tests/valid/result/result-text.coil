@@ -1,0 +1,17 @@
+' @test valid
+' @covers RESULT, TEXT
+' @description RESULT with TEXT field
+
+THINK summary
+  GOAL <<
+  Summarize the document.
+  >>
+  RESULT
+  * summary: TEXT - document summary
+END
+
+WAIT
+  ON ?summary
+END
+
+EXIT

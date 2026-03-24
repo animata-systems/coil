@@ -1,0 +1,13 @@
+' @test valid
+' @covers DEFINE, SET
+' @description SET modifies an existing value
+
+DEFINE counter
+0
+END
+
+SET $counter
+1
+END
+
+EXIT

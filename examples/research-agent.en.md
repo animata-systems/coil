@@ -6,9 +6,9 @@
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       Environment<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -27,10 +27,10 @@
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       Skills — solver qualifications<br>
       Define the knowledge and approach the LLM must possess when solving a task.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -61,10 +61,10 @@
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       Input data<br>
       The environment must provide values before the protocol continues.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -89,10 +89,10 @@
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       1. Problem statement<br>
       THINK runs in the background. Creates a result promise ?analysis and a live stream ~analysis. Problem conditions can be augmented during solving via SIGNAL.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -122,10 +122,10 @@ Request history: $request_history</pre>
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       2. Data collection<br>
       Parallel to reasoning. Search and expert request block neither each other nor THINK.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -157,10 +157,10 @@ Request history: $request_history</pre>
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       3. Augmenting conditions during solving<br>
       Data arrives in arbitrary order — each result immediately goes to ~analysis. The LLM accounts for them without restarting.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -185,8 +185,6 @@ Request history: $request_history</pre>
     <td><b><code>SIGNAL</code></b></td>
     <td>
       <code>~analysis</code>
-      <br>
-      <b><code>TYPE</code></b> CONTEXT
       <pre>$data</pre>
     </td>
     <td></td>
@@ -194,10 +192,10 @@ Request history: $request_history</pre>
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       4. Solution is ready<br>
       Analysis accounted for the initial data, search results, and expert opinion.<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -212,9 +210,9 @@ Request history: $request_history</pre>
 
   <tr>
     <td colspan="4">
-  ═══════════════════════════════════════ <br>
+  ────────────────────────────────────────────── <br>
       5. Reply to the request author<br>
-  ═══════════════════════════════════════
+  ──────────────────────────────────────────────
     </td>
   </tr>
 
@@ -350,7 +348,6 @@ REPEAT 2
   END
 
   SIGNAL ~analysis
-    TYPE CONTEXT
     <<
     $data
     >>
