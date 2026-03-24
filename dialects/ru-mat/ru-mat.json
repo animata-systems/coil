@@ -1,0 +1,60 @@
+{
+  "name": "ru-mat",
+  "label": "Русский мат",
+  "operators": {
+    "Op.Actors": "ЕБЛАНЫ",
+    "Op.Tools": "ХУЁВИНЫ",
+    "Op.Define": "ЗАХУЯЧЬ",
+    "Op.Set": "ПЕРЕХУЯЧЬ",
+    "Op.Receive": "СПИЗДИ",
+    "Op.Think": "ЕБИСЬ",
+    "Op.Execute": "ХУЯРЬ",
+    "Op.Send": "ВЫСРИ",
+    "Op.Wait": "ЗАЛИПНИ",
+    "Op.Exit": "СЪЕБИСЬ",
+    "Op.If": "А ХУЛИ ЕСЛИ",
+    "Op.Repeat": "ДОЛБИСЬ",
+    "Op.Each": "ОТЫМЕЙ",
+    "Op.Gather": "ОГРЕБИ",
+    "Op.Signal": "ПИХНИ"
+  },
+  "terminators": {
+    "Kw.End": "ПИЗДЕЦ"
+  },
+  "modifiers": {
+    "Mod.Via": "ЖОПОЙ",
+    "Mod.As": "РОЖЕЙ",
+    "Mod.Using": "ХУЯЧА",
+    "Mod.Goal": "НАХУЯ",
+    "Mod.Input": "ЧО БЛЯТЬ",
+    "Mod.Context": "ДА ЕЩЁ",
+    "Mod.Result": "ВЫСЕРИ",
+    "Mod.To": "КУДА НАХУЙ",
+    "Mod.For": "КАКОМУ ХУИЛУ",
+    "Mod.ReplyTo": "НА КАКУЮ ХУЙНЮ",
+    "Mod.Await": "ПОТУПИ",
+    "Mod.Timeout": "ИЛИ ПИЗДЕЦ",
+    "Mod.On": "ПОКА НЕ РОДЯТ",
+    "Mod.Mode": "КАК ИМЕННО",
+    "Mod.Until": "ПОКА НЕ",
+    "Mod.Limit": "ХВАТИТ",
+    "Mod.From": "ИЗ"
+  },
+  "policies": {
+    "Pol.None": "НАСРАТЬ",
+    "Pol.Any": "ДА ПОХУЙ КОГО",
+    "Pol.All": "ВСЕХ НАХУЙ"
+  },
+  "resultTypes": {
+    "Typ.Text": "ХУЙНЯ",
+    "Typ.Number": "ЦИФИРЬ",
+    "Typ.Flag": "ЗАЛЁТ",
+    "Typ.Choice": "ХУЙ ЛИ",
+    "Typ.List": "КУЧАМАЛА"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "с",
+    "Dur.Minutes": "м",
+    "Dur.Hours": "ч"
+  }
+}

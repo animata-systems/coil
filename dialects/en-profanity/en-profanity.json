@@ -1,0 +1,60 @@
+{
+  "name": "en-profanity",
+  "label": "English Profanity",
+  "operators": {
+    "Op.Actors": "FUCKERS",
+    "Op.Tools": "SHIT",
+    "Op.Define": "BULLSHIT",
+    "Op.Set": "UNFUCK",
+    "Op.Receive": "SNATCH",
+    "Op.Think": "BRAINFUCK",
+    "Op.Execute": "SMASH",
+    "Op.Send": "DUMP",
+    "Op.Wait": "EDGE",
+    "Op.Exit": "GTFO",
+    "Op.If": "SHIT WHAT IF",
+    "Op.Repeat": "GRIND",
+    "Op.Each": "NAIL",
+    "Op.Gather": "SCRAPE",
+    "Op.Signal": "SHOVE"
+  },
+  "terminators": {
+    "Kw.End": "STFU"
+  },
+  "modifiers": {
+    "Mod.Via": "RIDING",
+    "Mod.As": "LARPING",
+    "Mod.Using": "PACKING",
+    "Mod.Goal": "WTF",
+    "Mod.Input": "THE DEAL",
+    "Mod.Context": "OH AND",
+    "Mod.Result": "COUGH UP",
+    "Mod.To": "WHERE TF",
+    "Mod.For": "HEY DIPSHIT",
+    "Mod.ReplyTo": "RE THAT CRAP",
+    "Mod.Await": "LOITER",
+    "Mod.Timeout": "OR BUST",
+    "Mod.On": "BLUE BALLS",
+    "Mod.Mode": "HOW BAD",
+    "Mod.Until": "TILL",
+    "Mod.Limit": "TOPS",
+    "Mod.From": "OUTTA"
+  },
+  "policies": {
+    "Pol.None": "FUCK IT",
+    "Pol.Any": "WHATEVER",
+    "Pol.All": "EVERY LAST ONE"
+  },
+  "resultTypes": {
+    "Typ.Text": "BLAH",
+    "Typ.Number": "DIGITS",
+    "Typ.Flag": "BALLS",
+    "Typ.Choice": "PICK YOUR POISON",
+    "Typ.List": "SHITLOAD"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "min",
+    "Dur.Hours": "h"
+  }
+}
