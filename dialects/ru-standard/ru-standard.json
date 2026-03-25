@@ -1,0 +1,60 @@
+{
+  "name": "ru-standard",
+  "label": "Стандартный русский",
+  "operators": {
+    "Op.Actors": "УЧАСТНИКИ",
+    "Op.Tools": "ИНСТРУМЕНТЫ",
+    "Op.Define": "ОПРЕДЕЛИ",
+    "Op.Set": "УСТАНОВИ",
+    "Op.Receive": "ПОЛУЧИ",
+    "Op.Think": "ДУМАЙ",
+    "Op.Execute": "ВЫПОЛНИ",
+    "Op.Send": "НАПИШИ",
+    "Op.Wait": "ЖДИ",
+    "Op.Exit": "ВЫХОД",
+    "Op.If": "ЕСЛИ",
+    "Op.Repeat": "ПОВТОРЯЙ",
+    "Op.Each": "КАЖДЫЙ",
+    "Op.Gather": "СОБЕРИ",
+    "Op.Signal": "СИГНАЛ"
+  },
+  "terminators": {
+    "Kw.End": "КОНЕЦ"
+  },
+  "modifiers": {
+    "Mod.Via": "ЧЕРЕЗ",
+    "Mod.As": "КАК",
+    "Mod.Using": "ИСПОЛЬЗУЯ",
+    "Mod.Goal": "ЦЕЛЬ",
+    "Mod.Input": "ВХОД",
+    "Mod.Context": "КОНТЕКСТ",
+    "Mod.Result": "РЕЗУЛЬТАТ",
+    "Mod.To": "КУДА",
+    "Mod.For": "КОМУ",
+    "Mod.ReplyTo": "ОТВЕТ НА",
+    "Mod.Await": "ЖДАТЬ",
+    "Mod.Timeout": "НЕ БОЛЕЕ",
+    "Mod.On": "НА",
+    "Mod.Mode": "РЕЖИМ",
+    "Mod.Until": "ДО",
+    "Mod.Limit": "НЕ БОЛЕЕ",
+    "Mod.From": "ИЗ"
+  },
+  "policies": {
+    "Pol.None": "НЕТ",
+    "Pol.Any": "ЛЮБОЙ",
+    "Pol.All": "ВСЕ"
+  },
+  "resultTypes": {
+    "Typ.Text": "ТЕКСТ",
+    "Typ.Number": "ЧИСЛО",
+    "Typ.Flag": "ФЛАГ",
+    "Typ.Choice": "ВЫБОР",
+    "Typ.List": "СПИСОК"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "с",
+    "Dur.Minutes": "м",
+    "Dur.Hours": "ч"
+  }
+}
