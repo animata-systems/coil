@@ -50,10 +50,11 @@ EXIT
 
 ## Status
 
-Spec v0.2 — working draft. Split into two zones:
+Spec v0.3 — working draft with explicit status markers. Each area of the language has one of three normative statuses:
 
-- **Stable** — decisions that are fixed in the current version.
-- **Working hypothesis** — decisions that fit the architecture but whose syntax or precise semantics may still be refined.
+- **Stable** — part of the current norm. Docs and examples can teach this. Downstream work can rely on it.
+- **Experimental** — the idea is accepted, but syntax or semantics may still change. Parser presence alone does not make it normative.
+- **Deferred** — recognized as important, but consciously not normalized in this cycle. Mentioned only as future work.
 
 ## Spec
 
