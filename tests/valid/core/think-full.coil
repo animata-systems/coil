@@ -2,6 +2,12 @@
 ' @covers THINK, VIA, AS, USING, GOAL, INPUT, CONTEXT, RESULT
 ' @description THINK with all rigging and formulation modifiers
 
+RECEIVE query
+END
+
+RECEIVE history
+END
+
 ACTORS analyst
 TOOLS search
 

@@ -2,6 +2,9 @@
 ' @covers THINK, RESULT, anonymous body
 ' @description THINK with RESULT and anonymous body coexisting (D-0032)
 
+RECEIVE request
+END
+
 THINK verdict
   RESULT
   * category: CHOICE(bug, feature, question) - request type

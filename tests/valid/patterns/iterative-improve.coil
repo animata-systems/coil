@@ -2,6 +2,9 @@
 ' @covers REPEAT, UNTIL, IF, SET, THINK, WAIT, DEFINE
 ' @description Iterative improvement loop with evaluator and optimizer
 
+RECEIVE brief
+END
+
 DEFINE writer_role
 <<
 You are a skilled copywriter.
