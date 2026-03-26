@@ -2,6 +2,9 @@
 ' @covers EXECUTE, USING, TOOLS, WAIT
 ' @description One-shot tool execution with arguments
 
+RECEIVE url
+END
+
 TOOLS load_article
 
 EXECUTE article

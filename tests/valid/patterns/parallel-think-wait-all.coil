@@ -2,6 +2,9 @@
 ' @covers THINK, WAIT, MODE ALL, DEFINE, AS, CONTEXT
 ' @description Two parallel THINK steps, WAIT ALL, then aggregation
 
+RECEIVE code
+END
+
 DEFINE security_expert
 <<
 You are a code security expert.

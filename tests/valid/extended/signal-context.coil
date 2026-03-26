@@ -2,6 +2,9 @@
 ' @covers SIGNAL, THINK, EXECUTE, TOOLS
 ' @description SIGNAL sends data into an active stream
 
+RECEIVE query
+END
+
 TOOLS search
 
 THINK analysis
