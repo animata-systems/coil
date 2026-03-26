@@ -1,4 +1,7 @@
-' Hello World — демо вертикального среза COIL (ru-matrix)
+' @example demo
+' @status stable
+' @dialect ru-matrix
+' @description Hello World — демо вертикального среза COIL (ru-matrix)
 '
 ' Запуск: npx coil run --dialect ./dialects/ru-matrix/ru-matrix.json examples/hello.ru.coil
 

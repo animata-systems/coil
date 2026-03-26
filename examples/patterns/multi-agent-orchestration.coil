@@ -1,3 +1,8 @@
+' @example pattern
+' @status mixed
+' @experimental SEND AWAIT ALL aggregation semantics
+' @description Multi-agent оркестрация
+'
 ' ═══════════════════════════════════════
 ' Паттерн: multi-agent оркестрация
 ' Реальные агенты общаются через каналы.

@@ -1,3 +1,8 @@
+' @example pattern
+' @status mixed
+' @experimental WAIT ALL aggregation semantics
+' @description Параллельный code review
+'
 ' ═══════════════════════════════════════
 ' Паттерн: параллельный code review
 ' Три эксперта анализируют код параллельно,

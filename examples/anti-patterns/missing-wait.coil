@@ -1,4 +1,5 @@
 ' @anti-pattern
+' @status stable
 ' @instead Always WAIT ON ?name before using $name
 ' @description Using a promise result without waiting for it first
 

@@ -44,6 +44,26 @@ Fields:
 5. Write the smallest scenario that exercises the feature.
 6. For `invalid/` tests — include exactly one error per file.
 
+## Scope and normative weight
+
+The conformance corpus establishes a **parser/preparation-level contract**. It verifies that a spec-compliant implementation correctly accepts valid surface syntax and rejects invalid constructs at preparation time.
+
+The corpus does **not** constitute a full runtime specification. In particular, the following areas remain experimental and are not covered by conformance tests:
+
+- stream semantics and event-based WAIT (`ЖДИ ... ИЗ ~...`);
+- full expression grammar (operator precedence, logical connectives);
+- reply-result shape and aggregation semantics for WAIT ALL.
+
+### Artifact hierarchy
+
+| Layer | Location | Normative weight |
+|---|---|---|
+| Conformance tests | `coil/tests/` | Normative — defines what a compliant parser must accept or reject |
+| Executable examples | `coil/examples/**/*.coil` | Documentation-first, machine-checkable — illustrate patterns but do not establish new norms |
+| Narrative examples | `coil/examples/**/*.md` | Illustrative — COIL-H does not fix mapping norm; COIL-C blocks are parser-checked but serve pedagogical purpose |
+
+Executable examples are not a substitute for conformance tests. If a pattern must be spec-invalid, a dedicated `invalid/` test is required; presence in `anti-patterns/` alone is not sufficient.
+
 ## Spec references
 
 - [02-core.md](../spec/02-core.md) — Core operators

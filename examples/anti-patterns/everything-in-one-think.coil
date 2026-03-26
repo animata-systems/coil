@@ -1,4 +1,5 @@
 ' @anti-pattern
+' @status stable
 ' @instead Separate classification, routing, and response into distinct steps
 ' @description Stuffing the entire workflow into a single THINK prompt
 

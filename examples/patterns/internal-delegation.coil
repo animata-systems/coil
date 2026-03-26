@@ -1,3 +1,8 @@
+' @example pattern
+' @status mixed
+' @experimental expression grammar (condition slot)
+' @description Внутренняя делегация
+'
 ' ═══════════════════════════════════════
 ' Паттерн: внутренняя делегация
 ' Один LLM, разные роли через КАК.
