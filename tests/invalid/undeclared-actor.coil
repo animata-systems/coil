@@ -1,5 +1,6 @@
 ' @test invalid
 ' @error preparation
+' @rule undeclared-participant
 ' @covers ACTORS, SEND
 ' @description Using @name without declaring in ACTORS
 

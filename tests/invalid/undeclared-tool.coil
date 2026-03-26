@@ -1,5 +1,6 @@
 ' @test invalid
 ' @error preparation
+' @rule undeclared-tool
 ' @covers TOOLS, EXECUTE
 ' @description Using !name without declaring in TOOLS
 

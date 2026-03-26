@@ -1,0 +1,11 @@
+' @test invalid
+' @error preparation
+' @rule undefined-promise
+' @covers WAIT, promise references
+' @description WAIT ON ?name without any launching operator
+
+WAIT
+  ON ?plan
+END
+
+EXIT
