@@ -1,5 +1,6 @@
 ' @test invalid
 ' @error preparation
+' @rule duplicate-define
 ' @covers DEFINE
 ' @description DEFINE with the same name twice is a preparation error
 

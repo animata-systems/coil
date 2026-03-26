@@ -1,5 +1,6 @@
 ' @test invalid
 ' @error preparation
+' @rule set-without-define
 ' @covers SET
 ' @description SET on a name that was never defined
 

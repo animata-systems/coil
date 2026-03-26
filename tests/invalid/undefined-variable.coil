@@ -1,0 +1,12 @@
+' @test invalid
+' @error preparation
+' @rule undefined-variable
+' @covers SEND, variable references
+' @description Using $name in template without DEFINE or RECEIVE
+
+SEND
+<<
+Hello, $name!
+>>
+END
+EXIT

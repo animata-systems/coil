@@ -1,0 +1,43 @@
+' @test valid
+' @covers DEFINE, IF, conditional scope
+' @description DEFINE same name in different IF branches is valid (D-007-1)
+
+RECEIVE input
+END
+
+DEFINE category
+"unknown"
+END
+
+THINK classification
+  GOAL <<
+  Classify the input.
+  >>
+  INPUT <<
+  $input
+  >>
+  RESULT
+  * type: CHOICE(a, b) - category
+END
+
+WAIT
+  ON ?classification
+END
+
+IF $classification.type == "a"
+  DEFINE role
+  <<
+  You handle category A.
+  >>
+  END
+END
+
+IF $classification.type == "b"
+  DEFINE role
+  <<
+  You handle category B.
+  >>
+  END
+END
+
+EXIT
