@@ -1,3 +1,6 @@
+> **Type**: illustrative narrative example · COIL-C parser-checked
+> **Status**: stable
+
 # COIL-H: Hello World
 
 ## COIL-C

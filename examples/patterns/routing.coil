@@ -1,3 +1,8 @@
+' @example pattern
+' @status mixed
+' @experimental expression grammar (condition slot)
+' @description Маршрутизация по классификации
+'
 ' ═══════════════════════════════════════
 ' Паттерн: маршрутизация по классификации
 ' Классифицируем запрос клиента, выбираем

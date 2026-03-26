@@ -1,3 +1,7 @@
+> **Type**: illustrative narrative example · COIL-C parser-checked
+> **Status**: mixed — contains experimental syntax (SIGNAL, stream references `~name`)
+> **COIL-H**: illustrative — does not establish mapping norm
+
 # Research Agent
 
 ## COIL-H

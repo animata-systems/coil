@@ -1,4 +1,5 @@
 ' @anti-pattern
+' @status stable
 ' @instead Use IF for deterministic comparisons — no LLM needed
 ' @description Using THINK to evaluate a condition that the runtime can check
 

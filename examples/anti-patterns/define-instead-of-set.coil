@@ -1,4 +1,5 @@
 ' @anti-pattern
+' @status stable
 ' @instead Use DEFINE once, then SET to update
 ' @description Using DEFINE twice with the same name instead of SET
 

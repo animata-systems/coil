@@ -1,4 +1,5 @@
 ' @anti-pattern
+' @status stable
 ' @instead Use THINK when the current agent should reason; SEND when another participant must respond
 ' @description Using SEND AWAIT to get an answer the agent can produce itself
 
