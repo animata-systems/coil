@@ -1,0 +1,17 @@
+' @test valid
+' @covers THINK, RESULT, anonymous body
+' @description THINK with RESULT and anonymous body coexisting (D-0032)
+
+THINK verdict
+  RESULT
+  * category: CHOICE(bug, feature, question) - request type
+  <<
+  Classify this request: $request
+  >>
+END
+
+WAIT
+  ON ?verdict
+END
+
+EXIT
