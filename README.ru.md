@@ -1,5 +1,7 @@
 *[Read in English](README.md)*
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/animata-systems/coil)
+
 # COIL — Cognitive Orchestration Interface Language
 
 Язык сценариев для когнитивной оркестрации в агентной ОС, где в роли процессора выступает LLM.
