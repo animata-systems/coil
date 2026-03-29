@@ -2,7 +2,7 @@
 ' @role anti-pattern
 ' @status stable
 ' @dialect ru-standard
-' @error preparation
+' @error validate
 ' @covers Op.Think
 ' @description Разделяй классификацию, маршрутизацию и ответ на отдельные шаги
 '

@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error preparation
+' @error validate
 ' @covers Op.Wait
 ' @description WAIT ON ?name without any launching operator
 

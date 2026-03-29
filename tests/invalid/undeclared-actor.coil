@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error preparation
+' @error validate
 ' @covers Op.Actors, Op.Send
 ' @description Using @name without declaring in ACTORS
 

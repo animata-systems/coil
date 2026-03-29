@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error preparation
+' @error parse
 ' @covers Op.Think, Mod.Result
 ' @description RESULT must be the last modifier in THINK
 

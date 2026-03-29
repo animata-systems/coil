@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error preparation
+' @error validate
 ' @covers Op.Set
 ' @description SET on a name that was never defined
 

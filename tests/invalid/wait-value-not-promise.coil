@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error preparation
+' @error parse
 ' @covers Op.Wait, Mod.On
 ' @description WAIT ON expects promises (?name), not values ($name)
 

@@ -2,7 +2,7 @@
 ' @role anti-pattern
 ' @status stable
 ' @dialect ru-standard
-' @error preparation
+' @error validate
 ' @covers Op.Define, Op.Set
 ' @description Используй ОПРЕДЕЛИ один раз, затем УСТАНОВИ для изменения
 '

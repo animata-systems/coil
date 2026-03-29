@@ -2,7 +2,7 @@
 ' @role anti-pattern
 ' @status stable
 ' @dialect ru-standard
-' @error preparation
+' @error validate
 ' @covers Op.Send, Op.Think
 ' @description Используй ДУМАЙ когда агент рассуждает сам; НАПИШИ когда нужен ответ другого
 '

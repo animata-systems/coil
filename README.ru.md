@@ -108,7 +108,7 @@
 | `@role` | да | `test`, `pattern`, `demo`, `anti-pattern` | Что содержит файл |
 | `@status` | да | `stable`, `mixed` | Нормативный статус |
 | `@dialect` | да | код диалекта | Диалект файла |
-| `@error` | только invalid | `preparation`, `execution` | Класс ошибки (по [spec/08](spec/08-errors-budget.md)) |
+| `@error` | только invalid | `parse`, `validate` | Фаза ошибки: парсер/лексер бросает или валидатор ловит |
 | `@covers` | да | абстрактные ID через запятую | Задействованные конструкции (реестр: [dialects/README.md](dialects/README.md) § 4) |
 | `@description` | да | свободный текст | Однострочное описание |
 

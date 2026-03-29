@@ -108,7 +108,7 @@ Every `.coil` file starts with a metadata header in comments:
 | `@role` | yes | `test`, `pattern`, `demo`, `anti-pattern` | What the file contains |
 | `@status` | yes | `stable`, `mixed` | Normative status |
 | `@dialect` | yes | dialect code | Dialect of the file |
-| `@error` | invalid only | `preparation`, `execution` | Error class (per [spec/08](spec/08-errors-budget.md)) |
+| `@error` | invalid only | `parse`, `validate` | Error phase: parser/lexer throws or validator catches |
 | `@covers` | yes | abstract IDs, comma-separated | Constructs exercised (registry: [dialects/README.md](dialects/README.md) § 4) |
 | `@description` | yes | free text | One-line summary |
 
