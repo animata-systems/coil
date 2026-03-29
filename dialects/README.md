@@ -185,3 +185,4 @@ README — это **не** диалектная таблица. README объя�
 - [../spec/02-core.md](../spec/02-core.md) — Core-операторы
 - [../spec/03-extended.md](../spec/03-extended.md) — Extended-операторы
 - [../DESIGN.md](../DESIGN.md) — решения D-0029, D-0030, D-0031
+- [NOTES.md](NOTES.md) — дизайн-решения по диалектам

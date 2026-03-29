@@ -51,11 +51,12 @@
 
 ## Примеры
 
+Все примеры используют диалект ru-standard. Тестовый корпус использует en-standard — см. [tests/README.md](tests/README.md).
+
 | Пример | Что показывает |
 |---|---|
-| [research-agent.en.md](examples/research-agent.en.md) | Полный агент-исследователь (COIL-H + COIL-C, English) |
-| [research-agent.ru.md](examples/research-agent.ru.md) | Тот же агент (русский) |
-| [hello-world.md](examples/hello-world.md) | Минимальный Hello World с COIL-H |
+| [research-agent.md](examples/research-agent.md) | Полный агент-исследователь (COIL-H + COIL-C) |
+| [hello-world.coil](examples/hello-world.coil) | Минимальный Hello World |
 
 ### Паттерны (COIL-C)
 
@@ -72,11 +73,21 @@
 
 | Антипаттерн | В чём проблема |
 |---|---|
-| [everything-in-one-think.coil](examples/anti-patterns/everything-in-one-think.coil) | Весь рабочий процесс в одном THINK |
-| [think-for-deterministic-check.coil](examples/anti-patterns/think-for-deterministic-check.coil) | THINK для проверки, которую IF вычислит без LLM |
-| [missing-wait.coil](examples/anti-patterns/missing-wait.coil) | Обращение к $name без WAIT после запуска THINK |
-| [define-instead-of-set.coil](examples/anti-patterns/define-instead-of-set.coil) | Повторный DEFINE вместо DEFINE + SET |
-| [send-when-think-needed.coil](examples/anti-patterns/send-when-think-needed.coil) | SEND AWAIT другому агенту для работы, которую текущий агент может сделать сам |
+| [everything-in-one-think.coil](examples/anti-patterns/everything-in-one-think.coil) | Весь рабочий процесс в одном ДУМАЙ |
+| [think-for-deterministic-check.coil](examples/anti-patterns/think-for-deterministic-check.coil) | ДУМАЙ для проверки, которую ЕСЛИ вычислит без LLM |
+| [missing-wait.coil](examples/anti-patterns/missing-wait.coil) | Обращение к $имя без ЖДИ после запуска ДУМАЙ |
+| [define-instead-of-set.coil](examples/anti-patterns/define-instead-of-set.coil) | Повторный ОПРЕДЕЛИ вместо ОПРЕДЕЛИ + УСТАНОВИ |
+| [send-when-think-needed.coil](examples/anti-patterns/send-when-think-needed.coil) | НАПИШИ ЖДАТЬ другому агенту для работы, которую текущий агент может сделать сам |
+
+### Иерархия артефактов
+
+| Слой | Расположение | Нормативный вес |
+|---|---|---|
+| Тесты соответствия | `tests/` | Нормативный — определяет, что совместимый парсер обязан принимать или отвергать |
+| Исполняемые примеры | `examples/**/*.coil` | Документация, проверяемая машиной — иллюстрируют паттерны, но не устанавливают новых норм |
+| Нарративные примеры | `examples/**/*.md` | Иллюстративные — COIL-H не фиксирует mapping-норму; блоки COIL-C проверяются парсером, но служат педагогической цели |
+
+Исполняемые примеры не заменяют тесты соответствия. Если паттерн должен быть spec-invalid, нужен выделенный тест в `invalid/`; наличия в `anti-patterns/` недостаточно.
 
 ## Диалекты
 
@@ -94,16 +105,18 @@
 
 В COIL нет диалекта по умолчанию. Диалекты — это наборы ключевых фраз с идентичной семантикой и моделью исполнения — диалект это скин, а не скелет. Примеры в спецификации используют русские ключевые слова, но ни один диалект не привилегирован в реализации.
 
-| Диалект | Директория |
-|---|---|
-| Стандартный русский | [dialects/ru-standard](dialects/ru-standard/README.md) |
-| Standard English | [dialects/en-standard](dialects/en-standard/README.md) |
-| Español estándar | [dialects/es-standard](dialects/es-standard/README.md) |
-| 简体中文 | [dialects/zh-standard](dialects/zh-standard/README.md) |
-| 日本語 | [dialects/ja-standard](dialects/ja-standard/README.md) |
-| Français standard | [dialects/fr-standard](dialects/fr-standard/README.md) |
-| Português brasileiro | [dialects/pt-br-standard](dialects/pt-br-standard/README.md) |
-| Standarddeutsch | [dialects/de-standard](dialects/de-standard/README.md) |
+| Диалект | Код | Директория |
+|---|---|---|
+| Стандартный русский | `ru-standard` | [dialects/ru-standard](dialects/ru-standard/README.md) |
+| Standard English | `en-standard` | [dialects/en-standard](dialects/en-standard/README.md) |
+| Español estándar | `es-standard` | [dialects/es-standard](dialects/es-standard/README.md) |
+| 简体中文 | `zh-standard` | [dialects/zh-standard](dialects/zh-standard/README.md) |
+| 日本語 | `ja-standard` | [dialects/ja-standard](dialects/ja-standard/README.md) |
+| Français standard | `fr-standard` | [dialects/fr-standard](dialects/fr-standard/README.md) |
+| Português brasileiro | `pt-br-standard` | [dialects/pt-br-standard](dialects/pt-br-standard/README.md) |
+| Standarddeutsch | `de-standard` | [dialects/de-standard](dialects/de-standard/README.md) |
+
+Спецификация диалектной таблицы: [dialects/README.md](dialects/README.md).
 
 Правила:
 

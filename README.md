@@ -51,11 +51,12 @@ Spec v0.3 — working draft with explicit status markers. Each area of the langu
 
 ## Examples
 
+All examples use the ru-standard dialect. Conformance tests use en-standard — see [tests/README.md](tests/README.md).
+
 | Example | What it shows |
 |---|---|
-| [research-agent.en.md](examples/research-agent.en.md) | Full research agent (COIL-H + COIL-C, English) |
-| [research-agent.ru.md](examples/research-agent.ru.md) | Same agent (Russian) |
-| [hello-world.md](examples/hello-world.md) | Minimal Hello World with COIL-H |
+| [research-agent.md](examples/research-agent.md) | Full research agent (COIL-H + COIL-C) |
+| [hello-world.coil](examples/hello-world.coil) | Minimal Hello World |
 
 ### Patterns (COIL-C)
 
@@ -78,6 +79,16 @@ Spec v0.3 — working draft with explicit status markers. Each area of the langu
 | [define-instead-of-set.coil](examples/anti-patterns/define-instead-of-set.coil) | DEFINE twice instead of DEFINE + SET |
 | [send-when-think-needed.coil](examples/anti-patterns/send-when-think-needed.coil) | SEND AWAIT to another agent for work the current agent can do itself |
 
+### Artifact hierarchy
+
+| Layer | Location | Normative weight |
+|---|---|---|
+| Conformance tests | `tests/` | Normative — defines what a compliant parser must accept or reject |
+| Executable examples | `examples/**/*.coil` | Documentation-first, machine-checkable — illustrate patterns but do not establish new norms |
+| Narrative examples | `examples/**/*.md` | Illustrative — COIL-H does not fix mapping norm; COIL-C blocks are parser-checked but serve pedagogical purpose |
+
+Executable examples are not a substitute for conformance tests. If a pattern must be spec-invalid, a dedicated `invalid/` test is required; presence in `anti-patterns/` alone is not sufficient.
+
 ## Dialects
 
 The runtime operates on the semantics of constructs, not their spelling. Keywords are written in the language the user thinks in. The same script in different languages is the same protocol:
@@ -94,16 +105,18 @@ The runtime operates on the semantics of constructs, not their spelling. Keyword
 
 COIL has no default dialect. Dialects are keyword sets with identical semantics and execution model — a dialect is the skin, not the skeleton. The spec examples use Russian keywords, but no dialect is privileged in the implementation.
 
-| Dialect | Directory |
-|---|---|
-| Standard Russian | [dialects/ru-standard](dialects/ru-standard/README.md) |
-| Standard English | [dialects/en-standard](dialects/en-standard/README.md) |
-| Español estándar | [dialects/es-standard](dialects/es-standard/README.md) |
-| 简体中文 | [dialects/zh-standard](dialects/zh-standard/README.md) |
-| 日本語 | [dialects/ja-standard](dialects/ja-standard/README.md) |
-| Français standard | [dialects/fr-standard](dialects/fr-standard/README.md) |
-| Português brasileiro | [dialects/pt-br-standard](dialects/pt-br-standard/README.md) |
-| Standarddeutsch | [dialects/de-standard](dialects/de-standard/README.md) |
+| Dialect | Code | Directory |
+|---|---|---|
+| Standard Russian | `ru-standard` | [dialects/ru-standard](dialects/ru-standard/README.md) |
+| Standard English | `en-standard` | [dialects/en-standard](dialects/en-standard/README.md) |
+| Español estándar | `es-standard` | [dialects/es-standard](dialects/es-standard/README.md) |
+| 简体中文 | `zh-standard` | [dialects/zh-standard](dialects/zh-standard/README.md) |
+| 日本語 | `ja-standard` | [dialects/ja-standard](dialects/ja-standard/README.md) |
+| Français standard | `fr-standard` | [dialects/fr-standard](dialects/fr-standard/README.md) |
+| Português brasileiro | `pt-br-standard` | [dialects/pt-br-standard](dialects/pt-br-standard/README.md) |
+| Standarddeutsch | `de-standard` | [dialects/de-standard](dialects/de-standard/README.md) |
+
+Dialect table specification: [dialects/README.md](dialects/README.md).
 
 Rules:
 

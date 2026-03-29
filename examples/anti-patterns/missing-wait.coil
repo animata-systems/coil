@@ -1,31 +1,31 @@
 ' @anti-pattern
 ' @status stable
-' @instead Always WAIT ON ?name before using $name
-' @description Using a promise result without waiting for it first
+' @instead Всегда ЖДИ НА ?имя перед использованием $имя
+' @description Исп��льзование результата обещания без ожидания
 
-' After THINK, the promise ?plan exists but the value $plan
-' is not yet available. The protocol must explicitly synchronize
-' with WAIT before accessing the result.
+' После ДУМАЙ обещание ?план существует, но значение $план
+' ещё недоступно. Протокол обязан явно синхронизироваться
+' через ЖДИ перед обращением к результату.
 
-THINK plan
-  GOAL <<
-  Create a project plan.
+ДУМАЙ план
+  ЦЕЛЬ <<
+  Составь план проекта.
   >>
-  RESULT
-  * steps: TEXT - plan steps
-  * timeline: TEXT - estimated timeline
-END
+  РЕЗУЛЬТАТ
+  * шаги: ТЕКСТ - шаги плана
+  * сроки: ТЕКСТ - ориентировочные сроки
+КОНЕЦ
 
-' BUG: no WAIT here — $plan.steps is not resolved yet
+' БАГ: нет ЖДИ — $план.шаги ещё не разрешён
 
-ACTORS user
+УЧАСТНИКИ пользов��тель
 
-SEND
-  FOR @user
+НАПИШИ
+  КОМУ @пользователь
   <<
-  Here is your plan: $plan.steps
-  Timeline: $plan.timeline
+  Вот твой план: $план.шаги
+  Сроки: $план.сроки
   >>
-END
+КОНЕЦ
 
-EXIT
+ВЫХОД

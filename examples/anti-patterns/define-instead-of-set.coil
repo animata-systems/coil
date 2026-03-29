@@ -1,28 +1,28 @@
 ' @anti-pattern
 ' @status stable
-' @instead Use DEFINE once, then SET to update
-' @description Using DEFINE twice with the same name instead of SET
+' @instead Используй ОПРЕДЕЛИ один раз, затем УСТАНОВИ для изменения
+' @description Повторное ОПРЕДЕЛИ вместо УСТАНОВИ
 
-' DEFINE creates a new name. Using it again with the same name
-' is a preparation error. To change an existing value — use SET.
+' ОПРЕДЕЛИ создаёт новое имя. Повторное использование с тем же именем —
+' ошибка подготовки. Для изменения существующего значения — УСТАНОВИ.
 
-DEFINE counter
+ОПРЕДЕЛИ счётчик
 0
-END
+КОНЕЦ
 
-' This is a preparation error:
-DEFINE counter
+' Это ошибка подготовки:
+ОПРЕДЕЛИ счётчик
 1
-END
+КОНЕЦ
 
-' Correct approach:
+' Правильный подход:
 '
-' DEFINE counter
+' ОПРЕДЕЛИ счётчик
 ' 0
-' END
+' КОНЕЦ
 '
-' SET $counter
+' УСТАНОВИ $счётчик
 ' 1
-' END
+' КОНЕЦ
 
-EXIT
+ВЫХОД

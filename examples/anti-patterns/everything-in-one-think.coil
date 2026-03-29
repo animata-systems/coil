@@ -1,36 +1,36 @@
 ' @anti-pattern
 ' @status stable
-' @instead Separate classification, routing, and response into distinct steps
-' @description Stuffing the entire workflow into a single THINK prompt
+' @instead Разделяй классификацию, маршрутизацию и ответ на отдельные шаги
+' @description Весь workflow запихан в один ДУМАЙ-промпт
 
-' The whole workflow is hidden inside one prompt.
-' No deterministic control flow, no intermediate validation,
-' no budget control per step. If anything fails — start over.
+' Весь workflow спрятан внутри одного промпта.
+' Нет детерминированного потока, нет промежуточной валидации,
+' нет контроля бюджета по шагам. Если что-то не так — начинай заново.
 
-THINK everything
-  GOAL <<
-  Classify the customer request, pick the right specialist,
-  draft a response, check quality, and if the quality is poor —
-  revise the response. Return only the final answer.
+ДУМАЙ всё
+  ЦЕЛЬ <<
+  Классифицируй запрос клиента, выбери подходящего специалиста,
+  напиши ответ, проверь качество, и если качество плохое —
+  перепиши ответ. Верни только финальный ответ.
   >>
-  INPUT <<
+  ВХОД <<
   $message
   >>
-  RESULT
-  * answer: TEXT - final response
-END
+  РЕЗУЛЬТАТ
+  * ответ: ТЕКСТ - финальный ответ
+КОНЕЦ
 
-WAIT
-  ON ?everything
-END
+ЖДИ
+  НА ?всё
+КОНЕЦ
 
-ACTORS user
+УЧАСТНИКИ пользователь
 
-SEND
-  FOR @user
+НАПИШИ
+  КОМУ @пользователь
   <<
-  $everything.answer
+  $всё.ответ
   >>
-END
+КОНЕЦ
 
-EXIT
+ВЫХОД

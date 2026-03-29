@@ -1,42 +1,42 @@
 ' @anti-pattern
 ' @status stable
-' @instead Use THINK when the current agent should reason; SEND when another participant must respond
-' @description Using SEND AWAIT to get an answer the agent can produce itself
+' @instead Используй ДУМАЙ когда агент может рассуждать сам; НАПИШИ когда нужен ответ другого участника
+' @description НАПИШИ ЖДАТЬ для получения ответа, который агент может дать сам
 
-' SEND AWAIT asks another participant and waits for their reply.
-' If the current agent can figure it out on its own — use THINK.
-' THINK gives structured output control; SEND depends on the
-' other participant's response format.
+' НАПИШИ ЖДАТЬ спрашивает другого участника и ждёт его ответ.
+' Если текущий агент может разобраться сам — используй ДУМАЙ.
+' ДУМАЙ даёт контроль над структурой вывода; НАПИШИ зависит
+' от формата ответа другого участника.
 
-ACTORS analyst
+УЧАСТНИКИ аналитик
 
-SEND question
-  FOR @analyst
-  AWAIT ANY
-  TIMEOUT 10m
+НАПИШИ вопрос
+  КОМУ @аналитик
+  ЖДАТЬ ЛЮБОЙ
+  НЕ БОЛЕЕ 10м
   <<
-  Classify this customer request into one of:
-  bug, feature, or question.
+  Классифицируй запрос клиента в одну из категорий:
+  баг, фича или вопрос.
 
-  Request: $message
+  Запрос: $message
   >>
-END
+КОНЕЦ
 
-WAIT
-  ON ?question
-END
+ЖДИ
+  НА ?вопрос
+КОНЕЦ
 
-' Correct approach — the agent classifies on its own:
+' Правильный подход — агент классифицирует сам:
 '
-' THINK classification
-'   GOAL <<
-'   Classify the customer request.
+' ДУМАЙ классификация
+'   ЦЕЛЬ <<
+'   Классифицируй запрос клиента.
 '   >>
-'   INPUT <<
+'   ВХОД <<
 '   $message
 '   >>
-'   RESULT
-'   * type: CHOICE(bug, feature, question) - request type
-' END
+'   РЕЗУЛЬТАТ
+'   * тип: ВЫБОР(баг, фича, вопрос) - тип запроса
+' КОНЕЦ
 
-EXIT
+ВЫХОД

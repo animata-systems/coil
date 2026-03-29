@@ -1,30 +1,30 @@
 ' @anti-pattern
 ' @status stable
-' @instead Use IF for deterministic comparisons — no LLM needed
-' @description Using THINK to evaluate a condition that the runtime can check
+' @instead Используй ЕСЛИ для детерминированных сравнений — LLM не нужен
+' @description ДУМАЙ для проверки условия, которое runtime может вычислить
 
-' Wasting tokens on something the runtime computes instantly.
-' IF evaluates conditions deterministically, without calling LLM.
+' Трата токенов на то, что runtime вычисляет мгновенно.
+' ЕСЛИ вычисляет условия детерминированно, без вызова LLM.
 
-THINK check
-  GOAL <<
-  Determine whether the score exceeds 80.
+ДУМАЙ проверка
+  ЦЕЛЬ <<
+  Определи, превышает ли оценка 80.
   >>
-  INPUT <<
-  Score: $evaluation.score
+  ВХОД <<
+  Оценка: $evaluation.score
   >>
-  RESULT
-  * exceeds: FLAG - true if score is above 80
-END
+  РЕЗУЛЬТАТ
+  * превышает: ФЛАГ - true если оценка выше 80
+КОНЕЦ
 
-WAIT
-  ON ?check
-END
+ЖДИ
+  НА ?проверк��
+КОНЕЦ
 
-' Correct approach:
+' Правильный подход:
 '
-' IF $evaluation.score >= 80
+' Е��ЛИ $evaluation.score >= 80
 '   ...
-' END
+' КОНЕЦ
 
-EXIT
+ВЫХОД

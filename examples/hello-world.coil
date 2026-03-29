@@ -1,0 +1,20 @@
+' @example demo
+' @status stable
+' @dialect ru-standard
+' @description Hello World — демо вертикального среза COIL
+'
+' Запуск: npx coil run --dialect ./dialects/ru-standard/ru-standard.json examples/hello-world.coil
+
+ПОЛУЧИ имя
+<<
+Как тебя зовут?
+>>
+КОНЕЦ
+
+НАПИШИ
+<<
+Привет, $имя!
+>>
+КОНЕЦ
+
+ВЫХОД

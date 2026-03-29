@@ -56,13 +56,7 @@ The corpus does **not** constitute a full runtime specification. In particular, 
 
 ### Artifact hierarchy
 
-| Layer | Location | Normative weight |
-|---|---|---|
-| Conformance tests | `coil/tests/` | Normative — defines what a compliant parser must accept or reject |
-| Executable examples | `coil/examples/**/*.coil` | Documentation-first, machine-checkable — illustrate patterns but do not establish new norms |
-| Narrative examples | `coil/examples/**/*.md` | Illustrative — COIL-H does not fix mapping norm; COIL-C blocks are parser-checked but serve pedagogical purpose |
-
-Executable examples are not a substitute for conformance tests. If a pattern must be spec-invalid, a dedicated `invalid/` test is required; presence in `anti-patterns/` alone is not sufficient.
+See [Artifact hierarchy](../README.md#artifact-hierarchy) in the project README.
 
 ## Spec references
 
