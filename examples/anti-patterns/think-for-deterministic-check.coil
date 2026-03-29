@@ -2,7 +2,7 @@
 ' @role anti-pattern
 ' @status stable
 ' @dialect ru-standard
-' @error validate
+' @error validate undefined-variable
 ' @covers Op.Think, Op.If
 ' @description Используй ЕСЛИ для детерминированных сравнений — LLM не нужен
 '
