@@ -1,7 +1,8 @@
-' @test valid
+' @test invalid
 ' @role anti-pattern
 ' @status stable
 ' @dialect ru-standard
+' @error preparation
 ' @covers Op.Think, Op.If
 ' @description Используй ЕСЛИ для детерминированных сравнений — LLM не нужен
 '
