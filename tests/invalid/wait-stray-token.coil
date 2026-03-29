@@ -6,7 +6,7 @@
 ' @covers Op.Wait
 ' @description Unexpected token inside WAIT block is not silently skipped
 
-WAIT
-  stray
+WAIT data
   ON ?plan
+  stray
 END
