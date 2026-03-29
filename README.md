@@ -23,33 +23,6 @@ END
 EXIT
 ```
 
-One command, one channel, zero LLM. The agent sends a message and terminates.
-
-With a cognitive step:
-
-```coil
-THINK greeting
-  INPUT <<
-  Come up with a short greeting message in the style of Hello, world!
-  >>
-  RESULT
-  * text: TEXT
-END
-
-WAIT
-  ON ?greeting
-END
-
-SEND
-  TO #general
-  <<
-  $greeting.text
-  >>
-END
-
-EXIT
-```
-
 ## Status
 
 Spec v0.3 — working draft with explicit status markers. Each area of the language has one of three normative statuses:
@@ -121,19 +94,23 @@ The runtime operates on the semantics of constructs, not their spelling. Keyword
 
 COIL has no default dialect. Dialects are keyword sets with identical semantics and execution model — a dialect is the skin, not the skeleton. The spec examples use Russian keywords, but no dialect is privileged in the implementation.
 
-| Dialect | Directory | Status | Purpose |
-|---|---|---|---|
-| Standard English | [dialects/en-standard](dialects/en-standard/README.md) | Official | Primary entry point for English-speaking users |
-| English profanity | [dialects/en-profanity](dialects/en-profanity/README.md) | Community | Proof of concept: semantic resonance via slang |
-| Russian мат | [dialects/ru-mat](dialects/ru-mat/README.md) | Community | Proof of concept: Russian obscene dialect |
-| Matrix | [dialects/ru-matrix](dialects/ru-matrix/README.md) | Community | Thematic dialect inspired by The Matrix |
+| Dialect | Directory |
+|---|---|
+| Standard Russian | [dialects/ru-standard](dialects/ru-standard/README.md) |
+| Standard English | [dialects/en-standard](dialects/en-standard/README.md) |
+| Español estándar | [dialects/es-standard](dialects/es-standard/README.md) |
+| 简体中文 | [dialects/zh-standard](dialects/zh-standard/README.md) |
+| 日本語 | [dialects/ja-standard](dialects/ja-standard/README.md) |
+| Français standard | [dialects/fr-standard](dialects/fr-standard/README.md) |
+| Português brasileiro | [dialects/pt-br-standard](dialects/pt-br-standard/README.md) |
+| Standarddeutsch | [dialects/de-standard](dialects/de-standard/README.md) |
 
 Rules:
 
 - One script — one dialect. Mixing keywords from different dialects in one file is invalid.
 - Sigils (`$`, `?`, `@`, `!`, `#`, `~`) are universal and dialect-independent.
 - Identifiers (variable, participant, tool names) are free-form and not constrained by dialect language.
-- A spec-compliant COIL implementation must load dialects from external dialect tables; it is not required to bundle any specific dialect. Standard English and Russian are both part of the official distribution.
+- A spec-compliant COIL implementation must load dialects from external dialect tables; it is not required to bundle any specific dialect.
 
 ## PDF Documents
 

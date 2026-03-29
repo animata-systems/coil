@@ -1,0 +1,60 @@
+{
+  "name": "ja-standard",
+  "label": "日本語",
+  "operators": {
+    "Op.Actors": "参加者",
+    "Op.Tools": "道具",
+    "Op.Define": "定義",
+    "Op.Set": "変更",
+    "Op.Receive": "受信",
+    "Op.Think": "思考",
+    "Op.Execute": "実行",
+    "Op.Send": "送信",
+    "Op.Wait": "待機",
+    "Op.Exit": "終了",
+    "Op.If": "もし",
+    "Op.Repeat": "反復",
+    "Op.Each": "各",
+    "Op.Gather": "集約",
+    "Op.Signal": "信号"
+  },
+  "terminators": {
+    "Kw.End": "以上"
+  },
+  "modifiers": {
+    "Mod.Via": "経由",
+    "Mod.As": "として",
+    "Mod.Using": "使用",
+    "Mod.Goal": "目標",
+    "Mod.Input": "入力",
+    "Mod.Context": "背景",
+    "Mod.Result": "結果",
+    "Mod.To": "先",
+    "Mod.For": "宛",
+    "Mod.ReplyTo": "返信",
+    "Mod.Await": "待受",
+    "Mod.Timeout": "最大",
+    "Mod.On": "対",
+    "Mod.Mode": "方式",
+    "Mod.Until": "まで",
+    "Mod.Limit": "最大",
+    "Mod.From": "から"
+  },
+  "policies": {
+    "Pol.None": "なし",
+    "Pol.Any": "いずれか",
+    "Pol.All": "すべて"
+  },
+  "resultTypes": {
+    "Typ.Text": "文",
+    "Typ.Number": "数値",
+    "Typ.Flag": "真偽",
+    "Typ.Choice": "選択",
+    "Typ.List": "一覧"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "秒",
+    "Dur.Minutes": "分",
+    "Dur.Hours": "時"
+  }
+}

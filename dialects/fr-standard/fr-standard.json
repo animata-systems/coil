@@ -1,0 +1,60 @@
+{
+  "name": "fr-standard",
+  "label": "Français standard",
+  "operators": {
+    "Op.Actors": "PARTICIPANTS",
+    "Op.Tools": "OUTILS",
+    "Op.Define": "DÉFINIS",
+    "Op.Set": "MODIFIE",
+    "Op.Receive": "REÇOIS",
+    "Op.Think": "PENSE",
+    "Op.Execute": "EXÉCUTE",
+    "Op.Send": "ÉCRIS",
+    "Op.Wait": "ATTENDS",
+    "Op.Exit": "TERMINE",
+    "Op.If": "SI",
+    "Op.Repeat": "RÉPÈTE",
+    "Op.Each": "CHAQUE",
+    "Op.Gather": "RASSEMBLE",
+    "Op.Signal": "SIGNAL"
+  },
+  "terminators": {
+    "Kw.End": "FIN"
+  },
+  "modifiers": {
+    "Mod.Via": "VIA",
+    "Mod.As": "COMME",
+    "Mod.Using": "AVEC",
+    "Mod.Goal": "OBJECTIF",
+    "Mod.Input": "ENTRÉE",
+    "Mod.Context": "CONTEXTE",
+    "Mod.Result": "RÉSULTAT",
+    "Mod.To": "VERS",
+    "Mod.For": "POUR",
+    "Mod.ReplyTo": "RÉPONSE À",
+    "Mod.Await": "ATTENTE",
+    "Mod.Timeout": "AU PLUS",
+    "Mod.On": "SUR",
+    "Mod.Mode": "MODE",
+    "Mod.Until": "JUSQUE",
+    "Mod.Limit": "AU PLUS",
+    "Mod.From": "DE"
+  },
+  "policies": {
+    "Pol.None": "AUCUN",
+    "Pol.Any": "QUELCONQUE",
+    "Pol.All": "TOUS"
+  },
+  "resultTypes": {
+    "Typ.Text": "TEXTE",
+    "Typ.Number": "NOMBRE",
+    "Typ.Flag": "DRAPEAU",
+    "Typ.Choice": "CHOIX",
+    "Typ.List": "LISTE"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "m",
+    "Dur.Hours": "h"
+  }
+}

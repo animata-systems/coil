@@ -1,0 +1,60 @@
+{
+  "name": "de-standard",
+  "label": "Standarddeutsch",
+  "operators": {
+    "Op.Actors": "TEILNEHMER",
+    "Op.Tools": "WERKZEUGE",
+    "Op.Define": "DEFINIERE",
+    "Op.Set": "SETZE",
+    "Op.Receive": "EMPFANGE",
+    "Op.Think": "DENKE",
+    "Op.Execute": "FÜHRE AUS",
+    "Op.Send": "SCHREIBE",
+    "Op.Wait": "WARTE",
+    "Op.Exit": "SCHLUSS",
+    "Op.If": "WENN",
+    "Op.Repeat": "WIEDERHOLE",
+    "Op.Each": "JEDES",
+    "Op.Gather": "SAMMLE",
+    "Op.Signal": "SIGNAL"
+  },
+  "terminators": {
+    "Kw.End": "ENDE"
+  },
+  "modifiers": {
+    "Mod.Via": "ÜBER",
+    "Mod.As": "ALS",
+    "Mod.Using": "MIT",
+    "Mod.Goal": "ZIEL",
+    "Mod.Input": "EINGABE",
+    "Mod.Context": "KONTEXT",
+    "Mod.Result": "ERGEBNIS",
+    "Mod.To": "AN",
+    "Mod.For": "FÜR",
+    "Mod.ReplyTo": "ANTWORT AUF",
+    "Mod.Await": "ERWARTE",
+    "Mod.Timeout": "HÖCHSTENS",
+    "Mod.On": "AUF",
+    "Mod.Mode": "MODUS",
+    "Mod.Until": "BIS",
+    "Mod.Limit": "HÖCHSTENS",
+    "Mod.From": "VON"
+  },
+  "policies": {
+    "Pol.None": "KEINE",
+    "Pol.Any": "BELIEBIG",
+    "Pol.All": "ALLE"
+  },
+  "resultTypes": {
+    "Typ.Text": "TEXT",
+    "Typ.Number": "ZAHL",
+    "Typ.Flag": "FLAGGE",
+    "Typ.Choice": "AUSWAHL",
+    "Typ.List": "LISTE"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "m",
+    "Dur.Hours": "h"
+  }
+}

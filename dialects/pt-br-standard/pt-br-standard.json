@@ -1,0 +1,60 @@
+{
+  "name": "pt-br-standard",
+  "label": "Português brasileiro padrão",
+  "operators": {
+    "Op.Actors": "PARTICIPANTES",
+    "Op.Tools": "FERRAMENTAS",
+    "Op.Define": "DEFINA",
+    "Op.Set": "ALTERE",
+    "Op.Receive": "RECEBA",
+    "Op.Think": "PENSE",
+    "Op.Execute": "EXECUTE",
+    "Op.Send": "ESCREVA",
+    "Op.Wait": "ESPERE",
+    "Op.Exit": "ENCERRE",
+    "Op.If": "SE",
+    "Op.Repeat": "REPITA",
+    "Op.Each": "CADA",
+    "Op.Gather": "REÚNA",
+    "Op.Signal": "SINAL"
+  },
+  "terminators": {
+    "Kw.End": "FIM"
+  },
+  "modifiers": {
+    "Mod.Via": "VIA",
+    "Mod.As": "COMO",
+    "Mod.Using": "COM",
+    "Mod.Goal": "OBJETIVO",
+    "Mod.Input": "ENTRADA",
+    "Mod.Context": "CONTEXTO",
+    "Mod.Result": "RESULTADO",
+    "Mod.To": "NO",
+    "Mod.For": "PARA",
+    "Mod.ReplyTo": "RESPOSTA A",
+    "Mod.Await": "AGUARDE",
+    "Mod.Timeout": "MÁXIMO",
+    "Mod.On": "SOBRE",
+    "Mod.Mode": "MODO",
+    "Mod.Until": "ATÉ",
+    "Mod.Limit": "MÁXIMO",
+    "Mod.From": "DE"
+  },
+  "policies": {
+    "Pol.None": "NENHUM",
+    "Pol.Any": "QUALQUER",
+    "Pol.All": "TODOS"
+  },
+  "resultTypes": {
+    "Typ.Text": "TEXTO",
+    "Typ.Number": "NÚMERO",
+    "Typ.Flag": "BANDEIRA",
+    "Typ.Choice": "OPÇÃO",
+    "Typ.List": "LISTA"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "m",
+    "Dur.Hours": "h"
+  }
+}

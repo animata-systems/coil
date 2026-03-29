@@ -1,0 +1,60 @@
+{
+  "name": "zh-standard",
+  "label": "简体中文",
+  "operators": {
+    "Op.Actors": "参与者",
+    "Op.Tools": "工具",
+    "Op.Define": "定义",
+    "Op.Set": "修改",
+    "Op.Receive": "接收",
+    "Op.Think": "思考",
+    "Op.Execute": "执行",
+    "Op.Send": "发送",
+    "Op.Wait": "等待",
+    "Op.Exit": "结束",
+    "Op.If": "如果",
+    "Op.Repeat": "重复",
+    "Op.Each": "每个",
+    "Op.Gather": "汇总",
+    "Op.Signal": "信号"
+  },
+  "terminators": {
+    "Kw.End": "完"
+  },
+  "modifiers": {
+    "Mod.Via": "通过",
+    "Mod.As": "作为",
+    "Mod.Using": "使用",
+    "Mod.Goal": "目标",
+    "Mod.Input": "输入",
+    "Mod.Context": "背景",
+    "Mod.Result": "结果",
+    "Mod.To": "到",
+    "Mod.For": "给",
+    "Mod.ReplyTo": "回复",
+    "Mod.Await": "等候",
+    "Mod.Timeout": "最多",
+    "Mod.On": "对",
+    "Mod.Mode": "模式",
+    "Mod.Until": "直到",
+    "Mod.Limit": "最多",
+    "Mod.From": "从"
+  },
+  "policies": {
+    "Pol.None": "无",
+    "Pol.Any": "任意",
+    "Pol.All": "全部"
+  },
+  "resultTypes": {
+    "Typ.Text": "文本",
+    "Typ.Number": "数字",
+    "Typ.Flag": "标记",
+    "Typ.Choice": "选项",
+    "Typ.List": "列表"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "秒",
+    "Dur.Minutes": "分",
+    "Dur.Hours": "时"
+  }
+}

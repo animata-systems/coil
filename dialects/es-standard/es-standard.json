@@ -1,0 +1,60 @@
+{
+  "name": "es-standard",
+  "label": "Español estándar",
+  "operators": {
+    "Op.Actors": "PARTICIPANTES",
+    "Op.Tools": "HERRAMIENTAS",
+    "Op.Define": "DEFINE",
+    "Op.Set": "MODIFICA",
+    "Op.Receive": "RECIBE",
+    "Op.Think": "PIENSA",
+    "Op.Execute": "EJECUTA",
+    "Op.Send": "ESCRIBE",
+    "Op.Wait": "ESPERA",
+    "Op.Exit": "TERMINA",
+    "Op.If": "SI",
+    "Op.Repeat": "REPITE",
+    "Op.Each": "CADA",
+    "Op.Gather": "REÚNE",
+    "Op.Signal": "SEÑAL"
+  },
+  "terminators": {
+    "Kw.End": "FIN"
+  },
+  "modifiers": {
+    "Mod.Via": "VÍA",
+    "Mod.As": "COMO",
+    "Mod.Using": "CON",
+    "Mod.Goal": "OBJETIVO",
+    "Mod.Input": "ENTRADA",
+    "Mod.Context": "CONTEXTO",
+    "Mod.Result": "RESULTADO",
+    "Mod.To": "HACIA",
+    "Mod.For": "PARA",
+    "Mod.ReplyTo": "RESPUESTA A",
+    "Mod.Await": "AGUARDA",
+    "Mod.Timeout": "MÁXIMO",
+    "Mod.On": "SOBRE",
+    "Mod.Mode": "MODO",
+    "Mod.Until": "HASTA",
+    "Mod.Limit": "MÁXIMO",
+    "Mod.From": "DE"
+  },
+  "policies": {
+    "Pol.None": "NINGUNO",
+    "Pol.Any": "CUALQUIERA",
+    "Pol.All": "TODOS"
+  },
+  "resultTypes": {
+    "Typ.Text": "TEXTO",
+    "Typ.Number": "NÚMERO",
+    "Typ.Flag": "BANDERA",
+    "Typ.Choice": "OPCIÓN",
+    "Typ.List": "LISTA"
+  },
+  "durationSuffixes": {
+    "Dur.Seconds": "s",
+    "Dur.Minutes": "m",
+    "Dur.Hours": "h"
+  }
+}

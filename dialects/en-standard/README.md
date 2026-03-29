@@ -6,17 +6,17 @@
 
 This dialect provides a direct, idiomatic English mapping for all COIL constructs. Each keyword is chosen for clarity and semantic precision: it should mean exactly what the operator does, with no ambiguity for a native English speaker.
 
-The standard English dialect is the primary entry point for non-Russian-speaking users. It prioritizes readability and discoverability over brevity.
+The standard English dialect prioritizes readability and discoverability over brevity.
 
 ---
 
 ## Design Principles
 
-1. **Semantic fidelity.** The English keyword must reflect the operator's actual behavior, not its Russian etymology. `НАПИШИ` literally means "write," but the operator sends a message — so the English keyword is `SEND`, not `WRITE`.
+1. **Semantic fidelity.** Each keyword reflects the operator's actual behavior. The operator that delivers a message to a channel is `SEND`, not `WRITE` — because writing implies text production, while the operator's job is message delivery.
 
 2. **One word where possible.** Modifiers and operators use single uppercase words when a single word is unambiguous. Multi-word forms are allowed only where a single word would be misleading (`REPLY TO`, `NO MORE THAN`).
 
-3. **No synonyms.** Each concept has exactly one keyword. `RECEIVE` is the only way to express `ПОЛУЧИ`; `GET`, `FETCH`, `OBTAIN` are not accepted.
+3. **No synonyms.** Each concept has exactly one keyword. `RECEIVE` is the only way to express a blocking bind; `GET`, `FETCH`, `OBTAIN` are not accepted.
 
 4. **Consistency with the execution model.** The keyword's connotation should hint at the operator's category: blocking (`RECEIVE`, `WAIT`), launching (`THINK`, `EXECUTE`, `SEND`), instant (`DEFINE`, `SET`).
 
@@ -42,20 +42,20 @@ The standard English dialect is the primary entry point for non-Russian-speaking
 
 ## Modifiers
 
-### Rigging (THINK)
+### Model Setup (THINK)
 
 | ID | EN | Semantics |
 |---|---|---|
 | `Mod.Via` | `VIA` | Which LLM model to use. `VIA $fast_model` — route the task via this model. |
-| `Mod.As` | `AS` | Solver qualification (skills). `AS $analyst` — think as this expert. References only. |
+| `Mod.As` | `AS` | Role definition (skills). `AS $analyst` — think as this expert. References only. |
 | `Mod.Using` | `USING` | Available tools for LLM. `USING !search, !calc` — the model may call these. |
 
-### Formulation (THINK)
+### Task Definition (THINK)
 
 | ID | EN | Semantics |
 |---|---|---|
 | `Mod.Goal` | `GOAL` | Purpose of the cognitive task. What we want to achieve. |
-| `Mod.Input` | `INPUT` | Problem statement. The conditions of the task. |
+| `Mod.Input` | `INPUT` | Problem statement. The data to work with. |
 | `Mod.Context` | `CONTEXT` | Additional data, background, constraints. |
 | `Mod.Result` | `RESULT` | Structured output specification. What the LLM must determine. |
 
@@ -120,21 +120,6 @@ The standard English dialect is the primary entry point for non-Russian-speaking
 
 ---
 
-## Reference Sigils
-
-Sigils are part of the lexical core and do not change across dialects.
-
-| Sigil | Meaning |
-|---|---|
-| `$` | Value |
-| `?` | Promise |
-| `@` | Participant |
-| `!` | Tool |
-| `#` | Channel |
-| `~` | Stream |
-
----
-
 ## Example: Research Agent
 
 ```coil
@@ -145,9 +130,9 @@ ACTORS expert, author
 TOOLS search
 
 ' ──────────────────────────────────────────────
-' Skills — solver qualifications.
+' Roles — expert profiles for LLM.
 ' Define the knowledge and approach
-' the LLM must possess when solving a task.
+' the LLM should adopt for a task.
 ' ──────────────────────────────────────────────
 DEFINE research_skill
 <<
@@ -192,17 +177,17 @@ Current case identifier.
 END
 
 ' ──────────────────────────────────────────────
-' 1. Problem statement — like in mathematics:
-'    AS      — solver qualification
+' 1. Task definition — structured like a math problem:
+'    AS      — role / expert profile
 '    GOAL    — objective
-'    INPUT   — problem conditions
-'    CONTEXT — given data
-'    RESULT  — what to find
+'    INPUT   — problem data
+'    CONTEXT — background info
+'    RESULT  — what to determine
 '
 ' THINK runs in the background. Creates a result
 ' promise ?analysis and a live stream ~analysis.
-' Conditions can be augmented during solving
-' via SIGNAL.
+' Input can be supplemented while thinking
+' is in progress via SIGNAL.
 ' ──────────────────────────────────────────────
 THINK analysis
   AS $research_skill, $domain_expertise
@@ -210,8 +195,8 @@ THINK analysis
   Prepare a well-grounded answer with sources.
   >>
   INPUT <<
-  Research the user's query. Account for all data
-  that arrives during the process via stream.
+  Research the user's query. Incorporate any data
+  that arrives via the stream during analysis.
   >>
   CONTEXT <<
   Query: $query
@@ -219,7 +204,7 @@ THINK analysis
   >>
   RESULT
   * answer: TEXT - final answer
-  * sources: LIST - materials used
+  * sources: LIST - references cited
     * ref: TEXT - reference link
     * why: TEXT - why it is relevant
   * confidence: CHOICE(high, medium, low)
@@ -247,10 +232,10 @@ SEND opinion
 END
 
 ' ──────────────────────────────────────────────
-' 3. Augmenting conditions during solving.
+' 3. Supplementing input while thinking.
 '    Data arrives in arbitrary order —
-'    each result immediately goes to ~analysis.
-'    The LLM accounts for them without restarting.
+'    each result is fed into ~analysis immediately.
+'    The LLM incorporates it without restarting.
 ' ──────────────────────────────────────────────
 REPEAT 2
   WAIT data
@@ -266,16 +251,16 @@ REPEAT 2
 END
 
 ' ──────────────────────────────────────────────
-' 4. Solution is ready.
-'    Analysis accounted for the initial data,
-'    search results, and expert opinion.
+' 4. Analysis is complete.
+'    The result incorporates initial data,
+'    search results, and expert feedback.
 ' ──────────────────────────────────────────────
 WAIT
   ON ?analysis
 END
 
 ' ──────────────────────────────────────────────
-' 5. Reply to the request author.
+' 5. Deliver the answer.
 ' ──────────────────────────────────────────────
 SEND
   TO #results/$case_id
@@ -287,70 +272,3 @@ END
 
 EXIT
 ```
-
----
-
-## Minimal Example
-
-```coil
-' Classify a customer request.
-
-RECEIVE query
-<<
-Customer request text.
->>
-END
-
-THINK verdict
-  GOAL <<
-  Classify the customer request.
-  >>
-  RESULT
-  * category: CHOICE(bug, feature, question) - request type
-END
-
-WAIT
-  ON ?verdict
-END
-
-SEND
-  TO #support
-  <<
-  Category: $verdict.category
-  >>
-END
-
-EXIT
-```
-
----
-
-## Notes
-
-**Why SEND and not WRITE?**
-`НАПИШИ` literally means "write" in Russian, but the operator's semantics is message delivery, not text production. `SEND` describes the observable behavior: a message is sent to a channel, optionally with a wait policy. This is a case where semantic fidelity to the operator's behavior takes precedence over literal translation.
-
-**Why RECEIVE and not GET?**
-`ПОЛУЧИ` is a blocking bind: the protocol pauses until the environment provides a value. `RECEIVE` carries the right connotation — you are waiting to receive something, not actively going out to get it. `GET` implies agency that the protocol does not have at this step.
-
-**Why FOR and not TO for recipient?**
-The channel address already uses `TO`. Using `TO` for both channel and recipient would create ambiguity. `FOR @expert` reads naturally: "this message is for the expert." The distinction between `TO` (destination) and `FOR` (recipient) mirrors the difference between `КУДА` (where) and `КОМУ` (to whom) in the Russian dialect.
-
-**Why TIMEOUT and not NO MORE THAN?**
-In the `SEND` and `WAIT` context, `TIMEOUT 10m` is idiomatic and immediately clear. `NO MORE THAN` is reserved for the `REPEAT` operator where it sets an iteration cap — a different semantic domain.
-
----
-
-## FAQ
-
-**Q: Is this the "real" COIL?**
-A: COIL has no default dialect. Every dialect — Russian, English, or community-created — maps keyword phrases to the same abstract operators and produces identical runtime behavior. A COIL implementation that claims spec compliance must load dialects from external dialect tables; it is not required to bundle any specific dialect. Standard English and Russian are both part of the official distribution.
-
-**Q: Can I mix languages in one script?**
-A: No. A script is written in exactly one dialect. Sigils (`$`, `?`, `@`, `!`, `#`, `~`) are universal, but keywords must be consistent within a single file.
-
-**Q: What about identifiers — must they be in English too?**
-A: Identifiers (variable names, participant names, tool names) are free-form. You can write `DEFINE моя_переменная` in the English dialect. The dialect governs keywords, not identifiers.
-
-**Q: Other dialects?**
-A: COIL supports community dialects for any language or theme. See also: [English profanity dialect](../en-profanity/README.md), [Russian мат-dialect](../ru-mat/README.md), [Matrix theme dialect](../ru-matrix/README.md).
