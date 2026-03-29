@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role demo -->
+<!-- @status mixed -->
+<!-- @dialect pt-br-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full dialect showcase -->
+
 # COIL:pt-br-standard — Dialeto padrão do português brasileiro
 
 > «Escreva roteiros na língua em que você pensa.»

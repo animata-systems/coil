@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role demo -->
+<!-- @status mixed -->
+<!-- @dialect zh-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full dialect showcase -->
+
 # COIL:zh-standard — 简体中文标准方言
 
 > 「用你思考的语言写脚本。」

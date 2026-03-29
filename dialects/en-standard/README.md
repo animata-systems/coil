@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role demo -->
+<!-- @status mixed -->
+<!-- @dialect en-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full dialect showcase -->
+
 # COIL:en-standard — Standard English Dialect
 
 > "Write scripts in the language you think in."

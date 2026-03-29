@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role demo -->
+<!-- @status mixed -->
+<!-- @dialect es-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full dialect showcase -->
+
 # COIL:es-standard — Dialecto español estándar
 
 > «Escribe guiones en el idioma en el que piensas.»

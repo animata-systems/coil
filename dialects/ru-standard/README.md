@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role demo -->
+<!-- @status mixed -->
+<!-- @dialect ru-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full dialect showcase -->
+
 # COIL:ru-standard — Стандартный русский диалект
 
 > «Пиши сценарий на языке, на котором думаешь.»

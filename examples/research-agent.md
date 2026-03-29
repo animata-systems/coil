@@ -1,3 +1,10 @@
+<!-- @test valid -->
+<!-- @role pattern -->
+<!-- @status mixed -->
+<!-- @dialect ru-standard -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @description Research agent — full protocol with COIL-H and COIL-C -->
+
 > **Тип**: illustrative narrative example · COIL-C parser-checked
 > **Статус**: mixed — содержит experimental syntax (СИГНАЛ, stream references `~name`)
 > **COIL-H**: иллюстративный — не фиксирует mapping-норму
