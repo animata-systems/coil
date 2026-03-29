@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, RESULT, WAIT, EXIT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Mod.Result, Op.Wait, Op.Exit
 ' @description Minimal THINK with one RESULT field
 
 THINK verdict

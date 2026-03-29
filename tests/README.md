@@ -18,22 +18,7 @@ tests/
 
 ## File format
 
-Each file starts with metadata in comments:
-
-```coil
-' @test valid
-' @covers THINK, RESULT, WAIT
-' @description Minimal THINK with a single RESULT field
-```
-
-Fields:
-
-| Field | Required | Values |
-|---|---|---|
-| `@test` | yes | `valid` or `invalid` |
-| `@error` | invalid only | `preparation` or `execution` (error class per spec/08) |
-| `@covers` | yes | constructs exercised by the test |
-| `@description` | yes | one-line summary of what is being tested |
+See [File metadata](../README.md#file-metadata) in the project README.md.
 
 ## Adding tests
 
@@ -56,7 +41,7 @@ The corpus does **not** constitute a full runtime specification. In particular, 
 
 ### Artifact hierarchy
 
-See [Artifact hierarchy](../README.md#artifact-hierarchy) in the project README.
+See [File structure](../README.md#file-structure) in the project README.
 
 ## Spec references
 

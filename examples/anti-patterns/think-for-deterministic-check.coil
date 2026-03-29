@@ -1,7 +1,9 @@
-' @anti-pattern
+' @test valid
+' @role anti-pattern
 ' @status stable
-' @instead Используй ЕСЛИ для детерминированных сравнений — LLM не нужен
-' @description ДУМАЙ для проверки условия, которое runtime может вычислить
+' @dialect ru-standard
+' @covers Op.Think, Op.If
+' @description Используй ЕСЛИ для детерминированных сравнений — LLM не нужен
 '
 ' ═══════════════════════════════════════
 ' Антипаттерн: ДУМАЙ для детерминированной проверки

@@ -1,7 +1,9 @@
-' @anti-pattern
+' @test valid
+' @role anti-pattern
 ' @status stable
-' @instead Всегда ЖДИ НА ?имя перед использованием $имя
-' @description Использование результата обещания без ожидания
+' @dialect ru-standard
+' @covers Op.Think, Op.Wait
+' @description Всегда ЖДИ НА ?имя перед использованием $имя
 '
 ' ═══════════════════════════════════════
 ' Антипаттерн: отсутствующий ЖДИ

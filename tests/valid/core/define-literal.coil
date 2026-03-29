@@ -1,5 +1,8 @@
 ' @test valid
-' @covers DEFINE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Define
 ' @description DEFINE with a literal value
 
 DEFINE max_retries

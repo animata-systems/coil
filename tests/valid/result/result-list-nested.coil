@@ -1,5 +1,8 @@
 ' @test valid
-' @covers RESULT, LIST, TEXT, CHOICE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Result, Typ.List, Typ.Text, Typ.Choice
 ' @description RESULT with nested LIST containing multiple typed fields
 
 THINK plan

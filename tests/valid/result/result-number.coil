@@ -1,5 +1,8 @@
 ' @test valid
-' @covers RESULT, NUMBER
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Result, Typ.Number
 ' @description RESULT with NUMBER field
 
 THINK scoring

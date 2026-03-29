@@ -1,5 +1,8 @@
 ' @test valid
-' @covers RESULT, CHOICE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Result, Typ.Choice
 ' @description RESULT with CHOICE enum field
 
 THINK triage

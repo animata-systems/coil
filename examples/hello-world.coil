@@ -1,6 +1,8 @@
-' @example demo
+' @test valid
+' @role demo
 ' @status stable
 ' @dialect ru-standard
+' @covers Op.Receive, Op.Send, Op.Exit
 ' @description Hello World — демо вертикального среза COIL
 '
 ' Запуск: npx coil run --dialect ./dialects/ru-standard/ru-standard.json examples/hello-world.coil

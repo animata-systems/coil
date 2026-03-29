@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, VIA, AS, USING, GOAL, INPUT, CONTEXT, RESULT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Mod.Via, Mod.As, Mod.Using, Mod.Goal, Mod.Input, Mod.Context, Mod.Result
 ' @description THINK with all rigging and formulation modifiers
 
 RECEIVE query

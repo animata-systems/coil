@@ -1,7 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @rule set-without-define
-' @covers SET
+' @covers Op.Set
 ' @description SET on a name that was never defined
 
 SET $counter

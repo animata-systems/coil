@@ -1,5 +1,8 @@
 ' @test valid
-' @covers WAIT, ON, MODE ANY
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Wait, Mod.On, Mod.Mode, Pol.Any
 ' @description WAIT for any one of multiple promises
 
 THINK fast_path

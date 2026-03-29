@@ -1,6 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @covers WAIT, ON
+' @covers Op.Wait, Mod.On
 ' @description WAIT ON expects promises (?name), not values ($name)
 
 DEFINE data

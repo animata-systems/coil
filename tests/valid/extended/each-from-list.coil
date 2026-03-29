@@ -1,5 +1,8 @@
 ' @test valid
-' @covers EACH, FROM, THINK
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Each, Mod.From, Op.Think
 ' @description EACH iterates over list elements
 
 THINK plan

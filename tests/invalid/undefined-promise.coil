@@ -1,7 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @rule undefined-promise
-' @covers WAIT, promise references
+' @covers Op.Wait
 ' @description WAIT ON ?name without any launching operator
 
 WAIT

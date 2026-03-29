@@ -1,5 +1,8 @@
 ' @test valid
-' @covers SEND, AWAIT, FOR, WAIT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Send, Mod.Await, Mod.For, Op.Wait
 ' @description SEND with AWAIT ANY — wait for at least one reply
 
 ACTORS expert

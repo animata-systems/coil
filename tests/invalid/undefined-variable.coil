@@ -1,7 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @rule undefined-variable
-' @covers SEND, variable references
+' @covers Op.Send
 ' @description Using $name in template without DEFINE or RECEIVE
 
 SEND

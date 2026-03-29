@@ -1,6 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @covers THINK, RESULT
+' @covers Op.Think, Mod.Result
 ' @description RESULT must be the last modifier in THINK
 
 THINK analysis

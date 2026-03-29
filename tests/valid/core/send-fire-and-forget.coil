@@ -1,5 +1,8 @@
 ' @test valid
-' @covers SEND, TO, FOR
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Send, Mod.To, Mod.For
 ' @description SEND without AWAIT — fire and forget
 
 ACTORS user

@@ -1,5 +1,8 @@
 ' @test valid
-' @covers WAIT, ON, THINK
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Wait, Mod.On, Op.Think
 ' @description WAIT for a single promise
 
 THINK plan

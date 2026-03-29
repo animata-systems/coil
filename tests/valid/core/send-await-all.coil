@@ -1,5 +1,8 @@
 ' @test valid
-' @covers SEND, AWAIT ALL, FOR
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Send, Mod.Await, Pol.All, Mod.For
 ' @description SEND with AWAIT ALL — wait for all recipients to reply
 
 ACTORS reviewer_a, reviewer_b

@@ -1,5 +1,8 @@
 ' @test valid
-' @covers SEND, TO, FOR, REPLY TO
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Send, Mod.To, Mod.For, Mod.ReplyTo
 ' @description SEND as a reply to a specific message
 
 ACTORS client

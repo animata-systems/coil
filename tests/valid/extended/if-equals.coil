@@ -1,5 +1,8 @@
 ' @test valid
-' @covers IF, THINK, DEFINE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.If, Op.Think, Op.Define
 ' @description IF with equality check — deterministic branching
 
 THINK verdict

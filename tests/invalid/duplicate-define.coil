@@ -1,7 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @rule duplicate-define
-' @covers DEFINE
+' @covers Op.Define
 ' @description DEFINE with the same name twice is a preparation error
 
 DEFINE counter

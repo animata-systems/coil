@@ -1,6 +1,9 @@
 ' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
 ' @error preparation
-' @covers EXIT
+' @covers Op.Exit
 ' @description EXIT does not accept arguments or modifiers
 
 EXIT "done"

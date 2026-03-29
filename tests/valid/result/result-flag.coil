@@ -1,5 +1,8 @@
 ' @test valid
-' @covers RESULT, FLAG
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Result, Typ.Flag
 ' @description RESULT with FLAG (boolean) field
 
 THINK check

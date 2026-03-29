@@ -1,5 +1,8 @@
 ' @test valid
-' @covers RECEIVE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Receive
 ' @description RECEIVE blocks until the environment provides a value
 
 RECEIVE contract_id

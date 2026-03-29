@@ -49,7 +49,7 @@ Spec v0.3 — working draft with explicit status markers. Each area of the langu
 | [11-coil-h.md](spec/11-coil-h.md) | COIL-H: tabular projection specification |
 | [DESIGN.md](DESIGN.md) | Decision log |
 
-## Examples
+## Examples and Tests
 
 All examples use the ru-standard dialect. Conformance tests use en-standard — see [tests/README.md](tests/README.md).
 
@@ -79,15 +79,38 @@ All examples use the ru-standard dialect. Conformance tests use en-standard — 
 | [define-instead-of-set.coil](examples/anti-patterns/define-instead-of-set.coil) | DEFINE twice instead of DEFINE + SET |
 | [send-when-think-needed.coil](examples/anti-patterns/send-when-think-needed.coil) | SEND AWAIT to another agent for work the current agent can do itself |
 
-### Artifact hierarchy
+### File structure
 
-| Layer | Location | Normative weight |
+| Location | What it contains | Normative weight |
 |---|---|---|
-| Conformance tests | `tests/` | Normative — defines what a compliant parser must accept or reject |
-| Executable examples | `examples/**/*.coil` | Documentation-first, machine-checkable — illustrate patterns but do not establish new norms |
-| Narrative examples | `examples/**/*.md` | Illustrative — COIL-H does not fix mapping norm; COIL-C blocks are parser-checked but serve pedagogical purpose |
+| `tests/` | Conformance tests | Normative — defines what a compliant parser must accept or reject |
+| `examples/**/*.coil` | Executable examples | Documentation-first, machine-checkable — illustrate patterns but do not establish new norms |
+| `examples/**/*.md` | Narrative examples | Illustrative — COIL-H does not fix mapping norm; COIL-C blocks are parser-checked but serve pedagogical purpose |
 
 Executable examples are not a substitute for conformance tests. If a pattern must be spec-invalid, a dedicated `invalid/` test is required; presence in `anti-patterns/` alone is not sufficient.
+
+### File metadata
+
+Every `.coil` file starts with a metadata header in comments:
+
+```coil
+' @test valid
+' @role pattern
+' @status stable
+' @dialect ru-standard
+' @covers Op.Think, Op.If, Op.Send
+' @description Classification followed by routing
+```
+
+| Field | Required | Values | Description |
+|---|---|---|---|
+| `@test` | yes | `valid`, `invalid` | Expected parser outcome |
+| `@role` | yes | `test`, `pattern`, `demo`, `anti-pattern` | What the file contains |
+| `@status` | yes | `stable`, `mixed` | Normative status |
+| `@dialect` | yes | dialect code | Dialect of the file |
+| `@error` | invalid only | `preparation`, `execution` | Error class (per [spec/08](spec/08-errors-budget.md)) |
+| `@covers` | yes | abstract IDs, comma-separated | Constructs exercised (registry: [dialects/README.md](dialects/README.md) § 4) |
+| `@description` | yes | free text | One-line summary |
 
 ## Dialects
 

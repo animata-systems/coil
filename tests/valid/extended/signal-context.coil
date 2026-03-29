@@ -1,5 +1,8 @@
 ' @test valid
-' @covers SIGNAL, THINK, EXECUTE, TOOLS
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Signal, Op.Think, Op.Execute, Op.Tools
 ' @description SIGNAL sends data into an active stream
 
 RECEIVE query

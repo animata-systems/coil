@@ -1,5 +1,8 @@
 ' @test valid
-' @covers WAIT, TIMEOUT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Wait, Mod.Timeout
 ' @description WAIT with a timeout
 
 THINK analysis

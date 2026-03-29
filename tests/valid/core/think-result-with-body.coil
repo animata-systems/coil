@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, RESULT, anonymous body
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Mod.Result
 ' @description THINK with RESULT and anonymous body coexisting (D-0032)
 
 RECEIVE request

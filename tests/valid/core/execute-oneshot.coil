@@ -1,5 +1,8 @@
 ' @test valid
-' @covers EXECUTE, USING, TOOLS, WAIT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Execute, Mod.Using, Op.Tools, Op.Wait
 ' @description One-shot tool execution with arguments
 
 RECEIVE url

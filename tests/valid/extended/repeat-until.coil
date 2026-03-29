@@ -1,5 +1,8 @@
 ' @test valid
-' @covers REPEAT, UNTIL, NO MORE THAN, SET
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Repeat, Mod.Until, Mod.Limit, Op.Set
 ' @description REPEAT with condition and mandatory upper limit
 
 DEFINE done

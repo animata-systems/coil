@@ -1,5 +1,8 @@
 ' @test valid
-' @covers EXIT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Exit
 ' @description EXIT terminates the protocol — no arguments, no END
 
 EXIT

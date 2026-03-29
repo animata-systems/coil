@@ -1,6 +1,8 @@
-' @example pattern
+' @test valid
+' @role pattern
 ' @status mixed
-' @experimental expression grammar (condition slot)
+' @dialect ru-standard
+' @covers Op.Think, Op.Repeat, Op.If, Op.Set
 ' @description Итеративная оценка и улучшение
 '
 ' ═══════════════════════════════════════

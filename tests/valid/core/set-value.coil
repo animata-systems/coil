@@ -1,5 +1,8 @@
 ' @test valid
-' @covers DEFINE, SET
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Define, Op.Set
 ' @description SET modifies an existing value
 
 DEFINE counter

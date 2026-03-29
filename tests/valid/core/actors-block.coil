@@ -1,5 +1,8 @@
 ' @test valid
-' @covers ACTORS
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Actors
 ' @description ACTORS declaration in block form
 
 ACTORS

@@ -1,5 +1,8 @@
 ' @test valid
-' @covers REPEAT, UNTIL, IF, SET, THINK, WAIT, DEFINE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Repeat, Mod.Until, Op.If, Op.Set, Op.Think, Op.Wait, Op.Define
 ' @description Iterative improvement loop with evaluator and optimizer
 
 RECEIVE brief

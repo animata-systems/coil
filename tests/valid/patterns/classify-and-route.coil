@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, IF, DEFINE, SET, AS, CHOICE
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Op.If, Op.Define, Op.Set, Mod.As, Typ.Choice
 ' @description Classification followed by deterministic routing
 
 DEFINE general_role

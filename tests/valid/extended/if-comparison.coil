@@ -1,5 +1,8 @@
 ' @test valid
-' @covers IF, THINK
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.If, Op.Think
 ' @description IF with numeric comparison
 
 THINK evaluation

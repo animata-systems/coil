@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, WAIT, MODE ALL, DEFINE, AS, CONTEXT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Op.Wait, Mod.Mode, Pol.All, Op.Define, Mod.As, Mod.Context
 ' @description Two parallel THINK steps, WAIT ALL, then aggregation
 
 RECEIVE code

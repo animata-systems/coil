@@ -1,5 +1,8 @@
 ' @test valid
-' @covers REPEAT
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Repeat
 ' @description REPEAT with count only (no UNTIL condition)
 
 REPEAT 2

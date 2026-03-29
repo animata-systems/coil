@@ -1,5 +1,8 @@
 ' @test valid
-' @covers WAIT, ON, MODE ALL
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Wait, Mod.On, Mod.Mode, Pol.All
 ' @description WAIT for multiple promises with MODE ALL (default)
 
 THINK part_a

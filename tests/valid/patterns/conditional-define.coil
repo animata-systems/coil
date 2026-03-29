@@ -1,5 +1,8 @@
 ' @test valid
-' @covers DEFINE, IF, conditional scope
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Define, Op.If
 ' @description DEFINE same name in different IF branches is valid (D-007-1)
 
 RECEIVE input

@@ -1,6 +1,8 @@
-' @example pattern
+' @test valid
+' @role pattern
 ' @status mixed
-' @experimental expression grammar (condition slot)
+' @dialect ru-standard
+' @covers Op.Think, Mod.As, Op.If, Op.Send
 ' @description Внутренняя делегация
 '
 ' ═══════════════════════════════════════

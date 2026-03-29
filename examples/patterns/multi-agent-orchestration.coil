@@ -1,6 +1,8 @@
-' @example pattern
+' @test valid
+' @role pattern
 ' @status mixed
-' @experimental SEND AWAIT ALL aggregation semantics
+' @dialect ru-standard
+' @covers Op.Send, Mod.Await, Op.Wait, Op.Gather
 ' @description Multi-agent оркестрация
 '
 ' ═══════════════════════════════════════

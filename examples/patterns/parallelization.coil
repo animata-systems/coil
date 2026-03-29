@@ -1,6 +1,8 @@
-' @example pattern
+' @test valid
+' @role pattern
 ' @status mixed
-' @experimental WAIT ALL aggregation semantics
+' @dialect ru-standard
+' @covers Op.Think, Op.Wait, Mod.As, Mod.Mode
 ' @description Параллельный code review
 '
 ' ═══════════════════════════════════════

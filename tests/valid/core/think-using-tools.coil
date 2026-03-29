@@ -1,5 +1,8 @@
 ' @test valid
-' @covers THINK, USING, TOOLS
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Think, Mod.Using, Op.Tools
 ' @description THINK with multiple tools available to LLM
 
 TOOLS search, calculator

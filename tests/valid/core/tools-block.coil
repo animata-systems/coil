@@ -1,5 +1,8 @@
 ' @test valid
-' @covers TOOLS
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.Tools
 ' @description TOOLS declaration in block form
 
 TOOLS
