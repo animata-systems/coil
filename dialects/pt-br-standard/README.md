@@ -71,7 +71,7 @@ Este dialeto oferece um mapeamento idiomático em português brasileiro de todas
 
 | ID | PT-BR | Semântica |
 |---|---|---|
-| `Mod.On` | `SOBRE` | Promessas esperadas. `SOBRE ?plano, ?dados` — as promessas que estamos esperando. |
+| `Mod.On` | `POR` | Promessas esperadas. `POR ?plano, ?dados` — por quais promessas esperamos. |
 | `Mod.Mode` | `MODO` | Modo de espera. Quantas promessas precisam ser resolvidas. |
 | `Pol.All` | `TODOS` | Esperar todas as promessas listadas. |
 | `Pol.Any` | `QUALQUER` | Esperar qualquer uma das promessas listadas. |
@@ -112,7 +112,7 @@ Este dialeto oferece um mapeamento idiomático em português brasileiro de todas
 |---|---|---|
 | `Typ.Text` | `TEXTO` | Valor de string. |
 | `Typ.Number` | `NÚMERO` | Valor numérico. |
-| `Typ.Flag` | `BANDEIRA` | Valor booleano. |
+| `Typ.Flag` | `MARCADOR` | Valor booleano. Marcado ou não — como uma caixa de seleção. |
 | `Typ.Choice` | `OPÇÃO(...)` | Enum — um dos valores listados. |
 | `Typ.List` | `LISTA` | Array de elementos estruturados. |
 
@@ -265,7 +265,7 @@ FIM
 ' ──────────────────────────────────────────────
 REPITA 2
   ESPERE dados
-    SOBRE ?encontrado, ?opinião
+    POR ?encontrado, ?opinião
     MODO QUALQUER
   FIM
 
@@ -283,7 +283,7 @@ FIM
 '    do especialista.
 ' ──────────────────────────────────────────────
 ESPERE
-  SOBRE ?análise
+  POR ?análise
 FIM
 
 ' ──────────────────────────────────────────────

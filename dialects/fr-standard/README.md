@@ -71,7 +71,7 @@ Ce dialecte fournit un mappage idiomatique en français de toutes les constructi
 
 | ID | FR | Sémantique |
 |---|---|---|
-| `Mod.On` | `SUR` | Promesses attendues. `SUR ?plan, ?données` — ce sont les promesses que l'on attend. |
+| `Mod.On` | `CIBLE` | Promesses attendues. `CIBLE ?plan, ?données` — les cibles de l'attente. |
 | `Mod.Mode` | `MODE` | Mode d'attente. Combien de promesses doivent être résolues. |
 | `Pol.All` | `TOUS` | Attendre toutes les promesses listées. |
 | `Pol.Any` | `QUELCONQUE` | Attendre n'importe laquelle des promesses listées. |
@@ -112,7 +112,7 @@ Ce dialecte fournit un mappage idiomatique en français de toutes les constructi
 |---|---|---|
 | `Typ.Text` | `TEXTE` | Valeur chaîne de caractères. |
 | `Typ.Number` | `NOMBRE` | Valeur numérique. |
-| `Typ.Flag` | `DRAPEAU` | Valeur booléenne. |
+| `Typ.Flag` | `MARQUEUR` | Valeur booléenne. Marqué ou non — comme une case à cocher. |
 | `Typ.Choice` | `CHOIX(...)` | Enum — l'une des valeurs listées. |
 | `Typ.List` | `LISTE` | Tableau d'éléments structurés. |
 
@@ -263,7 +263,7 @@ FIN
 ' ──────────────────────────────────────────────
 RÉPÈTE 2
   ATTENDS données
-    SUR ?trouvé, ?avis
+    CIBLE ?trouvé, ?avis
     MODE QUELCONQUE
   FIN
 
@@ -280,7 +280,7 @@ FIN
 '    les résultats de recherche et l'avis d'expert.
 ' ──────────────────────────────────────────────
 ATTENDS
-  SUR ?analyse
+  CIBLE ?analyse
 FIN
 
 ' ──────────────────────────────────────────────

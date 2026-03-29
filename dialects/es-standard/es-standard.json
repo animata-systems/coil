@@ -34,7 +34,7 @@
     "Mod.ReplyTo": "RESPUESTA A",
     "Mod.Await": "AGUARDA",
     "Mod.Timeout": "MÁXIMO",
-    "Mod.On": "SOBRE",
+    "Mod.On": "POR",
     "Mod.Mode": "MODO",
     "Mod.Until": "HASTA",
     "Mod.Limit": "MÁXIMO",
@@ -48,7 +48,7 @@
   "resultTypes": {
     "Typ.Text": "TEXTO",
     "Typ.Number": "NÚMERO",
-    "Typ.Flag": "BANDERA",
+    "Typ.Flag": "MARCADOR",
     "Typ.Choice": "OPCIÓN",
     "Typ.List": "LISTA"
   },

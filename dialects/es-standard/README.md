@@ -71,7 +71,7 @@ Este dialecto ofrece un mapeo idiomático en español de todas las construccione
 
 | ID | ES | Semántica |
 |---|---|---|
-| `Mod.On` | `SOBRE` | Promesas esperadas. `SOBRE ?plan, ?datos` — las promesas que esperamos. |
+| `Mod.On` | `POR` | Promesas esperadas. `POR ?plan, ?datos` — por qué promesas esperamos. |
 | `Mod.Mode` | `MODO` | Modo de espera. Cuántas promesas deben resolverse. |
 | `Pol.All` | `TODOS` | Esperar todas las promesas listadas. |
 | `Pol.Any` | `CUALQUIERA` | Esperar cualquiera de las promesas listadas. |
@@ -112,7 +112,7 @@ Este dialecto ofrece un mapeo idiomático en español de todas las construccione
 |---|---|---|
 | `Typ.Text` | `TEXTO` | Valor de cadena de caracteres. |
 | `Typ.Number` | `NÚMERO` | Valor numérico. |
-| `Typ.Flag` | `BANDERA` | Valor booleano. |
+| `Typ.Flag` | `MARCADOR` | Valor booleano. Marcado o no — como una casilla de verificación. |
 | `Typ.Choice` | `OPCIÓN(...)` | Enum — uno de los valores listados. |
 | `Typ.List` | `LISTA` | Arreglo de elementos estructurados. |
 
@@ -265,7 +265,7 @@ FIN
 ' ──────────────────────────────────────────────
 REPITE 2
   ESPERA datos
-    SOBRE ?encontrado, ?opinión
+    POR ?encontrado, ?opinión
     MODO CUALQUIERA
   FIN
 
@@ -283,7 +283,7 @@ FIN
 '    del experto.
 ' ──────────────────────────────────────────────
 ESPERA
-  SOBRE ?análisis
+  POR ?análisis
 FIN
 
 ' ──────────────────────────────────────────────

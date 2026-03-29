@@ -34,7 +34,7 @@
     "Mod.ReplyTo": "RÉPONSE À",
     "Mod.Await": "ATTENTE",
     "Mod.Timeout": "AU PLUS",
-    "Mod.On": "SUR",
+    "Mod.On": "CIBLE",
     "Mod.Mode": "MODE",
     "Mod.Until": "JUSQUE",
     "Mod.Limit": "AU PLUS",
@@ -48,7 +48,7 @@
   "resultTypes": {
     "Typ.Text": "TEXTE",
     "Typ.Number": "NOMBRE",
-    "Typ.Flag": "DRAPEAU",
+    "Typ.Flag": "MARQUEUR",
     "Typ.Choice": "CHOIX",
     "Typ.List": "LISTE"
   },

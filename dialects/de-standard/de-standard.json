@@ -48,7 +48,7 @@
   "resultTypes": {
     "Typ.Text": "TEXT",
     "Typ.Number": "ZAHL",
-    "Typ.Flag": "FLAGGE",
+    "Typ.Flag": "MARKIERUNG",
     "Typ.Choice": "AUSWAHL",
     "Typ.List": "LISTE"
   },

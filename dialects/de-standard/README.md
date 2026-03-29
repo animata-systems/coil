@@ -112,7 +112,7 @@ Dieser Dialekt bildet alle COIL-Konstrukte auf idiomatisches Deutsch ab. Jedes S
 |---|---|---|
 | `Typ.Text` | `TEXT` | Zeichenkette. |
 | `Typ.Number` | `ZAHL` | Numerischer Wert. |
-| `Typ.Flag` | `FLAGGE` | Boolescher Wert. |
+| `Typ.Flag` | `MARKIERUNG` | Boolescher Wert. Markiert/nicht markiert — wie ein Häkchen. |
 | `Typ.Choice` | `AUSWAHL(...)` | Enum — einer der aufgelisteten Werte. |
 | `Typ.List` | `LISTE` | Array strukturierter Elemente. |
 
