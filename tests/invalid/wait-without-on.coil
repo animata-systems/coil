@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse Mod.On
+' @error parse wait-requires-on
 ' @covers Op.Wait, Mod.On
 ' @description WAIT requires ON modifier with at least one promise
 

@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse
+' @error parse execute-template-forbidden
 ' @covers Op.Execute
 ' @description Template body << >> is forbidden in EXECUTE
 

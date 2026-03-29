@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse Op.Wait
+' @error parse wait-unexpected-token
 ' @covers Op.Wait
 ' @description Unexpected token inside WAIT block is not silently skipped
 

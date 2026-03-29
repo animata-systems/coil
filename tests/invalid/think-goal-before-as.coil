@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse
+' @error parse think-rigging-after-formulation
 ' @covers Op.Think
 ' @description Formulation modifier (GOAL) before rigging modifier (AS)
 

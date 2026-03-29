@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse Op.Think
+' @error parse think-unexpected-token
 ' @covers Op.Think
 ' @description Unexpected token inside THINK block is not silently skipped
 

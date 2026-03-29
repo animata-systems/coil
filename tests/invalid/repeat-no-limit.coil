@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse
+' @error parse repeat-until-requires-limit
 ' @covers Op.Repeat
 ' @description REPEAT without mandatory upper limit
 

@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error parse
+' @error parse exit-no-arguments
 ' @covers Op.Exit
 ' @description EXIT does not accept arguments or modifiers
 
