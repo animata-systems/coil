@@ -1,0 +1,11 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse Mod.On
+' @covers Op.Wait, Mod.On
+' @description WAIT requires ON modifier with at least one promise
+
+WAIT
+  TIMEOUT 30s
+END

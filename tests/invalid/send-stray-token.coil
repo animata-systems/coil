@@ -1,0 +1,13 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse Op.Send
+' @covers Op.Send
+' @description Unexpected token inside SEND block is not silently skipped
+
+SEND
+  stray
+  TO #general
+  << hello >>
+END

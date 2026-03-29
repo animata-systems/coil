@@ -1,0 +1,12 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse Op.Wait
+' @covers Op.Wait
+' @description Unexpected token inside WAIT block is not silently skipped
+
+WAIT
+  stray
+  ON ?plan
+END

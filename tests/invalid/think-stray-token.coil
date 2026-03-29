@@ -1,0 +1,12 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse Op.Think
+' @covers Op.Think
+' @description Unexpected token inside THINK block is not silently skipped
+
+THINK analysis
+  stray
+  GOAL << analyze data >>
+END
