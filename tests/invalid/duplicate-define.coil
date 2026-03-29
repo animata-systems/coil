@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error validate
+' @error validate duplicate-define
 ' @covers Op.Define
 ' @description DEFINE with the same name twice is a preparation error
 

@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error validate
+' @error validate undefined-variable
 ' @covers Op.Send
 ' @description Using $name in template without DEFINE or RECEIVE
 

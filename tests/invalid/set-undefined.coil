@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error validate
+' @error validate set-without-define
 ' @covers Op.Set
 ' @description SET on a name that was never defined
 

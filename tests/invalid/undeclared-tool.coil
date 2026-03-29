@@ -2,7 +2,7 @@
 ' @role test
 ' @status stable
 ' @dialect en-standard
-' @error validate
+' @error validate undeclared-tool
 ' @covers Op.Tools, Op.Execute
 ' @description Using !name without declaring in TOOLS
 
