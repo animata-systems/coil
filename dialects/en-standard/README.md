@@ -123,17 +123,17 @@ The standard English dialect prioritizes readability and discoverability over br
 ## Example: Research Agent
 
 ```coil
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Environment
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ACTORS expert, author
 TOOLS search
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Roles — expert profiles for LLM.
 ' Define the knowledge and approach
 ' the LLM should adopt for a task.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DEFINE research_skill
 <<
 You are a research analyst.
@@ -154,10 +154,10 @@ correlation and causation.
 >>
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Input data — the environment must provide
 ' values before the protocol continues.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 RECEIVE query
 <<
 User query for research.
@@ -176,7 +176,7 @@ Current case identifier.
 >>
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 1. Task definition — structured like a math problem:
 '    AS      — role / expert profile
 '    GOAL    — objective
@@ -188,7 +188,7 @@ END
 ' promise ?analysis and a live stream ~analysis.
 ' Input can be supplemented while thinking
 ' is in progress via SIGNAL.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 THINK analysis
   AS $research_skill, $domain_expertise
   GOAL <<
@@ -210,11 +210,11 @@ THINK analysis
   * confidence: CHOICE(high, medium, low)
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 2. Data collection — parallel to reasoning.
 '    Search and expert request block
 '    neither each other nor THINK.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 EXECUTE found
   USING !search
   - query: $query
@@ -231,12 +231,12 @@ SEND opinion
   >>
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 3. Supplementing input while thinking.
 '    Data arrives in arbitrary order —
 '    each result is fed into ~analysis immediately.
 '    The LLM incorporates it without restarting.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 REPEAT 2
   WAIT data
     ON ?found, ?opinion
@@ -250,18 +250,18 @@ REPEAT 2
   END
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 4. Analysis is complete.
 '    The result incorporates initial data,
 '    search results, and expert feedback.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 WAIT
   ON ?analysis
 END
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 5. Deliver the answer.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 SEND
   TO #results/$case_id
   FOR @author

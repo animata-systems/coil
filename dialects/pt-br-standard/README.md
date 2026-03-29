@@ -144,17 +144,17 @@ Este dialeto oferece um mapeamento idiomático em português brasileiro de todas
 ## Exemplo: agente de pesquisa
 
 ```coil
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Ambiente
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PARTICIPANTES especialista, autor
 FERRAMENTAS busca
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Papéis — perfis de expertise para o LLM.
 ' Que conhecimentos e abordagem o LLM
 ' deve adotar para a tarefa.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DEFINA competência_pesquisa
 <<
 Você é um analista pesquisador.
@@ -176,10 +176,10 @@ correlação e causalidade.
 >>
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Dados de entrada — o ambiente deve fornecer
 ' esses valores antes que o protocolo continue.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 RECEBA consulta
 <<
 Consulta do usuário para pesquisa.
@@ -198,7 +198,7 @@ Identificador do caso atual.
 >>
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 1. Enunciado da tarefa — estruturado como
 '    um problema de matemática:
 '    COMO      — papel / perfil de especialista
@@ -211,7 +211,7 @@ FIM
 ' promessa de resultado ?análise e um fluxo
 ' ao vivo ~análise. As entradas podem ser
 ' complementadas durante a reflexão via SINAL.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PENSE análise
   COMO $competência_pesquisa, $expertise_domínio
   OBJETIVO <<
@@ -234,12 +234,12 @@ PENSE análise
   * confiança: OPÇÃO(alta, média, baixa)
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 2. Coleta de dados — em paralelo com
 '    a reflexão. A busca e o pedido ao
 '    especialista não bloqueiam um ao outro
 '    nem bloqueiam PENSE.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 EXECUTE encontrado
   COM !busca
   - query: $consulta
@@ -256,13 +256,13 @@ ESCREVA opinião
   >>
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 3. Complementar entradas durante a reflexão.
 '    Os dados chegam em ordem arbitrária —
 '    cada resultado é injetado em ~análise
 '    imediatamente. O LLM incorpora sem
 '    reiniciar.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 REPITA 2
   ESPERE dados
     POR ?encontrado, ?opinião
@@ -276,19 +276,19 @@ REPITA 2
   FIM
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 4. A análise está completa.
 '    O resultado incorpora os dados iniciais,
 '    os resultados da busca e a opinião
 '    do especialista.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ESPERE
   POR ?análise
 FIM
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 5. Entregar a resposta.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ESCREVA
   NO #resultados/$caso_id
   PARA @autor

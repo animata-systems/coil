@@ -144,17 +144,17 @@ Ce dialecte fournit un mappage idiomatique en français de toutes les constructi
 ## Exemple : agent de recherche
 
 ```coil
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Environnement
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PARTICIPANTS expert, auteur
 OUTILS recherche
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Rôles — profils d'expertise pour le LLM.
 ' Quelles connaissances et quelle approche
 ' le LLM doit adopter pour la tâche.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DÉFINIS compétence_recherche
 <<
 Tu es un analyste-chercheur.
@@ -176,10 +176,10 @@ la corrélation de la causalité.
 >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Données d'entrée — l'environnement doit fournir
 ' ces valeurs avant que le protocole ne continue.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 REÇOIS requête
 <<
 Requête utilisateur pour la recherche.
@@ -198,7 +198,7 @@ Identifiant du dossier en cours.
 >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 1. Énoncé de la tâche — structuré comme un
 '    problème de mathématiques :
 '    COMME    — rôle / profil d'expert
@@ -211,7 +211,7 @@ FIN
 ' promesse de résultat ?analyse et un flux
 ' en direct ~analyse. Les entrées peuvent être
 ' complétées pendant la réflexion via SIGNAL.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PENSE analyse
   COMME $compétence_recherche, $expertise_domaine
   OBJECTIF <<
@@ -234,11 +234,11 @@ PENSE analyse
   * confiance: CHOIX(haute, moyenne, faible)
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 2. Collecte de données — en parallèle avec
 '    la réflexion. La recherche et la demande
 '    d'avis ne bloquent ni l'une l'autre ni PENSE.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 EXÉCUTE trouvé
   AVEC !recherche
   - query: $requête
@@ -255,12 +255,12 @@ FIN
   >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 3. Compléter les entrées pendant la réflexion.
 '    Les données arrivent dans un ordre quelconque —
 '    chaque résultat est injecté dans ~analyse
 '    immédiatement. Le LLM l'intègre sans redémarrer.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 RÉPÈTE 2
   ATTENDS données
     CIBLE ?trouvé, ?avis
@@ -274,18 +274,18 @@ RÉPÈTE 2
   FIN
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 4. L'analyse est terminée.
 '    Le résultat intègre les données initiales,
 '    les résultats de recherche et l'avis d'expert.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ATTENDS
   CIBLE ?analyse
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 5. Transmettre la réponse.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ÉCRIS
   VERS #résultats/$dossier_id
   POUR @auteur

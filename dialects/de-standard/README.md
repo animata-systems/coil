@@ -144,17 +144,17 @@ Dieser Dialekt bildet alle COIL-Konstrukte auf idiomatisches Deutsch ab. Jedes S
 ## Beispiel: Recherche-Agent
 
 ```coil
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Umgebung
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 TEILNEHMER experte, autor
 WERKZEUGE suche
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Rollen — Expertenprofile für das LLM.
 ' Welches Wissen und welchen Ansatz
 ' das LLM bei der Aufgabe einsetzen soll.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DEFINIERE recherche_skill
 <<
 Du bist ein Research-Analyst.
@@ -176,10 +176,10 @@ Korrelation und Kausalität.
 >>
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Eingabedaten — die Umgebung muss diese Werte
 ' liefern, bevor das Protokoll fortfährt.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 EMPFANGE anfrage
 <<
 Nutzeranfrage zur Recherche.
@@ -198,7 +198,7 @@ Kennung des aktuellen Falls.
 >>
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 1. Aufgabenstellung — wie ein mathematisches
 '    Problem strukturiert:
 '    ALS      — Rolle / Expertenprofil
@@ -211,7 +211,7 @@ ENDE
 ' Ergebnisversprechen ?analyse und einen
 ' Live-Strom ~analyse. Eingaben können
 ' während des Denkens über SIGNAL ergänzt werden.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DENKE analyse
   ALS $recherche_skill, $fachkompetenz
   ZIEL <<
@@ -234,11 +234,11 @@ DENKE analyse
   * sicherheit: AUSWAHL(hoch, mittel, niedrig)
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 2. Datenerhebung — parallel zum Denkprozess.
 '    Suche und Expertenanfrage blockieren
 '    weder einander noch DENKE.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 FÜHRE AUS gefunden
   MIT !suche
   - query: $anfrage
@@ -255,12 +255,12 @@ SCHREIBE meinung
   >>
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 3. Eingaben während des Denkens ergänzen.
 '    Daten treffen in beliebiger Reihenfolge ein —
 '    jedes Ergebnis fließt sofort in ~analyse ein.
 '    Das LLM berücksichtigt es ohne Neustart.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 WIEDERHOLE 2
   WARTE daten
     AUF ?gefunden, ?meinung
@@ -274,18 +274,18 @@ WIEDERHOLE 2
   ENDE
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 4. Die Analyse ist abgeschlossen.
 '    Das Ergebnis berücksichtigt Ausgangsdaten,
 '    Suchergebnisse und Expertenfeedback.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 WARTE
   AUF ?analyse
 ENDE
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 5. Antwort übermitteln.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 SCHREIBE
   AN #ergebnisse/$fall_id
   FÜR @autor

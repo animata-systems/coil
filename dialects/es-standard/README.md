@@ -144,17 +144,17 @@ Este dialecto ofrece un mapeo idiomático en español de todas las construccione
 ## Ejemplo: agente de investigación
 
 ```coil
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Entorno
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PARTICIPANTES experto, autor
 HERRAMIENTAS búsqueda
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Roles — perfiles de experiencia para el LLM.
 ' Qué conocimientos y enfoque debe adoptar
 ' el LLM para la tarea.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 DEFINE competencia_investigación
 <<
 Eres un analista investigador.
@@ -176,10 +176,10 @@ correlación y causalidad.
 >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' Datos de entrada — el entorno debe proporcionar
 ' estos valores antes de que el protocolo continúe.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 RECIBE consulta
 <<
 Consulta del usuario para la investigación.
@@ -198,7 +198,7 @@ Identificador del caso actual.
 >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 1. Enunciado de la tarea — estructurado como
 '    un problema matemático:
 '    COMO      — rol / perfil de experto
@@ -211,7 +211,7 @@ FIN
 ' promesa de resultado ?análisis y un flujo
 ' en vivo ~análisis. Las entradas pueden
 ' complementarse durante la reflexión vía SEÑAL.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 PIENSA análisis
   COMO $competencia_investigación, $experiencia_dominio
   OBJETIVO <<
@@ -234,12 +234,12 @@ PIENSA análisis
   * confianza: OPCIÓN(alta, media, baja)
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 2. Recopilación de datos — en paralelo con
 '    la reflexión. La búsqueda y la consulta
 '    al experto no se bloquean mutuamente
 '    ni bloquean PIENSA.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 EJECUTA encontrado
   CON !búsqueda
   - query: $consulta
@@ -256,13 +256,13 @@ ESCRIBE opinión
   >>
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 3. Complementar entradas durante la reflexión.
 '    Los datos llegan en orden arbitrario —
 '    cada resultado se inyecta en ~análisis
 '    de inmediato. El LLM lo incorpora
 '    sin reiniciarse.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 REPITE 2
   ESPERA datos
     POR ?encontrado, ?opinión
@@ -276,19 +276,19 @@ REPITE 2
   FIN
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 4. El análisis está completo.
 '    El resultado incorpora los datos iniciales,
 '    los resultados de búsqueda y la opinión
 '    del experto.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ESPERA
   POR ?análisis
 FIN
 
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ' 5. Entregar la respuesta.
-' ──────────────────────────────────────────────
+' ═══════════════════════════════════════
 ESCRIBE
   HACIA #resultados/$caso_id
   PARA @autor
