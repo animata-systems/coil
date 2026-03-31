@@ -25,7 +25,7 @@ EXIT
 
 ## Status
 
-Spec v0.3 — working draft with explicit status markers. Each area of the language has one of three normative statuses:
+Spec v0.4 — working draft with explicit status markers. Each area of the language has one of three normative statuses:
 
 - **Stable** — part of the current norm. Docs and examples can teach this. Downstream work can rely on it.
 - **Experimental** — the idea is accepted, but syntax or semantics may still change. Parser presence alone does not make it normative.
