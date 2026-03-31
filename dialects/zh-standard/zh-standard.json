@@ -58,7 +58,7 @@
     "Dur.Hours": "时"
   },
   "expressions": {
-    "Expr.And": "与",
+    "Expr.And": "且",
     "Expr.Or": "或",
     "Expr.Not": "非",
     "Expr.True": "真",
