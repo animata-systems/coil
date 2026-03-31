@@ -56,5 +56,12 @@
     "Dur.Seconds": "s",
     "Dur.Minutes": "m",
     "Dur.Hours": "h"
+  },
+  "expressions": {
+    "Expr.And": "ET",
+    "Expr.Or": "OU",
+    "Expr.Not": "NON",
+    "Expr.True": "VRAI",
+    "Expr.False": "FAUX"
   }
 }

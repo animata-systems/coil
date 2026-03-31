@@ -2,7 +2,7 @@
 <!-- @role demo -->
 <!-- @status mixed -->
 <!-- @dialect en-standard -->
-<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal, Op.Receive, Mod.Timeout, Op.Each, Mod.From, Op.If, Op.Define, Op.Set -->
 <!-- @description Research agent — full dialect showcase -->
 
 # COIL:en-standard — Standard English Dialect
@@ -275,6 +275,129 @@ SEND
   <<
   $analysis.answer
   >>
+END
+
+EXIT
+```
+
+---
+
+## Example 2: Document Review
+
+Demonstrates all stable v0.4 constructs: expression grammar (`IF` with `AND`, `OR`, `NOT`, `TRUE`, `FALSE`), `RECEIVE` with `TIMEOUT`, stream MVP (`SIGNAL`), `EACH` with nested scope.
+
+```coil
+' ═══════════════════════════════════════
+' Showcase: document review
+' Demonstrates expression grammar,
+' stream MVP (SIGNAL), RECEIVE with timeout,
+' EACH with nested scope.
+' ═══════════════════════════════════════
+
+ACTORS author
+
+TOOLS search
+
+' --- RECEIVE with TIMEOUT ---
+
+RECEIVE document
+TIMEOUT 3m
+<<
+Paste the document text for review.
+>>
+END
+
+' --- THINK creates stream ~review ---
+
+THINK review
+  GOAL <<
+  Review the document.
+  >>
+  INPUT <<
+  $document
+  >>
+  RESULT
+  * issues: LIST - issues found
+    * title: TEXT - description
+    * severity: NUMBER - severity from 1 to 10
+    * fixable: FLAG - can be auto-fixed
+  * score: NUMBER - overall score from 1 to 10
+END
+
+' --- EXECUTE + SIGNAL into active stream ---
+
+EXECUTE refs
+  USING !search
+  - query: $document
+END
+
+WAIT
+  ON ?refs
+END
+
+SIGNAL ~review
+  <<
+  Additional sources: $refs
+  >>
+END
+
+WAIT
+  ON ?review
+END
+
+' --- Expression grammar: comparisons, AND, NOT ---
+
+DEFINE needs_attention
+FALSE
+END
+
+IF $review.score < 5 AND NOT ($review.score = 1)
+  SET $needs_attention
+  TRUE
+  END
+END
+
+' --- EACH with nested scope ---
+' $issue, ?fix, $fix — invisible outside the loop
+
+EACH $issue FROM $review.issues
+
+  IF ($issue.severity >= 7 AND $issue.fixable = TRUE) OR $issue.severity >= 9
+    THINK fix
+      GOAL <<
+      Suggest a fix.
+      >>
+      INPUT <<
+      Issue: $issue.title
+      >>
+      RESULT
+      * suggestion: TEXT - suggestion
+    END
+
+    WAIT
+      ON ?fix
+    END
+
+    SEND
+      FOR @author
+      <<
+      Issue: $issue.title
+      Fix: $fix.suggestion
+      >>
+    END
+  END
+
+END
+
+' --- Summary ---
+
+IF $needs_attention = TRUE
+  SEND
+    FOR @author
+    <<
+    Document needs attention. Score: $review.score
+    >>
+  END
 END
 
 EXIT

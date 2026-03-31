@@ -2,7 +2,7 @@
 <!-- @role demo -->
 <!-- @status mixed -->
 <!-- @dialect de-standard -->
-<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal, Op.Receive, Mod.Timeout, Op.Each, Mod.From, Op.If, Op.Define, Op.Set -->
 <!-- @description Research agent — full dialect showcase -->
 
 # COIL:de-standard — Standarddeutscher Dialekt
@@ -299,6 +299,129 @@ SCHREIBE
   <<
   $analyse.antwort
   >>
+ENDE
+
+SCHLUSS
+```
+
+---
+
+## Beispiel 2: Dokumentenprüfung
+
+Demonstriert alle stabilen v0.4-Konstrukte: Expression Grammar (`WENN` mit `UND`, `ODER`, `NICHT`, `WAHR`, `FALSCH`), `EMPFANGE` mit `HÖCHSTENS`, Stream MVP (`SIGNAL`), `JEDES` mit verschachteltem Scope.
+
+```coil
+' ═══════════════════════════════════════
+' Showcase: Dokumentenprüfung
+' Demonstriert Expression Grammar,
+' Stream MVP (SIGNAL), EMPFANGE mit Timeout,
+' JEDES mit verschachteltem Scope.
+' ═══════════════════════════════════════
+
+TEILNEHMER autor
+
+WERKZEUGE search
+
+' --- EMPFANGE mit HÖCHSTENS (Timeout) ---
+
+EMPFANGE document
+HÖCHSTENS 3m
+<<
+Fügen Sie den Dokumenttext zur Überprüfung ein.
+>>
+ENDE
+
+' --- DENKE erstellt Stream ~review ---
+
+DENKE review
+  ZIEL <<
+  Überprüfe das Dokument.
+  >>
+  EINGABE <<
+  $document
+  >>
+  ERGEBNIS
+  * issues: LISTE - gefundene Probleme
+    * title: TEXT - Beschreibung
+    * severity: ZAHL - Schweregrad von 1 bis 10
+    * fixable: MARKIERUNG - automatisch behebbar
+  * score: ZAHL - Gesamtbewertung von 1 bis 10
+ENDE
+
+' --- FÜHRE AUS + SIGNAL in aktiven Stream ---
+
+FÜHRE AUS refs
+  MIT !search
+  - query: $document
+ENDE
+
+WARTE
+  AUF ?refs
+ENDE
+
+SIGNAL ~review
+  <<
+  Zusätzliche Quellen: $refs
+  >>
+ENDE
+
+WARTE
+  AUF ?review
+ENDE
+
+' --- Expression Grammar: Vergleiche, UND, NICHT ---
+
+DEFINIERE needs_attention
+FALSCH
+ENDE
+
+WENN $review.score < 5 UND NICHT ($review.score = 1)
+  SETZE $needs_attention
+  WAHR
+  ENDE
+ENDE
+
+' --- JEDES mit verschachteltem Scope ---
+' $issue, ?fix, $fix — außerhalb der Schleife unsichtbar
+
+JEDES $issue VON $review.issues
+
+  WENN ($issue.severity >= 7 UND $issue.fixable = WAHR) ODER $issue.severity >= 9
+    DENKE fix
+      ZIEL <<
+      Schlage eine Korrektur vor.
+      >>
+      EINGABE <<
+      Problem: $issue.title
+      >>
+      ERGEBNIS
+      * suggestion: TEXT - Vorschlag
+    ENDE
+
+    WARTE
+      AUF ?fix
+    ENDE
+
+    SCHREIBE
+      FÜR @autor
+      <<
+      Problem: $issue.title
+      Korrektur: $fix.suggestion
+      >>
+    ENDE
+  ENDE
+
+ENDE
+
+' --- Zusammenfassung ---
+
+WENN $needs_attention = WAHR
+  SCHREIBE
+    FÜR @autor
+    <<
+    Dokument erfordert Aufmerksamkeit. Bewertung: $review.score
+    >>
+  ENDE
 ENDE
 
 SCHLUSS

@@ -56,5 +56,12 @@
     "Dur.Seconds": "с",
     "Dur.Minutes": "м",
     "Dur.Hours": "ч"
+  },
+  "expressions": {
+    "Expr.And": "И",
+    "Expr.Or": "ИЛИ",
+    "Expr.Not": "НЕ",
+    "Expr.True": "ИСТИНА",
+    "Expr.False": "ЛОЖЬ"
   }
 }

@@ -56,5 +56,12 @@
     "Dur.Seconds": "秒",
     "Dur.Minutes": "分",
     "Dur.Hours": "時"
+  },
+  "expressions": {
+    "Expr.And": "かつ",
+    "Expr.Or": "または",
+    "Expr.Not": "否定",
+    "Expr.True": "真",
+    "Expr.False": "偽"
   }
 }

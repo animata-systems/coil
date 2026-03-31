@@ -2,7 +2,7 @@
 <!-- @role demo -->
 <!-- @status mixed -->
 <!-- @dialect ja-standard -->
-<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal, Op.Receive, Mod.Timeout, Op.Each, Mod.From, Op.If, Op.Define, Op.Set -->
 <!-- @description Research agent — full dialect showcase -->
 
 # COIL:ja-standard — 日本語標準方言
@@ -294,6 +294,129 @@
   <<
   $分析.回答
   >>
+以上
+
+終了
+```
+
+---
+
+## 例 2：ドキュメントレビュー
+
+全ての安定した v0.4 構文を実演します：式文法（`もし` と `かつ`・`または`・`でない`・`真`・`偽`）、`最大` 付きの `受信`、ストリーム MVP（`信号`）、ネストスコープ付きの `各`。
+
+```coil
+' ═══════════════════════════════════════
+' Showcase：ドキュメントレビュー
+' 式文法、ストリーム MVP（信号）、
+' タイムアウト付き受信、
+' ネストスコープ付き各を実演。
+' ═══════════════════════════════════════
+
+参加者 著者
+
+道具 search
+
+' --- 受信 最大（タイムアウト）付き ---
+
+受信 document
+最大 3分
+<<
+レビュー対象のドキュメントテキストを貼り付けてください。
+>>
+以上
+
+' --- 思考 はストリーム ~review を作成 ---
+
+思考 review
+  目標 <<
+  ドキュメントをレビューする。
+  >>
+  入力 <<
+  $document
+  >>
+  結果
+  * issues: 一覧 - 発見された問題
+    * title: 文 - 説明
+    * severity: 数値 - 重大度 1 から 10
+    * fixable: 真偽 - 自動修正可能か
+  * score: 数値 - 総合スコア 1 から 10
+以上
+
+' --- 実行 + 信号 をアクティブストリームに ---
+
+実行 refs
+  使用 !search
+  - query: $document
+以上
+
+待機
+  対 ?refs
+以上
+
+信号 ~review
+  <<
+  追加ソース：$refs
+  >>
+以上
+
+待機
+  対 ?review
+以上
+
+' --- 式文法：比較、かつ、でない ---
+
+定義 needs_attention
+偽
+以上
+
+もし $review.score < 5 かつ でない ($review.score = 1)
+  変更 $needs_attention
+  真
+  以上
+以上
+
+' --- 各 ネストスコープ付き ---
+' $issue, ?fix, $fix — ループ外では不可視
+
+各 $issue から $review.issues
+
+  もし ($issue.severity >= 7 かつ $issue.fixable = 真) または $issue.severity >= 9
+    思考 fix
+      目標 <<
+      修正を提案する。
+      >>
+      入力 <<
+      問題：$issue.title
+      >>
+      結果
+      * suggestion: 文 - 提案
+    以上
+
+    待機
+      対 ?fix
+    以上
+
+    送信
+      宛 @著者
+      <<
+      問題：$issue.title
+      修正：$fix.suggestion
+      >>
+    以上
+  以上
+
+以上
+
+' --- まとめ ---
+
+もし $needs_attention = 真
+  送信
+    宛 @著者
+    <<
+    ドキュメントは注意が必要です。スコア：$review.score
+    >>
+  以上
 以上
 
 終了

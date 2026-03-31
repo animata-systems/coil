@@ -2,7 +2,7 @@
 <!-- @role demo -->
 <!-- @status mixed -->
 <!-- @dialect es-standard -->
-<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal -->
+<!-- @covers Op.Think, Op.Execute, Op.Send, Op.Wait, Op.Signal, Op.Receive, Mod.Timeout, Op.Each, Mod.From, Op.If, Op.Define, Op.Set -->
 <!-- @description Research agent — full dialect showcase -->
 
 # COIL:es-standard — Dialecto español estándar
@@ -302,6 +302,129 @@ ESCRIBE
   <<
   $análisis.respuesta
   >>
+FIN
+
+TERMINA
+```
+
+---
+
+## Ejemplo 2: revisión de documento
+
+Demuestra todas las construcciones estables v0.4: expression grammar (`SI` con `Y`, `O`, `NO`, `VERDADERO`, `FALSO`), `RECIBE` con `MÁXIMO`, stream MVP (`SEÑAL`), `CADA` con scope anidado.
+
+```coil
+' ═══════════════════════════════════════
+' Showcase: revisión de documento
+' Demuestra expression grammar,
+' stream MVP (SEÑAL), RECIBE con timeout,
+' CADA con scope anidado.
+' ═══════════════════════════════════════
+
+PARTICIPANTES autor
+
+HERRAMIENTAS search
+
+' --- RECIBE con MÁXIMO (timeout) ---
+
+RECIBE document
+MÁXIMO 3m
+<<
+Pegue el texto del documento para revisión.
+>>
+FIN
+
+' --- PIENSA crea stream ~review ---
+
+PIENSA review
+  OBJETIVO <<
+  Revisa el documento.
+  >>
+  ENTRADA <<
+  $document
+  >>
+  RESULTADO
+  * issues: LISTA - problemas encontrados
+    * title: TEXTO - descripción
+    * severity: NÚMERO - gravedad de 1 a 10
+    * fixable: MARCADOR - se puede corregir automáticamente
+  * score: NÚMERO - puntuación general de 1 a 10
+FIN
+
+' --- EJECUTA + SEÑAL en stream activo ---
+
+EJECUTA refs
+  CON !search
+  - query: $document
+FIN
+
+ESPERA
+  POR ?refs
+FIN
+
+SEÑAL ~review
+  <<
+  Fuentes adicionales: $refs
+  >>
+FIN
+
+ESPERA
+  POR ?review
+FIN
+
+' --- Expression grammar: comparaciones, Y, NO ---
+
+DEFINE needs_attention
+FALSO
+FIN
+
+SI $review.score < 5 Y NO ($review.score = 1)
+  MODIFICA $needs_attention
+  VERDADERO
+  FIN
+FIN
+
+' --- CADA con scope anidado ---
+' $issue, ?fix, $fix — invisibles fuera del ciclo
+
+CADA $issue DE $review.issues
+
+  SI ($issue.severity >= 7 Y $issue.fixable = VERDADERO) O $issue.severity >= 9
+    PIENSA fix
+      OBJETIVO <<
+      Sugiere una corrección.
+      >>
+      ENTRADA <<
+      Problema: $issue.title
+      >>
+      RESULTADO
+      * suggestion: TEXTO - sugerencia
+    FIN
+
+    ESPERA
+      POR ?fix
+    FIN
+
+    ESCRIBE
+      PARA @autor
+      <<
+      Problema: $issue.title
+      Corrección: $fix.suggestion
+      >>
+    FIN
+  FIN
+
+FIN
+
+' --- Resumen ---
+
+SI $needs_attention = VERDADERO
+  ESCRIBE
+    PARA @autor
+    <<
+    El documento necesita atención. Puntuación: $review.score
+    >>
+  FIN
 FIN
 
 TERMINA
