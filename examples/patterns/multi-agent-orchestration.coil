@@ -70,7 +70,7 @@
 
 КАЖДЫЙ $task ИЗ $parsed_plan.files
 
-  ЕСЛИ $task.change_type == "create"
+  ЕСЛИ $task.change_type = "create"
     НАПИШИ work_result
       КУДА #реализация
       КОМУ @создатель
@@ -85,7 +85,7 @@
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $task.change_type == "modify"
+  ЕСЛИ $task.change_type = "modify"
     НАПИШИ work_result
       КУДА #реализация
       КОМУ @модификатор
@@ -100,7 +100,7 @@
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $task.change_type == "delete"
+  ЕСЛИ $task.change_type = "delete"
     НАПИШИ work_result
       КУДА #реализация
       КОМУ @удалятор

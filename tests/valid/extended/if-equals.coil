@@ -23,7 +23,7 @@ General support agent.
 >>
 END
 
-IF $verdict.type == "technical"
+IF $verdict.type = "technical"
   SET $role
   <<
   Technical support specialist.

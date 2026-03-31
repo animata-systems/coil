@@ -1,0 +1,35 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.If
+' @description IF with chained field access
+
+THINK analysis
+  GOAL <<
+  Analyze the document.
+  >>
+  RESULT
+  * metadata: OBJECT
+    * author: TEXT
+    * stats: OBJECT
+      * word_count: NUMBER
+END
+
+WAIT
+  ON ?analysis
+END
+
+IF $analysis.metadata.stats.word_count > 1000
+  THINK summarize
+    GOAL <<
+    Summarize the long document.
+    >>
+  END
+
+  WAIT
+    ON ?summarize
+  END
+END
+
+EXIT

@@ -66,19 +66,19 @@
 ' Выбор роли по типу запроса
 ' ═══════════════════════════════════════
 
-ЕСЛИ $classification.type == "general"
+ЕСЛИ $classification.type = "general"
   ОПРЕДЕЛИ current_role
   $general_role
   КОНЕЦ
 КОНЕЦ
 
-ЕСЛИ $classification.type == "refund"
+ЕСЛИ $classification.type = "refund"
   ОПРЕДЕЛИ current_role
   $refund_role
   КОНЕЦ
 КОНЕЦ
 
-ЕСЛИ $classification.type == "technical"
+ЕСЛИ $classification.type = "technical"
   ОПРЕДЕЛИ current_role
   $technical_role
   КОНЕЦ

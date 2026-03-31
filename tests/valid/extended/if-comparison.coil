@@ -18,12 +18,12 @@ WAIT
 END
 
 DEFINE done
-0
+FALSE
 END
 
 IF $evaluation.score >= 8
   SET $done
-  1
+  TRUE
   END
 END
 

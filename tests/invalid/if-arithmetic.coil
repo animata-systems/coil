@@ -1,0 +1,17 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse arithmetic-deferred
+' @covers Op.If
+' @description Arithmetic in expressions is deferred — not valid in v0.4
+
+DEFINE x
+5
+END
+
+IF $x + 1 > 5
+  DEFINE result
+  "yes"
+  END
+END

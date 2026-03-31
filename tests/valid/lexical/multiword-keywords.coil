@@ -1,0 +1,68 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Timeout, Mod.Limit, Mod.Await, Mod.Until, Mod.ReplyTo
+' @description Stress test: all multi-word keywords in en-standard dialect
+
+ACTORS user, expert
+
+RECEIVE input
+<<
+User request.
+>>
+END
+
+THINK classification
+  GOAL <<
+  Classify the request.
+  >>
+  INPUT <<
+  $input
+  >>
+  RESULT
+  * type: CHOICE(general, technical) - request type
+  * score: NUMBER - urgency score
+END
+
+WAIT
+  ON ?classification
+END
+
+' AWAIT ANY — multi-word modifier
+SEND question
+  FOR @expert
+  AWAIT ANY
+  TIMEOUT 5m
+  <<
+  Please review: $input
+  >>
+END
+
+WAIT
+  ON ?question
+END
+
+' REPLY TO — multi-word modifier
+SEND
+  REPLY TO #support/123
+  FOR @user
+  <<
+  Response: $question
+  >>
+END
+
+' NO MORE THAN — multi-word modifier in REPEAT
+DEFINE done
+FALSE
+END
+
+REPEAT UNTIL $done = TRUE NO MORE THAN 3
+  IF $classification.score >= 8
+    SET $done
+    TRUE
+    END
+  END
+END
+
+EXIT

@@ -27,7 +27,7 @@ WAIT
   ON ?classification
 END
 
-IF $classification.type == "a"
+IF $classification.type = "a"
   DEFINE role
   <<
   You handle category A.
@@ -35,7 +35,7 @@ IF $classification.type == "a"
   END
 END
 
-IF $classification.type == "b"
+IF $classification.type = "b"
   DEFINE role
   <<
   You handle category B.

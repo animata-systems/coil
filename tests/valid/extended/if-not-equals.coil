@@ -1,0 +1,38 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.If
+' @description IF with NOT for inequality — D-0035
+
+RECEIVE input
+END
+
+THINK classification
+  GOAL <<
+  Classify the request.
+  >>
+  INPUT <<
+  $input
+  >>
+  RESULT
+  * type: CHOICE(general, technical) - request type
+END
+
+WAIT
+  ON ?classification
+END
+
+IF NOT ($classification.type = "general")
+  THINK special
+    GOAL <<
+    Handle non-general request.
+    >>
+  END
+
+  WAIT
+    ON ?special
+  END
+END
+
+EXIT

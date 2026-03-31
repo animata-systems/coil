@@ -82,28 +82,28 @@
 ' ═══════════════════════════════════════
 
 ОПРЕДЕЛИ needs_improvement
-0
+ЛОЖЬ
 КОНЕЦ
 
-ЕСЛИ $quality_metrics.has_call_to_action == 0
+ЕСЛИ $quality_metrics.has_call_to_action = ЛОЖЬ
   УСТАНОВИ $needs_improvement
-  1
+  ИСТИНА
   КОНЕЦ
 КОНЕЦ
 
 ЕСЛИ $quality_metrics.emotional_appeal < 7
   УСТАНОВИ $needs_improvement
-  1
+  ИСТИНА
   КОНЕЦ
 КОНЕЦ
 
 ЕСЛИ $quality_metrics.clarity < 7
   УСТАНОВИ $needs_improvement
-  1
+  ИСТИНА
   КОНЕЦ
 КОНЕЦ
 
-ЕСЛИ $needs_improvement == 1
+ЕСЛИ $needs_improvement = ИСТИНА
 
   ДУМАЙ improved
     КАК $marketer_role

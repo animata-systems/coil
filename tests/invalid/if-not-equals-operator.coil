@@ -1,0 +1,17 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse disallowed-operator
+' @covers Op.If
+' @description != is not a valid operator — use NOT ($x = value) (D-0035)
+
+DEFINE x
+5
+END
+
+IF $x != 5
+  DEFINE y
+  1
+  END
+END

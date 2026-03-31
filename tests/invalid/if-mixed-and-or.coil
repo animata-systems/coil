@@ -1,0 +1,25 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error validate mixed-and-or-without-parens
+' @covers Op.If
+' @description Mixing AND and OR without parentheses is a preparation error (D-0033)
+
+DEFINE a
+1
+END
+
+DEFINE b
+2
+END
+
+DEFINE c
+3
+END
+
+IF $a > 0 AND $b > 0 OR $c > 0
+  DEFINE result
+  "yes"
+  END
+END

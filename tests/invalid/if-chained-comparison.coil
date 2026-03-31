@@ -1,0 +1,17 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error validate chained-comparison
+' @covers Op.If
+' @description Chained comparisons are not valid (D-0033)
+
+DEFINE x
+5
+END
+
+IF 1 < $x < 10
+  DEFINE result
+  "in range"
+  END
+END

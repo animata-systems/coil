@@ -1,0 +1,16 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error validate send-name-await-none
+' @covers Op.Send, Mod.Await
+' @description SEND with result name but no AWAIT defaults to AWAIT NONE — preparation error (D-0036)
+
+ACTORS user
+
+SEND response
+  FOR @user
+  <<
+  Hello!
+  >>
+END

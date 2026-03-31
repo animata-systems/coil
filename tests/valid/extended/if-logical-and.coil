@@ -1,0 +1,33 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Op.If, Op.Think
+' @description IF with AND logical connective
+
+THINK evaluation
+  GOAL <<
+  Evaluate the candidate.
+  >>
+  RESULT
+  * score: NUMBER - overall score
+  * experience: NUMBER - years of experience
+END
+
+WAIT
+  ON ?evaluation
+END
+
+IF $evaluation.score >= 8 AND $evaluation.experience > 3
+  THINK offer
+    GOAL <<
+    Draft an offer letter.
+    >>
+  END
+
+  WAIT
+    ON ?offer
+  END
+END
+
+EXIT

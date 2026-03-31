@@ -42,7 +42,7 @@ DEFINE current_role
 $general_role
 END
 
-IF $classification.type == "technical"
+IF $classification.type = "technical"
   SET $current_role
   $technical_role
   END

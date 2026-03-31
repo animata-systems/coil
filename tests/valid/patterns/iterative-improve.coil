@@ -41,10 +41,10 @@ $first_draft.text
 END
 
 DEFINE done
-0
+FALSE
 END
 
-REPEAT UNTIL $done NO MORE THAN 3
+REPEAT UNTIL $done = TRUE NO MORE THAN 3
 
   THINK evaluation
     AS $editor_role
@@ -65,11 +65,11 @@ REPEAT UNTIL $done NO MORE THAN 3
 
   IF $evaluation.score >= 8
     SET $done
-    1
+    TRUE
     END
   END
 
-  IF $done == 0
+  IF $done = FALSE
     THINK revision
       AS $writer_role
       GOAL <<

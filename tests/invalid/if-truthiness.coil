@@ -1,0 +1,17 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error validate truthiness-deferred
+' @covers Op.If
+' @description Bare reference in condition (truthiness) is deferred — not valid in v0.4
+
+DEFINE done
+1
+END
+
+IF $done
+  DEFINE result
+  "yes"
+  END
+END

@@ -63,14 +63,14 @@ $initial_translation.text
 КОНЕЦ
 
 ОПРЕДЕЛИ done
-0
+ЛОЖЬ
 КОНЕЦ
 
 ' ═══════════════════════════════════════
 ' Цикл оценки и улучшения
 ' ═══════════════════════════════════════
 
-ПОВТОРЯЙ ДО $done НЕ БОЛЕЕ 3
+ПОВТОРЯЙ ДО $done = ИСТИНА НЕ БОЛЕЕ 3
 
   ДУМАЙ evaluation
     КАК $evaluator_role
@@ -96,11 +96,11 @@ $initial_translation.text
 
   ЕСЛИ $evaluation.quality_score >= 8
     УСТАНОВИ $done
-    1
+    ИСТИНА
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $done == 0
+  ЕСЛИ $done = ЛОЖЬ
     ДУМАЙ improved_translation
       КАК $translator_role
       ЦЕЛЬ <<

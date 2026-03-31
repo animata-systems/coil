@@ -6,10 +6,10 @@
 ' @description REPEAT with condition and mandatory upper limit
 
 DEFINE done
-0
+FALSE
 END
 
-REPEAT UNTIL $done NO MORE THAN 3
+REPEAT UNTIL $done = TRUE NO MORE THAN 3
 
   THINK check
     GOAL <<
@@ -23,9 +23,9 @@ REPEAT UNTIL $done NO MORE THAN 3
     ON ?check
   END
 
-  IF $check.complete == 1
+  IF $check.complete = TRUE
     SET $done
-    1
+    TRUE
     END
   END
 

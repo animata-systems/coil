@@ -79,19 +79,19 @@
 
 КАЖДЫЙ $task ИЗ $plan.files
 
-  ЕСЛИ $task.change_type == "create"
+  ЕСЛИ $task.change_type = "create"
     ОПРЕДЕЛИ current_role
     $worker_create_role
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $task.change_type == "modify"
+  ЕСЛИ $task.change_type = "modify"
     ОПРЕДЕЛИ current_role
     $worker_modify_role
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $task.change_type == "delete"
+  ЕСЛИ $task.change_type = "delete"
     ОПРЕДЕЛИ current_role
     $worker_delete_role
     КОНЕЦ

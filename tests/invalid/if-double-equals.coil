@@ -1,0 +1,17 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse disallowed-operator
+' @covers Op.If
+' @description == is not a valid operator — use = for equality (D-0034)
+
+DEFINE x
+"hello"
+END
+
+IF $x == "hello"
+  DEFINE y
+  1
+  END
+END
