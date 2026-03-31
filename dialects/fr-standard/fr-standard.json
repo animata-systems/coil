@@ -50,7 +50,8 @@
     "Typ.Number": "NOMBRE",
     "Typ.Flag": "MARQUEUR",
     "Typ.Choice": "CHOIX",
-    "Typ.List": "LISTE"
+    "Typ.List": "LISTE",
+    "Typ.Object": "OBJET"
   },
   "durationSuffixes": {
     "Dur.Seconds": "s",

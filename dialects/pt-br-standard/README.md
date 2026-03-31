@@ -122,6 +122,7 @@ Este dialeto oferece um mapeamento idiomático em português brasileiro de todas
 | `Typ.Flag` | `MARCADOR` | Valor booleano. Marcado ou não — como uma caixa de seleção. |
 | `Typ.Choice` | `OPÇÃO(...)` | Enum — um dos valores listados. |
 | `Typ.List` | `LISTA` | Array de elementos estruturados. |
+| `Typ.Object` | `OBJETO` | Registro com campos nomeados. |
 
 ---
 

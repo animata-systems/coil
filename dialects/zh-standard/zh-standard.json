@@ -50,7 +50,8 @@
     "Typ.Number": "数字",
     "Typ.Flag": "标记",
     "Typ.Choice": "选项",
-    "Typ.List": "列表"
+    "Typ.List": "列表",
+    "Typ.Object": "对象"
   },
   "durationSuffixes": {
     "Dur.Seconds": "秒",

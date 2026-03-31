@@ -122,6 +122,7 @@ Ce dialecte fournit un mappage idiomatique en français de toutes les constructi
 | `Typ.Flag` | `MARQUEUR` | Valeur booléenne. Marqué ou non — comme une case à cocher. |
 | `Typ.Choice` | `CHOIX(...)` | Enum — l'une des valeurs listées. |
 | `Typ.List` | `LISTE` | Tableau d'éléments structurés. |
+| `Typ.Object` | `OBJET` | Enregistrement à champs nommés. |
 
 ---
 

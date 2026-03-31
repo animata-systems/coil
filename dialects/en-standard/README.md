@@ -124,6 +124,7 @@ The standard English dialect prioritizes readability and discoverability over br
 | `Typ.Flag` | `FLAG` | Boolean value. |
 | `Typ.Choice` | `CHOICE(...)` | Enum — one of the listed values. |
 | `Typ.List` | `LIST` | Array of structured items. |
+| `Typ.Object` | `OBJECT` | Record with named fields. |
 
 ---
 

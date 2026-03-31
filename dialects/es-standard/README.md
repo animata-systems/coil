@@ -122,6 +122,7 @@ Este dialecto ofrece un mapeo idiomático en español de todas las construccione
 | `Typ.Flag` | `MARCADOR` | Valor booleano. Marcado o no — como una casilla de verificación. |
 | `Typ.Choice` | `OPCIÓN(...)` | Enum — uno de los valores listados. |
 | `Typ.List` | `LISTA` | Arreglo de elementos estructurados. |
+| `Typ.Object` | `OBJETO` | Registro con campos nombrados. |
 
 ---
 

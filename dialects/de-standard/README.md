@@ -122,6 +122,7 @@ Dieser Dialekt bildet alle COIL-Konstrukte auf idiomatisches Deutsch ab. Jedes S
 | `Typ.Flag` | `MARKIERUNG` | Boolescher Wert. Markiert/nicht markiert — wie ein Häkchen. |
 | `Typ.Choice` | `AUSWAHL(...)` | Enum — einer der aufgelisteten Werte. |
 | `Typ.List` | `LISTE` | Array strukturierter Elemente. |
+| `Typ.Object` | `OBJEKT` | Datensatz mit benannten Feldern. |
 
 ---
 

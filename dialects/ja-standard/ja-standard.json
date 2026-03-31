@@ -50,7 +50,8 @@
     "Typ.Number": "数値",
     "Typ.Flag": "真偽",
     "Typ.Choice": "選択",
-    "Typ.List": "一覧"
+    "Typ.List": "一覧",
+    "Typ.Object": "構造"
   },
   "durationSuffixes": {
     "Dur.Seconds": "秒",

@@ -50,7 +50,8 @@
     "Typ.Number": "ЧИСЛО",
     "Typ.Flag": "ФЛАГ",
     "Typ.Choice": "ВЫБОР",
-    "Typ.List": "СПИСОК"
+    "Typ.List": "СПИСОК",
+    "Typ.Object": "ОБЪЕКТ"
   },
   "durationSuffixes": {
     "Dur.Seconds": "с",
