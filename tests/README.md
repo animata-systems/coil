@@ -16,9 +16,29 @@ tests/
 └── invalid/            # must be rejected at preparation time
 ```
 
-## File format
+## File metadata
 
-See [File metadata](../README.md#file-metadata) in the project README.md.
+Every `.coil` file starts with a metadata header in comments:
+
+```coil
+' @test valid
+' @role pattern
+' @status stable
+' @dialect ru-standard
+' @covers Op.Think, Op.If, Op.Send
+' @description Classification followed by routing
+```
+
+| Field | Required | Values | Description |
+|---|---|---|---|
+| `@test` | yes | `valid`, `invalid` | Expected parser outcome |
+| `@role` | yes | `test`, `pattern`, `demo`, `anti-pattern` | What the file contains |
+| `@status` | yes | `stable`, `mixed` | Normative status |
+| `@dialect` | yes | dialect code | Dialect of the file |
+| `@error` | invalid only | `parse`, `validate` | Error phase: parser/lexer throws or validator catches |
+| `@covers` | yes | abstract IDs, comma-separated | Constructs exercised (registry: [dialects/README.md](dialects/README.md) § 4) |
+| `@description` | yes | free text | One-line summary |
+
 
 ## Adding tests
 
