@@ -108,7 +108,7 @@
 \fancyhead[L]{\small\color{coilgray}COIL --- Cognitive Orchestration Interface Language}
 \fancyhead[R]{\small\color{coilgray}\thepage}
 \fancyfoot[L]{\small\color{coilgray}Animata Systems}
-\fancyfoot[R]{\small\color{coilgray}Draft 0.2}
+\fancyfoot[R]{\small\color{coilgray}Draft 0.4}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
@@ -123,7 +123,7 @@
 {\Large Cognitive Orchestration Interface Language}\\[12pt]
 {\large\color{coilgray} Операторский язык сценариев для когнитивной оркестрации}\\[6pt]
 {\color{coilgray} Учебник}\\[6pt]
-{\small\color{coilgray} Черновик 0.2 --- март 2026}
+{\small\color{coilgray} Черновик 0.4 --- апрель 2026}
 \end{center}
 
 \vspace{1em}
@@ -348,7 +348,7 @@
 $general_role
 КОНЕЦ
 
-ЕСЛИ $classification.type == "technical"
+ЕСЛИ $classification.type = "technical"
   УСТАНОВИ $current_role
   $technical_role
   КОНЕЦ
@@ -527,12 +527,12 @@ $initial_translation.text
 КОНЕЦ
 
 ОПРЕДЕЛИ done
-0
+ЛОЖЬ
 КОНЕЦ
 
 ' --- Цикл оценки и улучшения ---
 
-ПОВТОРЯЙ ДО $done НЕ БОЛЕЕ 3
+ПОВТОРЯЙ ДО $done = ИСТИНА НЕ БОЛЕЕ 3
 
   ДУМАЙ evaluation
     КАК $evaluator_role
@@ -554,11 +554,11 @@ $initial_translation.text
 
   ЕСЛИ $evaluation.score >= 8
     УСТАНОВИ $done
-    1
+    ИСТИНА
     КОНЕЦ
   КОНЕЦ
 
-  ЕСЛИ $done == 0
+  ЕСЛИ $done = ЛОЖЬ
     ДУМАЙ improved
       КАК $translator_role
       ЦЕЛЬ <<
@@ -599,7 +599,7 @@ $initial_translation.text
 \subsubsection{Что здесь важно}
 
 \begin{itemize}[leftmargin=2em]
-\item \ic{ПОВТОРЯЙ ДО \$done НЕ БОЛЕЕ 3}~--- цикл с обязательным лимитом. Это не стилистическое требование, а часть конструкции: каждая итерация с \ic{ДУМАЙ} расходует бюджет.
+\item \ic{ПОВТОРЯЙ ДО \$done = ИСТИНА НЕ БОЛЕЕ 3}~--- цикл с обязательным лимитом. Условие выхода~--- полноценное выражение (\ic{\$done = ИСТИНА}), а не голая ссылка. Каждая итерация с \ic{ДУМАЙ} расходует бюджет.
 
 \item \ic{УСТАНОВИ} меняет существующее значение (а не \ic{ОПРЕДЕЛИ}, который создаёт новое).
 
@@ -956,7 +956,7 @@ $initial_translation.text
 
 \begin{itemize}[leftmargin=2em]
 \item \ic{КАЖДЫЙ}~--- итерация по элементам списка.
-\item \ic{СОБЕРИ}~--- агрегация набора результатов.
+\item \ic{СОБЕРИ}~--- агрегация набора результатов (статус: deferred~--- точная форма ещё не зафиксирована).
 \item \ic{СИГНАЛ}~--- отправка данных в существующий поток.
 \end{itemize}
 
@@ -964,7 +964,7 @@ Extended-операторы стабильны по идее, но их точн
 
 \subsection{Инструменты и ВЫПОЛНИ}
 
-\ic{ВЫПОЛНИ} вызывает внешние инструменты: загрузку данных, API, интерактивные сессии. Инструмент создаёт и обещание \ic{?name}, и поток \ic{\~{}name} (для интерактивных сессий).
+\ic{ВЫПОЛНИ} вызывает внешние инструменты: загрузку данных, API, интерактивные сессии. Инструмент создаёт обещание \ic{?name}. Если инструмент поддерживает потоковое взаимодействие, хост-среда дополнительно создаёт поток \ic{\~{}name}.
 
 \begin{code}
 ИНСТРУМЕНТЫ загрузить_статью
