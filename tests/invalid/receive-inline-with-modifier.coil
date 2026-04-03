@@ -1,0 +1,10 @@
+' @test invalid
+' @role test
+' @status stable
+' @dialect en-standard
+' @error parse receive-unexpected-token
+' @covers Op.Receive
+' @description RECEIVE with modifier requires block form with END
+
+RECEIVE user_input
+NO MORE THAN 5m
