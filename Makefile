@@ -16,6 +16,7 @@ SPEC_FILES  := $(SPEC_DIR)/00-overview.md $(SPEC_DIR)/01-lexical.md \
                $(SPEC_DIR)/11-coil-h.md
 
 PANDOC_HDR  := $(TEX_DIR)/pandoc-header.tex
+LUA_FILTER  := $(TEX_DIR)/strip-md-links.lua
 LANG_REF    := $(PDF_DIR)/lang-reference.pdf
 
 .PHONY: all clean
@@ -27,14 +28,15 @@ $(PDF_DIR)/%.pdf: $(TEX_DIR)/%.tex | $(PDF_DIR)
 	pdflatex -output-directory=$(PDF_DIR) $<
 	@rm -f $(PDF_DIR)/*.aux $(PDF_DIR)/*.log $(PDF_DIR)/*.out $(PDF_DIR)/*.toc $(PDF_DIR)/*.listing
 
-$(LANG_REF): $(SPEC_FILES) $(PANDOC_HDR) | $(PDF_DIR)
+$(LANG_REF): $(SPEC_FILES) $(PANDOC_HDR) $(LUA_FILTER) | $(PDF_DIR)
 	pandoc $(SPEC_FILES) -o $@ \
 	  --pdf-engine=xelatex \
 	  -V mainfont="PT Serif" \
 	  -V monofont="JetBrains Mono" \
 	  --toc \
 	  -V geometry:margin=2.5cm \
-	  --include-in-header=$(PANDOC_HDR)
+	  --include-in-header=$(PANDOC_HDR) \
+	  --lua-filter=$(LUA_FILTER)
 
 $(PDF_DIR):
 	mkdir -p $(PDF_DIR)
