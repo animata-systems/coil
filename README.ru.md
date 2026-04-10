@@ -232,10 +232,9 @@ $improved_translation.text
 КОНЕЦ
 ```
 
-Без тела:
+Inline-форма:
 ```coil
 ПОЛУЧИ config_value
-КОНЕЦ
 ```
 
 С таймаутом:

@@ -232,10 +232,9 @@ Please provide the contract number.
 END
 ```
 
-Without body:
+Inline form:
 ```coil
 RECEIVE config_value
-END
 ```
 
 With timeout:
