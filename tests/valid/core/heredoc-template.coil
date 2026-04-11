@@ -5,6 +5,8 @@
 ' @covers Mod.Goal
 ' @description Heredoc template with interpolation (D-0050)
 
+RECEIVE source
+
 THINK analysis
   GOAL <<END
 Analyze the following data from $source:
