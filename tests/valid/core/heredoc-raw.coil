@@ -1,0 +1,26 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Goal
+' @description Raw heredoc template — no substitution (D-0050)
+
+THINK generation
+  GOAL <<'COIL'
+Generate a COIL script like this:
+RECEIVE input
+<<
+Hello, $name!
+>>
+END
+EXIT
+COIL
+  RESULT
+  * script: TEXT - generated COIL code
+END
+
+WAIT
+  ON ?generation
+END
+
+EXIT

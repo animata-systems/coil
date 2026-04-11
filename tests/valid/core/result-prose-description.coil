@@ -1,0 +1,27 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Result
+' @description RESULT descriptions with arbitrary prose: dots, @, !, brackets, quotes (D-0051)
+
+RECEIVE request
+END
+
+THINK analysis
+  GOAL <<
+  Analyze the request.
+  >>
+  RESULT
+  * summary: TEXT - brief summary of config.json analysis
+  * assignee: TEXT - responsible person @ivan
+  * tool_used: TEXT - analysis via !search tool
+  * note: TEXT - important (see details) for "production"
+  * priority: CHOICE(low, medium, high) - severity level 1.0+
+END
+
+WAIT
+  ON ?analysis
+END
+
+EXIT

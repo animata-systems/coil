@@ -1,0 +1,22 @@
+' @test valid
+' @role test
+' @status stable
+' @dialect en-standard
+' @covers Mod.Goal
+' @description Heredoc template with interpolation (D-0050)
+
+THINK analysis
+  GOAL <<END
+Analyze the following data from $source:
+- Look for patterns
+- Use >> and << freely in text
+END
+  RESULT
+  * summary: TEXT - analysis summary
+END
+
+WAIT
+  ON ?analysis
+END
+
+EXIT
