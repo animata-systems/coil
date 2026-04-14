@@ -949,6 +949,21 @@ Spec v0.4 — working draft with explicit status markers. Each area of the langu
 - **Experimental** — the idea is accepted, but syntax or semantics may still change. Parser presence alone does not make it normative.
 - **Deferred** — recognized as important, but consciously not normalized in this cycle. Mentioned only as future work.
 
+## Editor Support
+
+TextMate grammars for syntax highlighting live in `editors/`. One grammar per dialect:
+
+| Dialect | Grammar file |
+|---|---|
+| Russian | `editors/syntaxes/coil-ru.tmLanguage.json` |
+| English | `editors/syntaxes/coil-en.tmLanguage.json` |
+
+**WebStorm / IntelliJ:** Settings → Editor → TextMate Bundles → **+** → select the `coil/` repository root.
+
+**VS Code:** copy `editors/` as an extension folder, or point to it via `--extensionDevelopmentPath`.
+
+Grammars highlight operators, modifiers, terminators, sigils (`$` `?` `@` `!` `#` `~`), templates (`<< >>`), heredocs, strings, result types, durations, and comments.
+
 ## PDF Documents
 
 LaTeX sources in `tex/`, Markdown spec in `spec/`, compiled PDFs in `pdf/`.

@@ -1,0 +1,195 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "COIL (English)",
+  "scopeName": "source.coil.en",
+  "fileTypes": ["coil"],
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#heredoc-raw" },
+    { "include": "#heredoc" },
+    { "include": "#template" },
+    { "include": "#string" },
+    { "include": "#result-field" },
+    { "include": "#operator" },
+    { "include": "#terminator" },
+    { "include": "#modifier-multiword" },
+    { "include": "#modifier" },
+    { "include": "#policy" },
+    { "include": "#result-type" },
+    { "include": "#boolean-literal" },
+    { "include": "#expression-keyword" },
+    { "include": "#sigil-variable" },
+    { "include": "#sigil-promise" },
+    { "include": "#sigil-actor" },
+    { "include": "#sigil-tool" },
+    { "include": "#sigil-address" },
+    { "include": "#sigil-stream" },
+    { "include": "#execute-arg" },
+    { "include": "#duration" },
+    { "include": "#number" },
+    { "include": "#comparison" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "'.*$",
+      "name": "comment.line.apostrophe.coil"
+    },
+
+    "heredoc-raw": {
+      "begin": "<<'([A-Za-z_][A-Za-z0-9_]*)'",
+      "end": "^\\s*(\\1)\\s*$",
+      "name": "string.unquoted.heredoc.raw.coil"
+    },
+
+    "heredoc": {
+      "begin": "<<([A-Za-z_][A-Za-z0-9_]*)",
+      "end": "^\\s*(\\1)\\s*$",
+      "name": "string.unquoted.heredoc.coil",
+      "patterns": [
+        { "include": "#template-interpolation" }
+      ]
+    },
+
+    "template": {
+      "begin": "<<",
+      "end": ">>",
+      "name": "string.unquoted.template.coil",
+      "patterns": [
+        { "include": "#template-interpolation" }
+      ]
+    },
+
+    "template-interpolation": {
+      "match": "\\$[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*(\\.[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*)*",
+      "name": "variable.other.readwrite.coil"
+    },
+
+    "string": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.coil"
+    },
+
+    "result-field": {
+      "match": "^(\\s*\\*)\\s+([A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*)(\\s*:\\s*)(TEXT|NUMBER|FLAG|CHOICE(?:\\([^)]*\\))?|LIST|OBJECT)(\\s+-\\s+.*)?$",
+      "captures": {
+        "1": { "name": "keyword.operator.list.coil" },
+        "2": { "name": "entity.name.variable.field.coil" },
+        "4": { "name": "support.type.coil" },
+        "5": { "name": "string.unquoted.template.coil" }
+      }
+    },
+
+    "operator": {
+      "match": "^\\s*(ACTORS|TOOLS|DEFINE|SET|RECEIVE|THINK|EXECUTE|SEND|WAIT|EXIT|IF|REPEAT|EACH|GATHER|SIGNAL)\\b",
+      "captures": {
+        "1": { "name": "keyword.control.operator.coil" }
+      }
+    },
+
+    "terminator": {
+      "match": "^\\s*(END)\\b",
+      "captures": {
+        "1": { "name": "keyword.control.terminator.coil" }
+      }
+    },
+
+    "modifier-multiword": {
+      "match": "^\\s*(REPLY\\s+TO|NO\\s+MORE\\s+THAN)\\b",
+      "captures": {
+        "1": { "name": "keyword.other.modifier.coil" }
+      }
+    },
+
+    "modifier": {
+      "match": "^\\s*(VIA|AS|USING|GOAL|INPUT|CONTEXT|RESULT|TO|FOR|AWAIT|TIMEOUT|ON|MODE|UNTIL|FROM)\\b",
+      "captures": {
+        "1": { "name": "keyword.other.modifier.coil" }
+      }
+    },
+
+    "policy": {
+      "match": "\\b(NONE|ANY|ALL)\\b",
+      "captures": {
+        "1": { "name": "constant.language.policy.coil" }
+      }
+    },
+
+    "result-type": {
+      "match": "\\b(TEXT|NUMBER|FLAG|CHOICE|LIST|OBJECT)\\b",
+      "captures": {
+        "1": { "name": "support.type.coil" }
+      }
+    },
+
+    "boolean-literal": {
+      "match": "\\b(TRUE|FALSE)\\b",
+      "captures": {
+        "1": { "name": "constant.language.boolean.coil" }
+      }
+    },
+
+    "expression-keyword": {
+      "match": "\\b(AND|OR|NOT)\\b",
+      "captures": {
+        "1": { "name": "keyword.operator.logical.coil" }
+      }
+    },
+
+    "sigil-variable": {
+      "match": "\\$[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*(\\.[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*)*",
+      "name": "variable.other.readwrite.coil"
+    },
+
+    "sigil-promise": {
+      "match": "\\?[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*",
+      "name": "variable.other.promise.coil"
+    },
+
+    "sigil-actor": {
+      "match": "@[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*",
+      "name": "entity.name.actor.coil"
+    },
+
+    "sigil-tool": {
+      "match": "![A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*",
+      "name": "entity.name.function.tool.coil"
+    },
+
+    "sigil-address": {
+      "match": "#[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*(/[A-Za-z0-9_А-Яа-яёЁ$\\.]+)*",
+      "name": "entity.name.section.address.coil"
+    },
+
+    "sigil-stream": {
+      "match": "~[A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*",
+      "name": "variable.other.stream.coil"
+    },
+
+    "execute-arg": {
+      "match": "^(\\s*-\\s+)([A-Za-z_А-Яа-яёЁ][A-Za-z0-9_А-Яа-яёЁ]*)\\s*:",
+      "captures": {
+        "1": { "name": "punctuation.separator.coil" },
+        "2": { "name": "variable.parameter.coil" }
+      }
+    },
+
+    "duration": {
+      "match": "\\b([0-9]+)([smh])\\b",
+      "captures": {
+        "1": { "name": "constant.numeric.value.coil" },
+        "2": { "name": "constant.numeric.suffix.coil" }
+      }
+    },
+
+    "number": {
+      "match": "\\b[0-9]+(\\.[0-9]+)?\\b",
+      "name": "constant.numeric.coil"
+    },
+
+    "comparison": {
+      "match": "<=|>=|[<>=]",
+      "name": "keyword.operator.comparison.coil"
+    }
+  }
+}

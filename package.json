@@ -2,5 +2,32 @@
   "name": "coil",
   "version": "0.4.0",
   "private": false,
-  "description": "COIL language specification, dialect tables, tests"
+  "description": "COIL language specification, dialect tables, tests",
+  "contributes": {
+    "languages": [
+      {
+        "id": "coil-ru",
+        "aliases": ["COIL (Русский)", "coil-ru"],
+        "extensions": [".coil"],
+        "configuration": "./editors/language-configuration.json"
+      },
+      {
+        "id": "coil-en",
+        "aliases": ["COIL (English)", "coil-en"],
+        "configuration": "./editors/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "coil-ru",
+        "scopeName": "source.coil.ru",
+        "path": "./editors/syntaxes/coil-ru.tmLanguage.json"
+      },
+      {
+        "language": "coil-en",
+        "scopeName": "source.coil.en",
+        "path": "./editors/syntaxes/coil-en.tmLanguage.json"
+      }
+    ]
+  }
 }
